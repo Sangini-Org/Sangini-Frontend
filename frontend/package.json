@@ -20,7 +20,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .ts,.tsx ./src ",
+    "lint:fix": "eslint --ext .ts,.tsx ./src --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "husky": {
     "hooks": {
@@ -28,16 +36,25 @@
     }
   },
   "lint-staged": {
-    "./src/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "eslint src/*.js --fix-dry-run"
+    "{src,pages}/**/*.{js,jsx,ts,tsx,json}": [
+      "npm run lint:fix",
+      "git add"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5", 
+    "pretty-quick": "^3.1.0"
   },
   "browserslist": {
     "production": [
@@ -50,12 +67,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
   }
 }
