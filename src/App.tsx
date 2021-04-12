@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from '@material-ui/core';
+import Login from './Component/Login/Login';
 
 function App() {
   // const [state, setstate] = useState()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload
-        </p>
-      </header>
+      <div>
+        <Button color="primary" variant="contained">
+          Testing Material UI Button
+        </Button>
+      </div>
     </div>
   );
 }
