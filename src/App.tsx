@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+import { ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
+import theme from '../src/theme';
 import { Button } from '@material-ui/core';
 import Login from './Component/Login/Login';
 
 function App() {
   // const [state, setstate] = useState()
   return (
-    <div className="App">
-      <div>
-        <Button color="primary" variant="contained">
-          Testing Material UI Button
-        </Button>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <div>
+          <Login />
+          <Button color="primary" variant="contained">
+            Testing Material UI Button
+          </Button>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
