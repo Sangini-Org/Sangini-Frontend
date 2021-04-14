@@ -10,12 +10,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <div>
-          <Login />
-          <Button color="primary" variant="contained">
-            Testing Material UI Button
-          </Button>
-        </div>
+        <Login />
+        <Button color="primary" variant="contained">
+          Testing Material UI Button
+        </Button>
       </div>
     </ThemeProvider>
   );
