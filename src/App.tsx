@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 import theme from '../src/theme';
-import { Button } from '@material-ui/core';
-import Login from './Component/Login/Login';
+import SocialLogin from './Component/SocialLogin/SocialLogin';
 
 function App() {
   // const [state, setstate] = useState()
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Login />
-        <Button color="primary" variant="contained">
-          Testing Material UI Button
-        </Button>
+        <SocialLogin />
       </div>
     </ThemeProvider>
   );
