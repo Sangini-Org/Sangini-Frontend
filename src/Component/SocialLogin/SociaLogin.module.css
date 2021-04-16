@@ -1,0 +1,26 @@
+.sanginiText {
+    font-size: 72px;
+    margin: 10px 5px;
+    background: linear-gradient(253deg, #0164C4 0%, #01FF90 100%) 0% 0% no-repeat padding-box;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    width: 340px;
+    min-width: 100px;
+    padding: 15px 5px !important;
+    margin: 5px 0 !important;
+    border-radius: 6px;
+    opacity: 1;
+    color: #fff !important;
+}
+
+.fb {
+    background: #4267B2 0% 0% no-repeat padding-box !important;
+}
+
+.google {
+    background: #679EF5 0% 0% no-repeat padding-box !important;
+}

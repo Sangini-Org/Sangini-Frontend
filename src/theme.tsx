@@ -4,12 +4,9 @@ import green from '@material-ui/core/colors/green';
 
 // example instance of theme, will be changed soon
 const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: purple[500],
-    },
-    secondary: {
-      main: green[500],
+  typography: {
+    button: {
+      fontWeight: 'bold',
     },
   },
 });
