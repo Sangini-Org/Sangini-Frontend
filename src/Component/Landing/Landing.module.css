@@ -9,7 +9,7 @@
 .navbar {
     z-index: 99;
     position: fixed;
-    padding-top: 15px;
+    padding: 15px 25px;
 }
 
 .landingImg {

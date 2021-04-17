@@ -34,7 +34,7 @@
 }
 
 .flex-space-bw {
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 /* heights & widths */
