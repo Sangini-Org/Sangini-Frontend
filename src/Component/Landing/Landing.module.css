@@ -1,0 +1,42 @@
+.sanginiSpan {
+    font-size: 40px;
+    display: inline;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar {
+    z-index: 99;
+    position: fixed;
+    padding-top: 15px;
+}
+
+.landingImg {
+    z-index: -1;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dark {
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.43);
+}
+
+.dropdown {
+    color: white !important;
+    width: 95px;
+}
+
+.signup {
+    background: #3A58F5 0% 0% no-repeat padding-box !important;
+}
+
+.login {
+    background: #343f56 0% 0% no-repeat padding-box !important;
+}
+
+.social {
+    background: #d44000 0% 0% no-repeat padding-box !important;
+}

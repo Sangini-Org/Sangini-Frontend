@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 import theme from '../src/theme';
+import Landing from './Component/Landing/Landing';
 import SocialLogin from './Component/SocialLogin/SocialLogin';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <SocialLogin />
+        <Landing />
+        {/* <SocialLogin /> */}
       </div>
     </ThemeProvider>
   );

@@ -1,12 +1,22 @@
 .App {
-  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
   overflow-x: scroll;
+  margin: 0 !important;
+  box-sizing: border-box !;
+  padding: 0 !important;
 }
 
-.cancel {
+.sanginiText {
+  background: linear-gradient(253deg, #0164C4 0%, #01FF90 100%) 0% 0% no-repeat padding-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*  Position */
+.absolute {
   position: absolute;
-  right: 1rem;
-  top: 1rem;
 }
 
 /* Display  */
@@ -23,14 +33,33 @@
   flex-direction: column;
 }
 
+.flex-space-bw {
+  justify-content: space-around;
+}
+
 /* heights & widths */
 .h-100 {
   height: 100%;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 /* font weights */
 .bold {
   font-weight: bold;
+}
+
+/* button */
+.btn {
+  width: 340px;
+  min-width: 100px;
+  padding: 15px 5px !important;
+  margin: 5px 0 !important;
+  border-radius: 6px;
+  opacity: 1;
+  color: #fff !important;
 }
 
 /* color palette */
