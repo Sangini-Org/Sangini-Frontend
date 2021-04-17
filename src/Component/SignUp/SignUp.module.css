@@ -14,12 +14,12 @@
     border-radius: 10px !important;
 }
 .typo{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
 }
 .typo2{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin-top: 20px !important;
+    font-weight: bold !important;
+    font-size: small !important;
 }
 
