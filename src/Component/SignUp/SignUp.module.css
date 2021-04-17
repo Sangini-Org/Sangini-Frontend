@@ -1,0 +1,25 @@
+.basecontainer{
+    margin-top: 50px !important;
+}
+.textfields{
+    border-radius: 10px !important;
+    border-color: #3A5AF5;
+}
+.btn{
+    min-width: 100px;
+    background: linear-gradient(180deg, #0164C4 0%, #01FF90 100%) 0% 0% no-repeat padding-box;
+    color: #fff !important;
+    padding: 15px 5px !important;
+    margin: 5px 0 !important;
+    border-radius: 10px !important;
+}
+.typo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.typo2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
