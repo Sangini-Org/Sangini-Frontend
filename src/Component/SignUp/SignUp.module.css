@@ -1,33 +1,20 @@
-.basecontainer{
-    margin: 0 auto !important;
-    text-align: center;
-    align-items: center;
-    max-width: 375px;
-}
-.signupcontainer{
-    margin: 20px 30px !important;
-}
-.signupcontainer fieldset{
-    border-radius: 0;
-}
-.title{
-    color: hsl(230, 90%, 59%);
-    margin-bottom: 0;
-    margin-top: 30px;
-    font-size: 28px;
-}
-.btn{
-    min-width: 100px;
-    background-color: #3A58F5 !important;
-    color: #fff !important;
-    padding: 15px 5px !important;
-    margin: 20px 0px !important;
-    border-radius: 0px !important;
-    text-transform: unset !important;
-    font-weight: 400 !important;
-    font-size: 18px !important;
-}
-.typo{
-    color: #7483A0 !important;
+.baseContainer {
+  max-width: 375px;
+  margin: 40px auto;
+  padding: 0 10px;
 }
 
+.signupContainer fieldset {
+  border-radius: 0;
+}
+
+.title {
+  font-weight: normal;
+  color: hsl(230, 90%, 59%);
+}
+
+.signupBtn {
+  background: #3a58f5 0% 0% no-repeat padding-box !important;
+  border-radius: 0px !important;
+  margin: 20px 0 !important;
+}
