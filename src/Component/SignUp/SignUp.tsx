@@ -2,7 +2,7 @@ import { Button, Link, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 
-export default function Signup() {
+export default function SignUp() {
   return (
     <div className={`text-center flex flex-center flex-col ${styles.baseContainer}`}>
       <h1 className={styles.title}>SignUp</h1>
