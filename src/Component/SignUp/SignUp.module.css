@@ -2,6 +2,7 @@
     margin: 0 auto !important;
     text-align: center;
     align-items: center;
+    max-width: 375px;
 }
 .signupcontainer{
     margin: 20px 30px !important;
