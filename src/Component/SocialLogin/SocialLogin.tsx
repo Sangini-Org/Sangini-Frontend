@@ -11,10 +11,10 @@ export default function SocialLogin() {
         <h1 className={styles.sanginiText}>Sangini</h1>
         <h3 className="text">Signup with social media</h3>
         <div className="flex flex-col flex-center">
-          <Button className={`${styles.btn} ${styles.fb}`} variant="contained">
+          <Button className={`btn ${styles.fb}`} variant="contained">
             Continue with Facebook
           </Button>
-          <Button className={`${styles.btn} ${styles.google}`} variant="contained">
+          <Button className={`btn ${styles.google}`} variant="contained">
             Continue with Google
           </Button>
         </div>

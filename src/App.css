@@ -9,6 +9,17 @@
   top: 1rem;
 }
 
+/* Buttons */
+.btn {
+  width: 340px;
+  min-width: 100px;
+  padding: 15px 5px !important;
+  margin: 5px 0 !important;
+  border-radius: 6px;
+  opacity: 1;
+  color: #fff !important;
+}
+
 /* Display  */
 .flex {
   display: flex;
@@ -28,6 +39,11 @@
   height: 100%;
 }
 
+/* Texts */
+.text-center {
+  text-align: center !important;
+}
+
 /* font weights */
 .bold {
   font-weight: bold;
@@ -36,4 +52,8 @@
 /* color palette */
 .text {
   color: #1D2952;
+}
+
+.text-muted {
+  color: #7483a0;
 }
