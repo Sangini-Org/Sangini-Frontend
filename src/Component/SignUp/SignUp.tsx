@@ -1,30 +1,37 @@
-import { Button, Link, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 
 export default function SignUp() {
   return (
-    <div className={`text-center flex flex-center flex-col ${styles.baseContainer}`}>
-      <h1 className={styles.title}>SignUp</h1>
-      <div className={styles.signupContainer}>
+    <div className={`text-center flex flex-center flex-col my-10 mx-auto ${styles.baseContainer}`}>
+      <h1 className={`text-3xl font-normal ${styles.title} mb-4`}>Sign Up</h1>
+      <div className="mx-1.5">
         <form>
-          <TextField variant="outlined" margin="normal" id="outlined-basic" placeholder="Username" fullWidth />
-          <TextField variant="outlined" margin="normal" id="email" placeholder="Email Address" fullWidth />
-          <TextField
-            variant="outlined"
-            margin="normal"
+          <input
+            className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
+            id="outlined-basic"
+            placeholder="Username"
+          />
+          <input
+            className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
+            id="email"
+            placeholder="Email Address"
+          />
+          <input
+            className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
             id="outlined-password-input"
             type="password"
             placeholder="Create Password"
-            fullWidth
           />
-          <Button className={`btn ${styles.signupBtn}`} type="submit" variant="contained" fullWidth>
+          <button className={`rounded-sm w-full my-3 rounded-none btn ${styles.signupBtn}`} type="submit">
             Register
-          </Button>
+          </button>
         </form>
         <div className="text-muted">
           <span>Already have an Account? &nbsp;</span>
-          <Link href="#">Sign In</Link>
+          <a className="active" href="#">
+            Sign In
+          </a>
         </div>
       </div>
     </div>

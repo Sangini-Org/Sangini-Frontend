@@ -1,8 +1,7 @@
-import { Button, Link, TextField, Switch, FormGroup, FormControlLabel, Box } from '@material-ui/core';
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 
-export default function Signup() {
+export default function Login() {
   const [checked, setChecked] = React.useState(false);
 
   const toggleChecked = () => {
@@ -10,35 +9,36 @@ export default function Signup() {
   };
 
   return (
-    <div className={`text-center flex flex-center flex-col ${styles.baseContainer}`}>
-      <h1 className={styles.title}>Login</h1>
-      <div className={styles.loginContainer}>
+    <div className={`text-center flex flex-center flex-col my-10 mx-auto ${styles.baseContainer}`}>
+      <h1 className={`text-3xl font-normal ${styles.title} mb-4`}>Login</h1>
+      <div className="mx-1.5">
         <form>
-          <TextField variant="outlined" margin="normal" id="outlined-basic" placeholder="Username / Email" fullWidth />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            id="outlined-password-input"
+          <input className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300" placeholder="Username / Email" />
+          <input
+            className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
             type="password"
             placeholder="Password"
-            fullWidth
           />
-          <Box mt={2} mb={2} className="flex flex-space-bw">
-            <FormGroup>
-              <FormControlLabel
-                control={<Switch color="primary" size="small" checked={checked} onChange={toggleChecked} />}
-                label="Remember me"
-              />
-            </FormGroup>
-            <Link href="#">Forgot Password?</Link>
-          </Box>
-          <Button className={`btn ${styles.loginBtn}`} type="submit" variant="contained" fullWidth>
+          <div className="my-2.5 flex flex-space-bw">
+            <p>
+              <input type="checkbox" name="rememberMe" id="rememberMe" />
+              <label className="ml-2 font-light" htmlFor="rememberMe">
+                Remember me
+              </label>
+            </p>
+            <a className="active" href="#">
+              Forgot Password?
+            </a>
+          </div>
+          <button className={`rounded-sm btn w-full my-3 rounded-none ${styles.loginBtn}`} type="submit">
             Login
-          </Button>
+          </button>
         </form>
         <div className="text-muted">
           <span>Don't have an account? &nbsp;</span>
-          <Link href="#">Sign Up</Link>
+          <a className="active" href="#">
+            Sign up
+          </a>
         </div>
       </div>
     </div>
