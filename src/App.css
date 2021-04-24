@@ -3,54 +3,31 @@
   overflow-x: scroll;
 }
 
-.cancel {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-}
-
 /* Buttons */
 .btn {
-  width: 340px;
   min-width: 100px;
   padding: 15px 5px !important;
-  margin: 5px 0 !important;
-  border-radius: 6px;
-  opacity: 1;
   color: #fff !important;
+  outline: none;
+  opacity: 0.96;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn:focus, input:focus {
+  outline: none;
 }
 
 /* Display  */
-.flex {
-  display: flex;
-}
-
 .flex-center {
   justify-content: center;
   align-items: center;
 }
 
-.flex-col {
-  flex-direction: column;
-}
-
 .flex-space-bw {
   justify-content: space-between;
-}
-
-/* heights & widths */
-.h-100 {
-  height: 100%;
-}
-
-/* Texts */
-.text-center {
-  text-align: center !important;
-}
-
-/* font weights */
-.bold {
-  font-weight: bold;
 }
 
 /* color palette */
@@ -60,4 +37,8 @@
 
 .text-muted {
   color: #7483a0;
+}
+
+.active {
+  color: #3a58f5;
 }

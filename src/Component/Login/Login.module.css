@@ -1,20 +1,11 @@
 .baseContainer {
     max-width: 375px;
-    margin: 40px auto;
-    padding: 0 10px;
-}
-
-.loginContainer fieldset {
-    border-radius: 0;
 }
 
 .title {
-    font-weight: normal;
     color: hsl(230, 90%, 59%);
 }
 
 .loginBtn {
     background: #3a58f5 0% 0% no-repeat padding-box !important;
-    border-radius: 0px !important;
-    margin-bottom: 20px !important;
 }
