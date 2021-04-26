@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
+import { Link } from 'react-router-dom';
 
 export default function SignUp() {
   return (
@@ -29,9 +30,9 @@ export default function SignUp() {
         </form>
         <div className="text-muted">
           <span>Already have an Account? &nbsp;</span>
-          <a className="active" href="#">
+          <Link to="login" className="active">
             Sign In
-          </a>
+          </Link>
         </div>
       </div>
     </div>

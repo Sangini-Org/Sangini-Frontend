@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [checked, setChecked] = React.useState(false);
@@ -36,9 +37,9 @@ export default function Login() {
         </form>
         <div className="text-muted">
           <span>Don't have an account? &nbsp;</span>
-          <a className="active" href="#">
+          <Link to="/signup" className="active">
             Sign up
-          </a>
+          </Link>
         </div>
       </div>
     </div>
