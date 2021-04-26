@@ -1,19 +1,12 @@
 import React from 'react';
 
-import { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon } from '../Utils/Svg/Svgs';
+import { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon, BackIcon } from '../Utils/Svg/Svgs';
 
 export default function Profile() {
   return (
-    <div className="flex flex-col min-h-screen h-screen">
-      <div className="flex justify-between">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
+    <div className="flex flex-col h-100 h-screen">
+      <div className="p-3 flex justify-between">
+        <BackIcon />
         <h1>My Profile</h1>
         <h1>Edit</h1>
       </div>
@@ -34,25 +27,25 @@ export default function Profile() {
             className="tab active w-1/4 flex flex-col items-center justify-center text-gray-600 py-4 md:py-6
             hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
             <ExploreIcon />
-            <span>Explore</span>
+            <span className="mt-1.5">Explore</span>
           </button>
           <button
             data-target="panel-2"
             className="tab w-1/4 flex flex-col items-center justify-center ext-gray-600 py-4 md:py-6 hover:text-blue-500 focus:outline-none">
             <HeartIcon />
-            <span>Heart</span>
+            <span className="mt-1.5">Heart</span>
           </button>
           <button
             data-target="panel-3"
             className="tab w-1/4 flex flex-col items-center justify-center text-gray-600 py-4 md:py-6 hover:text-blue-500 focus:outline-none">
             <NotificationIcon />
-            <span>Notification</span>
+            <span className="mt-1.5">Notification</span>
           </button>
           <button
             data-target="panel-3"
             className="tab w-1/4 flex flex-col items-center justify-center text-gray-600 py-4 md:py-6 hover:text-blue-500 focus:outline-none">
             <ProfileIcon />
-            <p>Profile</p>
+            <p className="mt-1.5">Profile</p>
           </button>
         </nav>
       </div>
