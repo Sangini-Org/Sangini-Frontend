@@ -1,8 +1,26 @@
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { axiosConfig } from '../../configs/axios';
+import apiEndPoints from '../../configs/endpoints';
 
+type LoginData = {
+  username: string;
+  password: string;
+  email: string;
+};
 export default function SignUp() {
+  const { handleSubmit, register } = useForm<LoginData>();
+
+  const onSubmit = async (data: LoginData): Promise<any> => {
+    try {
+      const result = await axiosConfig.post(apiEndPoints.signup, data);
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className={`h-full text-center flex flex-center mx-auto ${styles.baseContainer}`}>
       <div className="lsWrapper rounded h-3/6 px-7 flex flex-center flex-col">
