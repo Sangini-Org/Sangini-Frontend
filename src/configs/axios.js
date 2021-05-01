@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 // Next we make an 'instance' of it
-
 export const axiosConfig = axios.create({
   // .. where we make our configurations
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: 'http://localhost:8080/api/',
 });
 
 export const setAxiosAuthToken = () => {

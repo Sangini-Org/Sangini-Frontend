@@ -1,4 +1,4 @@
-export default apiEndPoints = {
+export const apiEndPoints = {
   signup: 'auth/signup',
   signin: 'auth/signin',
 };
