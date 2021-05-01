@@ -34,14 +34,6 @@ function ExploreIcon() {
   );
 }
 
-function BackIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-    </svg>
-  );
-}
-
 function HeartIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-6" viewBox="0 0 25.195 22.415">
@@ -121,4 +113,4 @@ function ProfileIcon() {
     </svg>
   );
 }
-export { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon, BackIcon };
+export { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon };
