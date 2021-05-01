@@ -37,7 +37,7 @@ export default function Login() {
         </form>
         <div className="text-muted">
           <span>Don't have an account? &nbsp;</span>
-          <Link to="/signup" className="active">
+          <Link to="/register" className="active">
             Sign up
           </Link>
         </div>
