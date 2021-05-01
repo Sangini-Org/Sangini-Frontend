@@ -2,3 +2,17 @@
     height: 150px;
     width: 150px;
 }
+
+.infoBox div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F6F7FA;
+}
+
+.infoBox p {
+    padding: 1rem;
+}
+
+.infoBox p:nth-child(1) {
+    color: #878787;
+}

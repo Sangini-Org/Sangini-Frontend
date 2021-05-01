@@ -40,9 +40,13 @@ button:focus, .btn:focus, input:focus {
 }
 
 .active {
-  color: #3a58f5;
+  color: #440a67;
 }
 
 .lsWrapper {
   background-color: rgba(201, 201, 201, 0.34) !important;
+}
+
+.mainHeading {
+  color: #440a67;
 }

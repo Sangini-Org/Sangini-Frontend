@@ -3,7 +3,7 @@ import { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon } from '../Utils/
 
 function NavBar() {
   return (
-    <div className="bg-gray-200	md:absolute md:w-24 md:h-full md:m-auto md:rounded-r-lg">
+    <div className="bg-purple-300 md:absolute md:w-36 md:h-full md:m-auto md:rounded-r-lg">
       <nav className="tabs flex justify-center text-xs md:flex-col md:items-center md:py-28">
         <button
           data-target="panel-1"
