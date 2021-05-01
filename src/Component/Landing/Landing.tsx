@@ -20,17 +20,17 @@ const sliderHeadings = [
 ];
 
 export default function Landing() {
-  const [slider, setSlider] = useState(1);
+  const [slider, setSlider] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      console.log(slider);
-      if (slider === 3) {
-        setSlider(0);
-      }
-      setSlider((slider) => slider + 1);
-    }, 3000);
-  }, []);
+    // setInterval(() => {
+    //   console.log(slider);
+    //   if (slider === 3) {
+    //     setSlider(0);
+    //   }
+    //   setSlider((slider) => slider + 1);
+    // }, 3000);
+  }, [slider]);
 
   const handleSlider = (count: number) => {
     setSlider(count);
@@ -47,17 +47,17 @@ export default function Landing() {
         <button
           onClick={() => handleSlider(0)}
           className={
-            (slider === 1 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 0 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
         <button
           onClick={() => handleSlider(1)}
           className={
-            (slider === 2 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 1 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
         <button
           onClick={() => handleSlider(2)}
           className={
-            (slider === 3 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 2 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
       </div>
       <div>
