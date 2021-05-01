@@ -9,14 +9,14 @@
   padding: 15px 5px !important;
   color: #fff !important;
   outline: none;
-  opacity: 0.96;
+  opacity: 0.9;
 }
 
-.btn:hover {
+button:hover, .btn:hover {
   opacity: 1;
 }
 
-.btn:focus, input:focus {
+button:focus, .btn:focus, input:focus {
   outline: none;
 }
 

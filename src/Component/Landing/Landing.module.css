@@ -1,0 +1,20 @@
+.baseContainer {
+    max-width: 450px;
+}
+
+.loginBtn {
+    background-color: red;
+}
+
+.signupBtn {
+    background-color: blue;
+}
+
+.socialMediaBtn {
+    background-color: green;
+}
+
+.landingImg {
+    height: 300px;
+    object-fit: contain;
+}
