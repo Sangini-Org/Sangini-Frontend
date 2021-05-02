@@ -3,12 +3,12 @@ import { ExploreIcon, HeartIcon, NotificationIcon, ProfileIcon } from '../Utils/
 
 function NavBar() {
   return (
-    <div className="bg-green-300 md:absolute md:w-24 md:h-full md:m-auto md:rounded-r-lg">
+    <div className="bg-purple-300 md:absolute md:w-36 md:h-full md:m-auto md:rounded-r-lg">
       <nav className="tabs flex justify-center text-xs md:flex-col md:items-center md:py-28">
         <button
           data-target="panel-1"
           className="tab active w-1/4 flex flex-col items-center justify-center text-gray-600 py-4 md:py-6
-            hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
+            hover:text-blue-500 focus:outline-none text-blue-500 font-medium border-blue-500">
           <ExploreIcon />
           <span className="mt-1.5">Explore</span>
         </button>

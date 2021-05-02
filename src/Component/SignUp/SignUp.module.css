@@ -3,9 +3,9 @@
 }
 
 .title {
-  color: hsl(230, 90%, 59%);
+  color: #440a67;
 }
 
 .signupBtn {
-  background: #3a58f5 0% 0% no-repeat padding-box !important;
+  background: #440a67 0% 0% no-repeat padding-box !important;
 }

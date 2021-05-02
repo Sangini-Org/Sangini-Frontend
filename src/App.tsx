@@ -12,6 +12,7 @@ import { useAuthStore } from '../src/stores/useAuthStore';
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
+  console.log(userId);
   return (
     <div className="App">
       <Router>

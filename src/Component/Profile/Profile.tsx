@@ -2,29 +2,52 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import { useAuthStore } from '../../stores/useAuthStore';
 
-import { BackIcon } from '../Utils/Svg/Svgs';
+import styles from './Profile.module.css';
+import user from '../Utils/Images/user.jpg';
 
 export default function Profile() {
   const userId = useAuthStore((state) => state.userId);
   console.log('w');
   console.log(userId);
   return (
-    <div className="flex flex-col h-100 h-screen">
-      <div className="p-3 flex justify-between">
-        <BackIcon />
-        <h1>My Profile</h1>
-        <h1>Edit</h1>
-      </div>
-      <main className="flex flex-1 justify-center">
-        <div className="mt-8 text-center">
-          <label
-            className="h-24 w-24 flex items-center rounded-full px-4 py-6 bg-white text-blue shadow-lg 
-          tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-            <input type="file" className="hidden" />
-          </label>
-          <span>Drishty</span>
+    <div className="flex flex-col min-h-full">
+      <div className="flex-1 h-full md:w-1/2 md:m-auto">
+        <div className="bg-gray-200">
+          <div className="p-3.5 flex justify-end">
+            <h1>Edit</h1>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full flex flex-center flex-col mt-4">
+              <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
+              <input type="file" className="hidden" />
+              <p className="pb-4 font-medium text-lg m-3 mb-0">Drishty Pal</p>
+            </div>
+          </div>
         </div>
-      </main>
+        <div className={`${styles.infoBox} flex-1`}>
+          <h1 className="text-center m-4 mainHeading text-lg uppercase">Information</h1>
+          <div>
+            <p>Name</p>
+            <p>Meghal Bisht</p>
+          </div>
+          <hr />
+          <div>
+            <p>Date of Birth</p>
+            <p>25-07-2000</p>
+          </div>
+          <hr />
+          <div>
+            <p>Gender</p>
+            <p>Female</p>
+          </div>
+          <hr />
+          <div>
+            <p>Spotify Playlist</p>
+            <p>Connected</p>
+          </div>
+          <hr />
+        </div>
+      </div>
       <NavBar />
     </div>
   );

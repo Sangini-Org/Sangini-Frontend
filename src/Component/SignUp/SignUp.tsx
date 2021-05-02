@@ -26,7 +26,7 @@ export default function SignUp() {
   };
   return (
     <div className={`h-full text-center flex flex-center mx-auto ${styles.baseContainer}`}>
-      <div className="lsWrapper rounded h-3/6 px-7 flex flex-center flex-col">
+      <div className="mx-3 lsWrapper rounded min-h-1/2 p-7 flex flex-center flex-col">
         <h1 className={`text-3xl font-medium ${styles.title} mb-4`}>Sign Up</h1>
         <div className="mx-1.5">
           <form onSubmit={handleSubmit(onSubmit)}>

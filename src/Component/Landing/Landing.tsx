@@ -40,24 +40,24 @@ export default function Landing() {
     <div className={`h-full text-center flex flex-center flex-col mx-auto py-2 px-3 ${styles.baseContainer}`}>
       <div className="w-full h-3/5 flex-center flex flex-col">
         <img className={styles.landingImg} src={sliderImages[slider]} alt="music_background_image" />
-        <h1 className="text-3xl font-medium py-10 px-3 text-blue-700">{sliderHeadings[slider]}</h1>
+        <h1 className="text-3xl font-medium py-10 px-3 mainHeading">{sliderHeadings[slider]}</h1>
         <p className="break-words w-3/4 font-light px-2 text-lg">{sliderTexts[slider]}</p>
       </div>
       <div className="sliderWrapper mt-8 mb-3">
         <button
           onClick={() => handleSlider(0)}
           className={
-            (slider === 0 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 0 ? 'bg-purple-900' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
         <button
           onClick={() => handleSlider(1)}
           className={
-            (slider === 1 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 1 ? 'bg-purple-900' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
         <button
           onClick={() => handleSlider(2)}
           className={
-            (slider === 2 ? 'bg-blue-600' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
+            (slider === 2 ? 'bg-purple-900' : 'bg-gray-300') + ' rounded-xl mx-2 p-1.5 w-12 h-1 border-gray-400'
           }></button>
       </div>
       <div>
