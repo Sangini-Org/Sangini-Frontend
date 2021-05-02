@@ -1,9 +1,14 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
+import { useAuthStore } from '../../stores/useAuthStore';
+
 import styles from './Profile.module.css';
 import user from '../Utils/Images/user.jpg';
 
 export default function Profile() {
+  const userId = useAuthStore((state) => state.userId);
+  console.log('w');
+  console.log(userId);
   return (
     <div className="flex flex-col min-h-full">
       <div className="flex-1 h-full md:w-1/2 md:m-auto">
