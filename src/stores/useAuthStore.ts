@@ -6,6 +6,6 @@ type authState = {
 };
 
 export const useAuthStore = create<authState>((set) => ({
-  userId: '',
+  userId: localStorage.getItem('id'),
   setUserId: (userId) => set({ userId }),
 }));

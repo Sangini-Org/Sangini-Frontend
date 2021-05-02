@@ -12,13 +12,6 @@ import { useAuthStore } from '../src/stores/useAuthStore';
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
-  const setUserId = useAuthStore((state) => state.setUserId);
-  useEffect(() => {
-    if (localStorage.getItem('id')) {
-      setUserId(localStorage.getItem('id'));
-    }
-  }, [userId]);
-  console.log(userId);
   return (
     <div className="App">
       <Router>

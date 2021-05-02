@@ -8,7 +8,6 @@ export default function Profile() {
   const userId = useAuthStore((state) => state.userId);
   console.log('w');
   console.log(userId);
-  // console.log(authState.userId);
   return (
     <div className="flex flex-col h-100 h-screen">
       <div className="p-3 flex justify-between">
