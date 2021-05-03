@@ -8,12 +8,15 @@ import Landing from './Component/Landing/Landing';
 import ResetPassword from './Component/ResetPassword/ResetPassword';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useAuthStore } from '../src/stores/useAuthStore';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
 
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
   console.log(userId);
+
   return (
     <div className="App">
       <Router>
@@ -30,6 +33,7 @@ function App() {
         ) : (
           <Redirect to="/" />
         )}
+        <ToastContainer />
       </Router>
     </div>
   );

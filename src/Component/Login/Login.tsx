@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
+import { toast } from 'react-toastify';
 
 type LoginData = {
   username: string;
@@ -30,9 +31,10 @@ export default function Login() {
         localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
         setUserId(result.data.data.user.id);
         history.push('/profile');
+        toast.success('successfully login');
       }
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.metadata.message);
     }
   };
 
@@ -45,11 +47,13 @@ export default function Login() {
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               placeholder="Username / Email"
+              required
               {...register('username')}
             />
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               type="password"
+              required
               placeholder="Password"
               {...register('password')}
             />

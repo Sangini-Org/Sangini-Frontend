@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
+import { toast } from 'react-toastify';
 
 type SignUpData = {
   username: string;
@@ -19,9 +20,10 @@ export default function SignUp() {
       const result = await axiosConfig.post(apiEndPoints.signup, data);
       if (result.status === 200) {
         history.push('/login');
+        toast.success('successfully registered!');
       }
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.metadata.message);
     }
   };
   return (
@@ -34,12 +36,14 @@ export default function SignUp() {
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               id="outlined-basic"
               placeholder="Username"
+              required
               {...register('username')}
             />
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               id="email"
               placeholder="Email Address"
+              required
               {...register('email')}
             />
             <input
@@ -47,6 +51,7 @@ export default function SignUp() {
               id="outlined-password-input"
               type="password"
               placeholder="Create Password"
+              required
               {...register('password')}
             />
             <button className={`rounded-md w-full my-3 btn ${styles.signupBtn}`} type="submit">
