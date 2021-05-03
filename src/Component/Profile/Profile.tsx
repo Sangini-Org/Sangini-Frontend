@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import { useAuthStore } from '../../stores/useAuthStore';
-
+import { Link } from 'react-router-dom';
 import styles from './Profile.module.css';
 import user from '../Utils/Images/user.jpg';
 
@@ -14,12 +14,13 @@ export default function Profile() {
       <div className="flex-1 h-full md:w-1/2 md:m-auto">
         <div className="bg-gray-200">
           <div className="p-3.5 flex justify-end">
-            <h1>Edit</h1>
+            <Link to="/profile/edit">
+              <button className="rounded-md border-2 bg-white px-4 py-1">Edit</button>
+            </Link>
           </div>
           <div className="flex justify-center">
             <div className="w-full flex flex-center flex-col mt-4">
               <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
-              <input type="file" className="hidden" />
               <p className="pb-4 font-medium text-lg m-3 mb-0">Drishty Pal</p>
             </div>
           </div>

@@ -52,7 +52,7 @@ export default function SignUp() {
               placeholder="Create Password"
               {...register('password')}
             />
-            <button className={`rounded-sm w-full my-3 rounded-none btn ${styles.signupBtn}`} type="submit">
+            <button className={`rounded-md w-full my-3 btn ${styles.signupBtn}`} type="submit">
               Register
             </button>
           </form>

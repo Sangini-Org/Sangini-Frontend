@@ -67,7 +67,7 @@ export default function Login() {
                 Forgot Password?
               </Link>
             </div>
-            <button className={`rounded-sm btn w-full my-3 rounded-none ${styles.loginBtn}`} type="submit">
+            <button className={`rounded-md btn w-full my-3 ${styles.loginBtn}`} type="submit">
               Login
             </button>
           </form>
