@@ -37,12 +37,14 @@ export default function SignUp() {
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               id="outlined-basic"
               placeholder="Username"
+              required
               {...register('username')}
             />
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               id="email"
               placeholder="Email Address"
+              required
               {...register('email')}
             />
             <input
@@ -50,6 +52,7 @@ export default function SignUp() {
               id="outlined-password-input"
               type="password"
               placeholder="Create Password"
+              required
               {...register('password')}
             />
             <button className={`rounded-md w-full my-3 btn ${styles.signupBtn}`} type="submit">

@@ -48,11 +48,13 @@ export default function Login() {
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               placeholder="Username / Email"
+              required
               {...register('username')}
             />
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               type="password"
+              required
               placeholder="Password"
               {...register('password')}
             />
