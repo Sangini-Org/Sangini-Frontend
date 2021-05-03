@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 type SignUpData = {
   username: string;

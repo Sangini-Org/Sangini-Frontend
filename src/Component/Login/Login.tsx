@@ -6,7 +6,6 @@ import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 type LoginData = {
   username: string;
