@@ -21,4 +21,7 @@ module.exports = {
       full: '100%',
     },
   },
+  experimental: {
+    applyComplexClasses: true,
+  },
 };
