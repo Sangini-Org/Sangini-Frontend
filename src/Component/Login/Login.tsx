@@ -35,7 +35,7 @@ export default function Login() {
         toast.success('successfully login');
       }
     } catch (err) {
-      toast.error('invalid login');
+      toast.error(err.response.data.metadata.message);
     }
   };
 

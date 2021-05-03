@@ -24,7 +24,7 @@ export default function SignUp() {
         toast.success('successfully registered!');
       }
     } catch (err) {
-      toast.error('already registered!');
+      toast.error(err.response.data.metadata.message);
     }
   };
   return (
