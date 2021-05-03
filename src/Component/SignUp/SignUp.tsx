@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type SignUpData = {
   username: string;
@@ -19,9 +21,10 @@ export default function SignUp() {
       const result = await axiosConfig.post(apiEndPoints.signup, data);
       if (result.status === 200) {
         history.push('/login');
+        toast.success('successfully registered!');
       }
     } catch (err) {
-      console.log(err);
+      toast.error('already registered!');
     }
   };
   return (
