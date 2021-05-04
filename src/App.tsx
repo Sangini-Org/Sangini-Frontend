@@ -11,7 +11,8 @@ import { useAuthStore } from '../src/stores/useAuthStore';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
-
+import ProfileDashboard from './Component/Profile/ProfileDashboard';
+import UserVerify from './Component/UserVerify/UserVerify';
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
@@ -25,6 +26,8 @@ function App() {
         <Route path="/social-login" exact component={SocialLogin} />
         <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
+        <Route path="/dashboard" exact component={ProfileDashboard} />
+        <Route path="/userverify" exact component={UserVerify} />
         {userId ? (
           <div>
             <Route path="/profile" exact component={Profile} />
