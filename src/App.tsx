@@ -33,7 +33,7 @@ function App() {
         ) : (
           <Redirect to="/" />
         )}
-        <ToastContainer />
+        <ToastContainer hideProgressBar={true} />
       </Router>
     </div>
   );
