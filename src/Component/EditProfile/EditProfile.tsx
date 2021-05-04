@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './EditProfile.module.css';
 import user from '../Utils/Images/user.jpg';
+import Dropdown from '../Dropdown/Dropdown';
 
 const ImageBox = () => {
   return (
@@ -35,30 +36,34 @@ const Gallery = () => {
 };
 
 const Info = () => {
+  const [dropdown, setDropdown] = useState(false);
   return (
-    <form className={`${styles.formWrapper} w-full px-5`}>
-      <div>
+    <form className="w-full px-5">
+      <div className={styles.formEl}>
         <label htmlFor="firstName">first name</label>
         <input type="text" id="firstName" name="firstName" />
       </div>
-      <div>
+      <div className={styles.formEl}>
         <label htmlFor="lastName">last name</label>
         <input type="text" id="lastName" name="lastName" />
       </div>
-      <div>
+      <div className={styles.formEl}>
         <label htmlFor="dob">date of birth</label>
         <input type="text" id="dob" name="dob" />
       </div>
-      <div>
+      <div className={styles.formEl}>
         <label htmlFor="gender">gender</label>
         <input type="text" id="gender" name="gender" />
       </div>
       <h1 className="my-6 mainHeading text-lg uppercase">Address</h1>
-      <div>
+      <div className={styles.formEl}>
         <label htmlFor="city">city</label>
-        <input type="text" id="city" name="city" />
+        <p onClick={() => setDropdown(!dropdown)} className="mt-2 cursor-pointer text-grey-200 uppercase text-sm">
+          Delhi
+        </p>
+        {dropdown ? <Dropdown dropdown={dropdown} setDropdown={setDropdown} /> : ''}
       </div>
-      <div>
+      <div className={styles.formEl}>
         <label htmlFor="state">state</label>
         <input type="text" id="state" name="state" />
       </div>
