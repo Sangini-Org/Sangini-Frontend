@@ -37,6 +37,8 @@ function App() {
         <ToastContainer />
       </Router> */}
       <Loader />
+        <ToastContainer hideProgressBar={true} />
+      </Router>
     </div>
   );
 }
