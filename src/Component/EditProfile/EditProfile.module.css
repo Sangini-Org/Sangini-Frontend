@@ -3,24 +3,24 @@
     width: 200px;
 }
 
-.formWrapper div {
+.formEl {
     display: flex;
     flex-direction: column;
     margin: .75rem 0;
 }
 
-.formWrapper label {
+.formEl label {
     color: grey;
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-transform: capitalize;
 }
 
-.formWrapper input[type="text"] {
+.formEl input[type="text"] {
     border-bottom: 2px solid lightgray;
 }
 
-.formWrapper input[type="text"]:active,
-.formWrapper input[type="text"]:focus {
+.formEl input[type="text"]:active,
+.formEl input[type="text"]:focus {
     border-color: purple;
 }
