@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './EditProfile.module.css';
 import user from '../Utils/Images/user.jpg';
 import Dropdown from '../Dropdown/Dropdown';
+import DatePicker from '../Utils/DatePicker/DatePicker';
 
 type gallery = {
   showGallery: Boolean;
@@ -41,6 +42,7 @@ const Gallery = () => {
 
 const Info = () => {
   const [dropdown, setDropdown] = useState(false);
+  const [dob, setDob] = useState(false);
   return (
     <form className="w-full px-5">
       <div className={styles.formEl}>
@@ -53,7 +55,10 @@ const Info = () => {
       </div>
       <div className={styles.formEl}>
         <label htmlFor="dob">date of birth</label>
-        <input type="text" id="dob" name="dob" />
+        <p onClick={() => setDob(!dob)} className="mt-2 cursor-pointer text-grey-200 uppercase text-sm">
+          25/07/2000
+        </p>
+        {dob ? <DatePicker dropdown={dob} setDropdown={setDob} /> : ''}
       </div>
       <div className={styles.formEl}>
         <label htmlFor="gender">gender</label>

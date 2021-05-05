@@ -39,7 +39,7 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
             size="28px"
             className="cursor-pointer absolute m-2.5 right-0"
           />
-          <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div className="bg-white rounded px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="flex flex-col">
               <div className="mt-3 text-center sm:mt-0 sm:text-left">
                 <h3 className="text-lg text-center mb-4 leading-6 font-medium text-gray-900" id="modal-title">
@@ -60,6 +60,7 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
                     );
                   })}
                 </div>
+                <button className="btn bg-purple-900 w-full rounded-md mt-3">Done</button>
               </div>
             </div>
           </div>
