@@ -1,11 +1,28 @@
 import React from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { TiTick } from 'react-icons/ti';
 import styles from './Dropdown.module.css';
 
 type dropdownAgs = {
   dropdown: boolean;
   setDropdown: (dp: boolean) => void;
 };
+
+const cities = [
+  'Random',
+  'Array',
+  'For',
+  'Just',
+  'Some',
+  'Random',
+  'Cities',
+  'Created',
+  'By some',
+  'Random Person',
+  'Delhi',
+  'Agra',
+  'Mumbai',
+];
 
 function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
   return (
@@ -14,9 +31,9 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true">
-      <div className="w-full md:w-1/2 md:mx-4 flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div className="w-full md:w-1/2 lg:w-1/3 max-w-500 md:mx-4 flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-        <div className="w-full max-h-700 overflow-y-scroll min-h-500 static inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle">
+        <div className="w-full max-h-500 overflow-y-scroll min-h-500 static inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle">
           <AiFillCloseCircle
             onClick={() => setDropdown(!dropdown)}
             size="28px"
@@ -29,30 +46,19 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
                   Choose your city
                 </h3>
                 <div className="mt-2" role="menu">
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-0">
-                    Delhi
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-1">
-                    Kolkata
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-2">
-                    Chennai
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-3">
-                    Ladakh
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-4">
-                    Delhi
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-5">
-                    Kolkata
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-6">
-                    Chennai
-                  </p>
-                  <p className="bg-gray-200 text-gray-800 p-3" role="menuitem" tabIndex={-1} id="menu-item-7">
-                    Ladakh
-                  </p>
+                  {cities.map((city: String, i: number) => {
+                    return (
+                      <p
+                        key={i}
+                        className="flex align-center justify-between bg-purple-200 text-gray-800 p-3"
+                        role="menuitem"
+                        tabIndex={-1}
+                        id="menu-item-0">
+                        {city}
+                        <TiTick size="1.65rem" className="rounded-full bg-purple-300 text-purple-900" />
+                      </p>
+                    );
+                  })}
                 </div>
               </div>
             </div>
