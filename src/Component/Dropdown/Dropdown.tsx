@@ -33,7 +33,7 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
       aria-modal="true">
       <div className="w-full md:w-1/2 lg:w-1/3 max-w-500 md:mx-4 flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-        <div className="w-full max-h-500 overflow-y-scroll min-h-500 static inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle">
+        <div className="w-full max-h-500 min-h-500 static inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all align-middle">
           <AiFillCloseCircle
             onClick={() => setDropdown(!dropdown)}
             size="28px"
@@ -45,7 +45,7 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
                 <h3 className="text-lg text-center mb-4 leading-6 font-medium text-gray-900" id="modal-title">
                   Choose your city
                 </h3>
-                <div className="mt-2" role="menu">
+                <div className="overflow-hidden overflow-y-scroll max-h-400 mt-2" role="menu">
                   {cities.map((city: String, i: number) => {
                     return (
                       <p
