@@ -49,7 +49,6 @@ export default function Profile() {
           <hr />
         </div>
       </div>
-      <NavBar />
     </div>
   );
 }
