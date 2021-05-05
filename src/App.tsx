@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
 import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
+import Loader from './Component/Utils/Loaders/Loader';
+
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
@@ -36,6 +38,7 @@ function App() {
         ) : (
           <Redirect to="/" />
         )}
+        <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
     </div>
