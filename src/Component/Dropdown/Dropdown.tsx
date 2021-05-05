@@ -60,6 +60,7 @@ function Dropdown({ dropdown, setDropdown }: dropdownAgs) {
                     );
                   })}
                 </div>
+                <button className="btn bg-purple-900 w-full rounded-md mt-3">Done</button>
               </div>
             </div>
           </div>

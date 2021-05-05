@@ -33,7 +33,9 @@ function DatePicker({ dropdown, setDropdown }: dropdownAgs) {
                 <h3 className="text-lg text-center mb-4 leading-6 font-medium text-gray-900" id="modal-title">
                   Select your DOB
                 </h3>
-                <div className={`${styles.inputBox} my-6 flex flex-center max-h-400 mt-2`} role="menu">
+                <div
+                  className={`${styles.inputBox} my-6 flex flex-col md:flex-row flex-center max-h-400 mt-2`}
+                  role="menu">
                   <p>
                     <label htmlFor="date">date</label>
                     <input onChange={() => verifyDate} type="number" id="date" />
@@ -47,6 +49,7 @@ function DatePicker({ dropdown, setDropdown }: dropdownAgs) {
                     <input onChange={() => verifyDate} type="number" id="year" />
                   </p>
                 </div>
+                <button className="btn bg-purple-900 w-full rounded-md">Done</button>
               </div>
             </div>
           </div>
