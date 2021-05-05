@@ -11,7 +11,7 @@ import { useAuthStore } from '../src/stores/useAuthStore';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
-import Loader from './Component/Utils/loaders/Loader';
+import Loader from './Component/Utils/Loaders/Loader';
 
 function App() {
   // const [state, setstate] = useState()
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
         <Route path="/social-login" exact component={SocialLogin} />
@@ -35,8 +35,6 @@ function App() {
           <Redirect to="/" />
         )}
         <ToastContainer />
-      </Router> */}
-      <Loader />
         <ToastContainer hideProgressBar={true} />
       </Router>
     </div>

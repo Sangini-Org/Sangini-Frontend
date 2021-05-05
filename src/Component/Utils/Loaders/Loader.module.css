@@ -1,4 +1,4 @@
-.pulseOut > div {
+.pulseOut div {
     transform: translate(-50%, -50%);
     border-radius: 2px;
     animation-fill-mode: both;
