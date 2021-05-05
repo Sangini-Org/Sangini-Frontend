@@ -1,0 +1,28 @@
+.pulseOut > div {
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    animation-fill-mode: both;
+    animation: pulseOut 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85); 
+}
+.pulseOut > div:nth-child(2), .pulseOut > div:nth-child(4) {
+    animation-delay: -0.4s !important; 
+}
+.pulseOut > div:nth-child(1), .pulseOut > div:nth-child(5) {
+    animation-delay: -0.2s !important; 
+}
+
+@keyframes pulseOut {
+    0% {
+        transform: scaley(1); 
+    }
+    50% {
+        transform: scaley(0.4); 
+    }
+    100% {
+        transform: scaley(1); 
+    } 
+}   
+
+
+              
+              
