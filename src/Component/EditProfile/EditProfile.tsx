@@ -3,6 +3,10 @@ import styles from './EditProfile.module.css';
 import user from '../Utils/Images/user.jpg';
 import Dropdown from '../Dropdown/Dropdown';
 
+type gallery = {
+  showGallery: Boolean;
+};
+
 const ImageBox = () => {
   return (
     <div className="inline-flex">
@@ -77,25 +81,16 @@ const Info = () => {
   );
 };
 
-function EditProfile() {
-  const [gallery, setGallery] = useState(false);
-
-  const toggleGalery = () => {
-    setGallery((prev) => !prev);
-  };
-
+function EditProfile({ showGallery }: gallery) {
   return (
     <div className="min-h-full 2xl:w-1/2 md:w-2/3 md:m-auto">
-      <div className="w-full bg-gray-200 flex flex-center flex-col pt-4">
+      <div className="w-full bg-gray-200 flex flex-center flex-col pt-20">
         <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
         <input type="file" id="profilePic" hidden />
         <label className="h-10 w-10 -mt-8 -mr-20 bg-white rounded-full cursor-pointer" htmlFor="profilePic"></label>
         <p className="pb-4 font-medium text-lg m-3 mb-0">Drishty Pal</p>
       </div>
-      <button onClick={() => setGallery(!gallery)} className="px-5 mt-4 uppercase mainHeading text-md">
-        {gallery ? 'edit profile' : 'edit gallery'}
-      </button>
-      <div className="flex-col pt-4 flex flex-center">{gallery ? <Gallery /> : <Info />}</div>
+      <div className="flex-col pt-4 flex flex-center">{showGallery ? <Gallery /> : <Info />}</div>
     </div>
   );
 }

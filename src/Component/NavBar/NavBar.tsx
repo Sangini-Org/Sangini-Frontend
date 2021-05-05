@@ -37,7 +37,7 @@ function NavBar() {
           </button>
           <button
             onClick={() => setActiveMenuItem(3)}
-            data-target="panel-3"
+            data-target="panel-4"
             className={`${
               activeMenuItem === 3 ? 'bg-purple-400 opacity-70' : ''
             } w-full py-4 md:py-6 md:m-1.5 flex flex-col items-center justify-center text-gray-600 hover:opacity-70 hover:bg-purple-400`}>
