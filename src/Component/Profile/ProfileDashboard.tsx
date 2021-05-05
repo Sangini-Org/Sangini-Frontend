@@ -1,49 +1,37 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
-import styles from './ProfileDashboard.module.css';
-import { FaUser, FaFire, FaRegComment, FiSettings, FaPencilAlt, TiCameraOutline } from 'react-icons/all';
+import styles from './Profile.module.css';
+import { FiSettings, TiCameraOutline, FaRegUser } from 'react-icons/all';
 import user from '../Utils/Images/user.jpg';
+import { Link } from 'react-router-dom';
+
 const ProfileDashboard = () => {
   return (
     <IconContext.Provider value={{ size: '1.75rem' }}>
-      <div className={`${styles.dashboardContainor} h-full text-center flex flex-center mx-auto`}>
-        <div className=" min-h-full flex flex-col bg-purple-300 text-white">
-          <div className="flex mt-20">
-            <div className="flex w-1/3 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 hover:bg-purple-400">
-                <FaUser />
-              </button>
-            </div>
-            <div className="flex w-1/3 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 hover:bg-purple-400">
-                <FaFire />
-              </button>
-            </div>
-            <div className="flex w-1/3 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 hover:bg-purple-400">
-                <FaRegComment />
-              </button>
-            </div>
+      <div className="min-h-full flex flex-col bg-purple-300 2xl:w-1/2 md:w-2/3 md:m-auto">
+        <div className="flex flex-col flex-center mt-20">
+          <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
+          <p className="pb-4 font-medium text-xl mx-3 mt-6 mb-0">Drishty Pal</p>
+        </div>
+        <div className="flex w-4/5 md:w-1/2 -mt-6 mx-auto text-white">
+          <div className="flex w-1/3 justify-center items-center">
+            <Link to="/profile" className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
+              <FaRegUser />
+            </Link>
           </div>
-          <div className="flex flex-center mt-10">
-            <img src={user} className="h-3/5 w-3/5 rounded-full" />
+          <div className="flex w-1/3 mt-20 justify-center items-center">
+            <Link
+              to="/profile/edit/gallery"
+              className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
+              <TiCameraOutline />
+            </Link>
           </div>
-          <div className="flex">
-            <div className="flex w-1/3 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
-                <FiSettings />
-              </button>
-            </div>
-            <div className="flex w-1/3 mt-20 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
-                <TiCameraOutline />
-              </button>
-            </div>
-            <div className="flex w-1/3 justify-center items-center">
-              <button className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
-                <FaPencilAlt />
-              </button>
-            </div>
+          <div className="flex w-1/3 justify-center items-center">
+            <Link
+              to="/profile/edit"
+              className="rounded-full flex flex-center h-16 w-16 bg-purple-400 hover:bg-purple-500">
+              <FiSettings />
+            </Link>
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import EditProfile from './Component/EditProfile/EditProfile';
 import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
+import NavBar from './Component/NavBar/NavBar';
 
 function App() {
   // const [state, setstate] = useState()
@@ -28,13 +29,15 @@ function App() {
         <Route path="/social-login" exact component={SocialLogin} />
         <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
-        <Route path="/dashboard" exact component={ProfileDashboard} />
         <Route path="/userverify" exact component={UserVerify} />
         {userId ? (
-          <div>
+          <>
+            <NavBar />
+            <Route path="/dashboard" exact component={ProfileDashboard} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/profile/edit" exact component={EditProfile} />
-          </div>
+            <Route path="/profile/edit/gallery" exact component={() => <EditProfile showGallery={true} />} />
+          </>
         ) : (
           <Redirect to="/" />
         )}
