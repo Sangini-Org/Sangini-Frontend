@@ -3,19 +3,45 @@ import styles from './EditProfile.module.css';
 import user from '../Utils/Images/user.jpg';
 import Dropdown from '../Dropdown/Dropdown';
 import DatePicker from '../Utils/DatePicker/DatePicker';
+import { BiAddToQueue } from 'react-icons/all';
 
 type gallery = {
   showGallery: Boolean;
 };
 
-const ImageBox = () => {
+const ImageBox = (source: any) => {
+  const [selectedImg, setSelectedImg] = useState(['']);
+  function handlePreview(e: any) {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
+      setSelectedImg((prevImages) => prevImages.concat(filesArray));
+    }
+  }
+
+  const renderPhotos = (source: string[]) => {
+    return source.map((photo) => {
+      if (photo) {
+        return (
+          <div className={`inline-flex`} key={photo}>
+            <img
+              className={`w-36 h-36 md:w-44 md:h-44 xl:w-52 xl:h-52 rounded-md flex flex-col text-center cursor-pointer m-1.5 bg-gray-300`}
+              src={photo}
+            />
+          </div>
+        );
+      }
+    });
+  };
+
   return (
-    <div className="inline-flex">
-      <input type="file" hidden id="img" />
+    <div className="flex flex-wrap flex-center">
+      {renderPhotos(selectedImg)}
       <label
-        className="w-36 h-36 md:w-44 md:h-44 xl:w-52 xl:h-52 text-sm uppercase rounded-md text-gray-500 flex flex-center cursor-pointer m-1.5 bg-gray-300"
+        className="w-36 h-36 flex flex-col flex-center text-center md:w-34 md:h-34 xl:w-52 xl:h-52 text-sm rounded-md text-gray-500 cursor-pointer m-1.5 bg-gray-300"
         htmlFor="img">
-        upload image
+        <BiAddToQueue size="28" />
+        <span className="uppercase">Upload image</span>
+        <input type="file" id="img" accept=".jpg, .jpeg, .png, .mov, .mp4" hidden onChange={handlePreview} />
       </label>
     </div>
   );
@@ -25,9 +51,6 @@ const Gallery = () => {
   return (
     <form className="w-full px-5">
       <div className="flex flex-wrap flex-row flex-center">
-        <ImageBox />
-        <ImageBox />
-        <ImageBox />
         <ImageBox />
       </div>
       <main className="flex my-8">
