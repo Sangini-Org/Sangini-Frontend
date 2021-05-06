@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const ProfileDashboard = () => {
   return (
     <IconContext.Provider value={{ size: '1.55rem' }}>
-      <div className="min-h-full flex flex-col bg-purple-300 2xl:w-1/2 md:w-2/3 md:m-auto">
+      <div className="min-h-full flex flex-col bg-purple-200 2xl:w-1/2 md:w-2/3 md:m-auto">
         <div className="flex flex-col flex-center mt-20">
           <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
           <p className="pb-4 font-medium text-xl mx-3 mt-6 mb-0">Drishty Pal</p>

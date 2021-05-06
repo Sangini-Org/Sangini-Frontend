@@ -95,7 +95,7 @@ const Info = () => {
 function EditProfile({ showGallery }: gallery) {
   return (
     <div className="min-h-full h-full 2xl:w-1/2 md:w-2/3 md:m-auto">
-      <div className="w-full bg-gray-200 flex flex-center flex-col pt-20">
+      <div className="w-full bg-purple-200 flex flex-center flex-col pt-20">
         <img className={`${styles.userImg} rounded-full`} src={user} alt="user" />
         <input type="file" id="profilePic" hidden />
         <label className="h-10 w-10 -mt-8 -mr-20 bg-white rounded-full cursor-pointer" htmlFor="profilePic"></label>
