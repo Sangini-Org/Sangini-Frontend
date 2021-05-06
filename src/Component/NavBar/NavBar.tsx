@@ -6,7 +6,7 @@ function NavBar() {
   const [activeMenuItem, setActiveMenuItem] = useState(0);
   return (
     <IconContext.Provider value={{ size: '1.75rem' }}>
-      <div className="z-50 bottom-0 bg-purple-300 w-full fixed md:w-36 md:h-full md:m-auto md:rounded-r-lg">
+      <div className="z-50 bottom-0 bg-purple-300 w-full absolute md:w-36 md:h-full md:m-auto md:rounded-r-lg">
         <nav className="tabs flex justify-center text-xs md:flex-col md:items-center md:py-28">
           <button
             onClick={() => setActiveMenuItem(0)}

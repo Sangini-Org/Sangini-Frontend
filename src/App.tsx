@@ -15,6 +15,7 @@ import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
+import ProfileCard from './Component/ProfileCard/ProfileCard';
 
 function App() {
   // const [state, setstate] = useState()
@@ -32,11 +33,12 @@ function App() {
         <Route path="/userverify" exact component={UserVerify} />
         {userId ? (
           <>
-            <NavBar />
             <Route path="/dashboard" exact component={ProfileDashboard} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/profile/edit" exact component={EditProfile} />
+            <Route path="/user" exact component={ProfileCard} />
             <Route path="/profile/edit/gallery" exact component={() => <EditProfile showGallery={true} />} />
+            {/* <NavBar /> */}
           </>
         ) : (
           <Redirect to="/" />
