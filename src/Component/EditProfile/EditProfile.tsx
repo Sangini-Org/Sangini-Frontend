@@ -127,4 +127,3 @@ export default EditProfile;
 function FileArray(FileArray: any): never[] {
   throw new Error('Function not implemented.');
 }
-// className="w-36 h-36 md:w-44 md:h-44 xl:w-52 xl:h-52 text-sm uppercase rounded-md text-gray-500 flex flex-center cursor-pointer m-1.5 bg-gray-300"
