@@ -8,7 +8,7 @@ import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
 
 type LoginData = {
-  username: string;
+  userInput: string;
   password: string;
 };
 
@@ -48,7 +48,7 @@ export default function Login() {
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
               placeholder="Username / Email"
               required
-              {...register('username')}
+              {...register('userInput')}
             />
             <input
               className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
