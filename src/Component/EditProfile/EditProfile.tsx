@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './EditProfile.module.css';
 import user from '../Utils/Images/user.jpg';
-// eslint-disable-next-line import/no-unresolved
 import { BiAddToQueue } from 'react-icons/all';
 
 const ImageBox = (source: any) => {
@@ -11,12 +10,10 @@ const ImageBox = (source: any) => {
       const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
 
       setSelectedImg((prevImages) => prevImages.concat(filesArray));
-      // Array.from(e.target.files).map((file) => URL.revokeObjectURL(file));
     }
   }
 
   const renderPhotos = (source: string[]) => {
-    // setImageShow(false);
     return source.map((photo) => {
       if (photo) {
         return (
