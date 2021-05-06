@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
         <Route path="/social-login" exact component={SocialLogin} />
@@ -35,8 +35,8 @@ function App() {
           <Redirect to="/" />
         )}
         <ToastContainer />
-      </Router> */}
-      <Loader />
+      </Router>
+      {/* <Loader /> */}
     </div>
   );
 }
