@@ -30,7 +30,7 @@ export default function Login() {
         localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
         localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
         setUserId(result.data.data.user.id);
-        history.push('/profile');
+        history.push('/explore');
         toast.success('successfully login');
       }
     } catch (err) {

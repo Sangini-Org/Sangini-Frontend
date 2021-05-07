@@ -12,8 +12,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
 import ProfileDashboard from './Component/Profile/ProfileDashboard';
-import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
+import Explore from './Component/Explore/Explore';
 import NavBar from './Component/NavBar/NavBar';
 
 function App() {
@@ -23,26 +23,30 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer hideProgressBar={true} />
       <Router>
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
         <Route path="/social-login" exact component={SocialLogin} />
         <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
-        <Route path="/userverify" exact component={UserVerify} />
-        {userId ? (
+        {userId && (
           <>
             <NavBar />
+            <Route path="/explore" exact component={Explore} />
             <Route path="/dashboard" exact component={ProfileDashboard} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/profile/edit" exact component={EditProfile} />
             <Route path="/profile/edit/gallery" exact component={() => <EditProfile showGallery={true} />} />
           </>
+        )}
+        {userId ? (
+          <>
+            <Redirect to="/explore" />
+          </>
         ) : (
           <Redirect to="/" />
         )}
-        <ToastContainer />
-        <ToastContainer hideProgressBar={true} />
       </Router>
     </div>
   );

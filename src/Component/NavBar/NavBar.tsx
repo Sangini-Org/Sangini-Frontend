@@ -8,15 +8,16 @@ function NavBar() {
     <IconContext.Provider value={{ size: '1.75rem' }}>
       <div className="z-50 bottom-0 bg-purple-300 w-full fixed md:w-36 md:h-full md:m-auto md:rounded-r-lg">
         <nav className="tabs flex justify-center text-xs md:flex-col md:items-center md:py-28">
-          <button
-            onClick={() => setActiveMenuItem(0)}
-            data-target="panel-1"
+          <Link
+            to="/explore"
             className={`${
               activeMenuItem === 0 ? 'bg-purple-400 opacity-70' : ''
             } w-full py-4 md:py-6 md:m-1.5 flex flex-col items-center justify-center text-gray-600 hover:opacity-70 hover:bg-purple-400`}>
-            <FaSearch className={activeMenuItem === 0 ? 'text-white' : 'text-purple-900'} />
-            <span className={`${activeMenuItem === 0 ? 'text-white' : 'text-purple-900'} mt-1.5`}>Explore</span>
-          </button>
+            <button onClick={() => setActiveMenuItem(0)} data-target="panel-1">
+              <FaSearch className={activeMenuItem === 0 ? 'text-white' : 'text-purple-900'} />
+              <span className={`${activeMenuItem === 0 ? 'text-white' : 'text-purple-900'} mt-1.5`}>Explore</span>
+            </button>
+          </Link>
           <button
             onClick={() => setActiveMenuItem(1)}
             data-target="panel-2"
@@ -35,15 +36,16 @@ function NavBar() {
             <FaBell className={activeMenuItem === 2 ? 'text-white' : 'text-purple-900'} />
             <span className={`${activeMenuItem === 2 ? 'text-white' : 'text-purple-900'} mt-1.5`}>Notification</span>
           </button>
-          <button
-            onClick={() => setActiveMenuItem(3)}
-            data-target="panel-4"
+          <Link
             className={`${
               activeMenuItem === 3 ? 'bg-purple-400 opacity-70' : ''
-            } w-full py-4 md:py-6 md:m-1.5 flex flex-col items-center justify-center text-gray-600 hover:opacity-70 hover:bg-purple-400`}>
-            <FaUser className={activeMenuItem === 3 ? 'text-white' : 'text-purple-900'} />
-            <span className={`${activeMenuItem === 3 ? 'text-white' : 'text-purple-900'} mt-1.5`}>Profile</span>
-          </button>
+            } w-full py-4 md:py-6 md:m-1.5 flex flex-col items-center justify-center text-gray-600 hover:opacity-70 hover:bg-purple-400`}
+            to="/dashboard">
+            <button onClick={() => setActiveMenuItem(3)} data-target="panel-4">
+              <FaUser className={activeMenuItem === 3 ? 'text-white' : 'text-purple-900'} />
+              <span className={`${activeMenuItem === 3 ? 'text-white' : 'text-purple-900'} mt-1.5`}>Profile</span>
+            </button>
+          </Link>
         </nav>
       </div>
     </IconContext.Provider>
