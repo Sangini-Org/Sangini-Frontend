@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SociaLogin.module.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import { axiosConfig } from '../../configs/axios';
+import { apiEndPoints } from '../../configs/endpoints';
+import { toast } from 'react-toastify';
+import { useAuthStore } from '../../stores/useAuthStore';
 
 export default function SocialLogin() {
-  const [loginUrl, setLoginUrl] = useState('');
+  const setUserId = useAuthStore((state) => state.setUserId);
+  const history = useHistory();
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/api/auth/google/url').then((res) => {
-      setLoginUrl(res.data.data);
-      console.log(res);
-    });
-  }, []);
-  console.log(loginUrl);
-  const googleLoggedIn = (response: any) => {
-    console.log(response);
-    axios.post('http://localhost:8080/api/auth/google/url').then((res) => {
-      setLoginUrl(res.data.data);
-      console.log(res);
-    });
+  const googleLoggedIn = async (response: any) => {
+    try {
+      const result = await axiosConfig.post(apiEndPoints.googleSignin, response.profileObj);
+      console.log(result);
+      if (result.status === 200) {
+        localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
+        localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
+        setUserId(result.data.data.user.id);
+        history.push('/profile');
+        toast.success('successfully login');
+      }
+    } catch (err) {
+      toast.error(err.response.data.metadata.message);
+    }
   };
   const errorGoogle = (response: any) => {
     console.log(response);
@@ -38,9 +45,6 @@ export default function SocialLogin() {
             onFailure={errorGoogle}
             cookiePolicy={'single_host_origin'}
           />
-          <a href={loginUrl} className={`rounded w-full uppercase m-1 btn ${styles.google}`}>
-            Continue with Google
-          </a>
         </div>
       </div>
     </div>
