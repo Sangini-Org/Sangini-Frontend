@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import style from './Innerprofile.module.css';
 import { GrLocation, FaGraduationCap, DiVim } from 'react-icons/all';
-import { BsChevronDoubleRight, BsChevronDoubleLeft } from 'react-icons/bs';
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 import user1 from '../Utils/Images/user1.jpg';
 import user from '../Utils/Images/user.jpg';
 
@@ -65,40 +65,42 @@ export default function Innerprofile() {
           <img src={user1} alt="user-pic" className={`${style.userpic}`} />
         </div>
 
-        <div className="m-6 mb-2">
-          <h2 className={`${style.font} mb-4 font-bold`}>Chris Evans, 30</h2>
+        <div className="mx-4 mb-2 mt-4">
+          <h2 className={`text-purple-700 text-3xl mb-4 font-bold`}>
+            <span>Chris Evans</span> <span>32</span>
+          </h2>
           <div className="flex flex-col text-left">
             <div className="inline-flex items-center justify-left mb-4">
               <GrLocation />
-              <span className={`${style.list} ml-4`}>4km</span>
+              <span className={`ml-2`}>4km</span>
             </div>
             <div className="inline-flex items-center justify-left mb-4">
               <FaGraduationCap />
-              <span className={`${style.list} ml-4`}>University of California</span>
+              <span className={`ml-2`}>University of California</span>
             </div>
-            <hr className={`${style.line}`} />
+            <hr className="border-1.5 bg-gray-300" />
           </div>
           <div className="mb-4 mt-4">
-            <span className={`${style.list}`}>
-              LA raised &gt; NYC living
+            <span className="">
+              LA raised, NYC living
               <p>
                 I make books and videos for works,and give beer to cats for fun. I'm bit of paradox. Love not camping,
                 not drinking(please drink what you'd like). 5'9''.
               </p>
             </span>
           </div>
-          <hr className={`${style.line}`} />
+          <hr className="border-1.5 bg-gray-300" />
         </div>
 
-        <div className="relative mx-6 mb-2">
-          <h2 className={`${style.Heading} mb-2 font-bold`}>Top Spotify Playlist</h2>
+        <div className="relative mx-4 mb-2">
+          <h2 className={`text-purple-700 mb-2 font-bold`}>Top Spotify Playlist</h2>
           <div
             className={`${style.carousel_inner} flex justify-center items-center mb-4 overflow-y-hidden overflow-x-scroll`}
             ref={scrollWrapperRef}>
             <button
-              className={`${style.btn} ${style.left} justify-center items-center absolute hidden md:flex`}
+              className={`w-8 h-8 bg-purple-400 rounded-full ${style.left} justify-center items-center absolute hidden md:flex`}
               onClick={() => handleClick(-278)}>
-              <BsChevronDoubleLeft className={`${style.arrow}`} />
+              <FaArrowCircleLeft className="h-full w-full" />
             </button>
             <div className="inline-flex">
               {images.map((image, index) => {
@@ -106,23 +108,23 @@ export default function Innerprofile() {
               })}
             </div>
             <button
-              className={`${style.btn} ${style.right} justify-center items-center absolute hidden md:flex`}
+              className={`w-8 h-8 bg-purple-400 rounded-full ${style.right} justify-center items-center absolute hidden md:flex`}
               onClick={() => handleClick(+278)}>
-              <BsChevronDoubleRight className={`${style.arrow}`} />
+              <FaArrowCircleRight className="w-full h-full" />
             </button>
           </div>
-          <hr className={`${style.line}`} />
+          <hr className="border-1.5 bg-gray-300" />
         </div>
 
-        <div className="relative mx-6 mb-2">
-          <h2 className={`${style.Heading} mb-2 font-bold`}>62 Instagram Posts</h2>
+        <div className="relative mx-4 mb-2">
+          <h2 className={`text-purple-700 mb-2 font-bold`}>62 Instagram Posts</h2>
           <div
             className={`${style.carousel_inner} flex justify-center items-center mb-4 overflow-y-hidden overflow-x-scroll`}
             ref={scrollWrapper1Ref}>
             <button
-              className={`${style.btn} ${style.left} justify-center items-center absolute hidden md:flex`}
+              className={`w-8 h-8 bg-purple-400 rounded-full ${style.left} justify-center items-center absolute hidden md:flex`}
               onClick={() => handleChange(-278)}>
-              <BsChevronDoubleLeft className={`${style.arrow}`} />
+              <FaArrowCircleLeft className="w-full h-full" />
             </button>
             <div className="flex flex-row">
               {images.map((image, index) => {
@@ -132,15 +134,15 @@ export default function Innerprofile() {
               })}
             </div>
             <button
-              className={`${style.btn} ${style.right} justify-center items-center absolute hidden md:flex`}
+              className={`w-8 h-8 bg-purple-400 rounded-full ${style.right} justify-center items-center absolute hidden md:flex`}
               onClick={() => handleChange(+278)}>
-              <BsChevronDoubleRight className={`${style.arrow}`} />
+              <FaArrowCircleRight className="w-full h-full" />
             </button>
           </div>
           <hr className={`${style.line}`} />
         </div>
-        <div className="flex flex-center flex-col">
-          <button className={`${style.Heading} font-bold`}>REPORT</button>
+        <div className="flex flex-center flex-col mb-4">
+          <button className={`text-purple-700 text-xl`}>REPORT</button>
           <h2>Chris Evans</h2>
         </div>
       </div>
