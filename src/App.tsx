@@ -15,6 +15,7 @@ import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
+import Innerprofile from './Component/Innerprofile/Innerprofile';
 
 function App() {
   // const [state, setstate] = useState()
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
         <Route path="/social-login" exact component={SocialLogin} />
@@ -43,7 +44,8 @@ function App() {
         )}
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
-      </Router>
+      </Router> */}
+      <Innerprofile />
     </div>
   );
 }
