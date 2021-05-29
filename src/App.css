@@ -1,6 +1,6 @@
 .App {
   height: 100vh;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 /* Buttons */
@@ -33,13 +33,34 @@ button:focus, .btn:focus, input:focus {
   justify-content: space-between;
 }
 
+/* theme */
+.dark-bg {
+  background-color: #151515;
+}
+
 /* color palette */
+.dark-sec-bg {
+  background-color: #2D2D2D;
+}
+
+.primary-bg {
+  background-color: #1ED760;
+}
+
+.primary-txt {
+  color: #1ED760;
+}
+
+.red-txt {
+  color: #FD2727;
+}
+
 .text {
   color: #1D2952;
 }
 
 .text-muted {
-  color: #7483a0;
+  color: #cccccc;
 }
 
 .active {
@@ -65,4 +86,24 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1ED760;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1ED760;
 }
