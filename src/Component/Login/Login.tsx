@@ -8,44 +8,14 @@ import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
 import { FaFacebook, FcGoogle, FiCheck, BsFillEyeSlashFill } from 'react-icons/all';
 
-type LoginData = {
-  userInput: string;
-  password: string;
-};
-
 export default function Login() {
-  const [checked, setChecked] = React.useState(false);
-  const setUserId = useAuthStore((state) => state.setUserId);
-
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
-
-  const { handleSubmit, register } = useForm<LoginData>();
-  const history = useHistory();
-
-  const onSubmit = async (data: LoginData): Promise<any> => {
-    try {
-      const result = await axiosConfig.post(apiEndPoints.signin, data);
-      if (result.status === 200) {
-        localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
-        localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
-        setUserId(result.data.data.user.id);
-        history.push('/profile');
-        toast.success('successfully login');
-      }
-    } catch (err) {
-      toast.error(err.response.data.metadata.message);
-    }
-  };
-
   return (
     <div className={`h-full flex mx-auto ${styles.baseContainer}`}>
       <div className="w-full mx-3 min-h-1/2 p-7 flex flex-col">
         <h2 className="flex flex-center h-28 text-white">Sangini</h2>
         <h1 className={`text-3xl font-medium text-white mb-10`}>Sign in</h1>
         <div className="mx-1.5">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <label htmlFor="" className="text-white">
               Username or email
             </label>
@@ -55,7 +25,6 @@ export default function Login() {
                 id="outlined-basic"
                 placeholder="Enter your email address"
                 required
-                {...register('userInput')}
               />
               <FiCheck className="absolute right-4 text-2xl md:text-3xl" />
             </div>
@@ -69,7 +38,6 @@ export default function Login() {
                 type="password"
                 placeholder="Password"
                 required
-                {...register('password')}
               />
               <BsFillEyeSlashFill className="absolute right-4 text-2xl md:text-3xl" />
             </div>

@@ -7,35 +7,14 @@ import { apiEndPoints } from '../../configs/endpoints';
 import { toast } from 'react-toastify';
 import { FaFacebook, FcGoogle, FiCheck, AiOutlineEye } from 'react-icons/all';
 
-type SignUpData = {
-  username: string;
-  password: string;
-  email: string;
-};
-
 export default function SignUp() {
-  const { handleSubmit, register } = useForm<SignUpData>();
-  const history = useHistory();
-
-  const onSubmit = async (data: SignUpData): Promise<any> => {
-    try {
-      const result = await axiosConfig.post(apiEndPoints.signup, data);
-      if (result.status === 200) {
-        history.push('/login');
-        toast.success('successfully registered!');
-      }
-    } catch (err) {
-      toast.error(err.response.data.metadata.message);
-    }
-  };
-
   return (
     <div className={`h-full flex mx-auto ${styles.baseContainer}`}>
       <div className="w-full mx-3 min-h-1/2 p-7 flex flex-col">
         <h2 className="flex flex-center h-28 text-white">Sangini</h2>
         <h1 className={`text-3xl font-medium text-white mb-10`}>Sign up</h1>
         <div className="mx-1.5">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <label htmlFor="" className="text-white">
               Username or email
             </label>
@@ -45,7 +24,6 @@ export default function SignUp() {
                 id="outlined-basic"
                 placeholder="Enter your email address"
                 required
-                {...register('email')}
               />
               <FiCheck className="absolute right-4 text-2xl md:text-3xl" />
             </div>
@@ -59,7 +37,6 @@ export default function SignUp() {
                 type="password"
                 placeholder="Password"
                 required
-                {...register('password')}
               />
               <AiOutlineEye className="absolute right-4 text-2xl md:text-3xl" />
             </div>
