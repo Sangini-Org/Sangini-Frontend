@@ -1,0 +1,61 @@
+.explore {
+    margin-top: 4rem;
+    color: black;
+    border: none;
+    background: #1ED760;
+    border-radius: 2rem;
+    padding: 0.8rem 3rem;
+}
+
+.logo {
+    display: block;
+    margin: 5rem auto 0;
+}
+
+.listening {
+    display: block;
+    margin: 2rem auto 1.5rem;
+}
+
+.content {
+    padding: 0 0 2rem 1rem;
+    margin: 5rem 0 0 0;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+}
+
+.circle {
+    height: 470px;
+    width: 470px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+    position: fixed;
+    bottom: -15%;
+    right: 0.8rem;
+}
+
+.heading {
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 28px;
+}
+
+.subHeading {
+    color: #1ED760;
+    margin: 1rem 0 0 0;
+    width: 90%;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.bar {
+    height: 5px;
+    width: 33%;
+    border-radius: 15%;
+    background-color: white;
+    margin: 3rem auto 0;
+}
