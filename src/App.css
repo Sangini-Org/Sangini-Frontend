@@ -59,12 +59,13 @@ button:focus, .btn:focus, input:focus {
   color: #1D2952;
 }
 
-.text-muted {
+/* .text-muted {
   color: #cccccc;
-}
+} */
 
 .active {
-  color: #440a67;
+  color: #15BDFF;
+  ;
 }
 
 .lsWrapper {
