@@ -18,6 +18,7 @@ import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
+import OnBoarding from './Component/OnBoarding/OnBoarding';
 
 function App() {
   // const [state, setstate] = useState()
@@ -33,10 +34,11 @@ function App() {
         <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/userverify" exact component={UserVerify} />
+        <Route path="/onboarding" exact component={OnBoarding} />
         <Route path="/update" exact component={ProfileUpdate} />
-        {userId ? (
+        {/* {userId ? (
           <>
-            {/* <NavBar /> */}
+            <NavBar />
             <Route path="/dashboard" exact component={ProfileDashboard} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/notifications" exact component={Notifications} />
@@ -46,7 +48,7 @@ function App() {
           </>
         ) : (
           <Redirect to="/" />
-        )}
+        )} */}
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
