@@ -1,40 +1,59 @@
 import React from 'react';
 import styles from './Explore.module.css';
-import explore from '../Utils/Images/explore.png';
-import { MdLocationOn } from 'react-icons/md';
-import { AiFillPlayCircle } from 'react-icons/ai';
+import userphoto from '../Utils/Images/user.jpg';
+import { FaHeart, FaSearch } from 'react-icons/fa';
+import { useFormState } from 'react-hook-form';
 
 function Explore() {
+  const users = [
+    {
+      name: 'Janitor',
+      photo: userphoto,
+      mood: '😍',
+      bio: 'Cause you said forever, now I drive alone past your street ',
+    },
+    {
+      name: 'Janitor',
+      photo: userphoto,
+      mood: '😍',
+      bio: 'Cause you said forever, now I drive alone past your street ',
+    },
+    {
+      name: 'Janitor',
+      photo: userphoto,
+      mood: '😍',
+      bio: 'Cause you said forever, now I drive alone past your street ',
+    },
+  ];
+
   return (
-    <div className="flex flex-center justify-center flex-col">
-      <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Recommendations</h1>
-      <div className={`dark-sec-bg ${styles.userCard} p-6 rounded-2xl`}>
-        <div className="flex flex-col justify-center align-center">
-          <img src={explore} className="rounded-2xl" alt="explore_user" />
-          <p className="primary-bg rounded-full h-14 w-14 flex flex-center flex-col text-xs p-1 -mt-10 -ml-4">
-            <span className="font-extrabold text-lg">90%</span>
-            <span>match</span>
-          </p>
-        </div>
-        <div className="flex flex-col flex-center">
-          <h2 className="text-white my-2 text-center text-lg">
-            <span>Hermione Granger</span>
-            <span>, 26</span>
-          </h2>
-          <p className={`${styles.loc} w-max py-0.5 px-5 text-sm flex flex-center rounded-full text-white`}>
-            <MdLocationOn className="primary-txt mr-1 text-lg" />
-            25 kms away
-          </p>
-          <div className="flex flex-center mt-4">
-            <AiFillPlayCircle className="primary-txt text-7xl mr-2" />
-            <p className="flex flex-col flex-wrap">
-              <span className="text-white mb-1.5">Death bed, powfu</span>
-              <span className="primary-txt text-sm">
-                My life was kinda short, but I got so manyblessings Happy you were mine
-              </span>
-            </p>
-          </div>
-        </div>
+    <div className={`flex flex-center justify-center flex-col m-auto ${styles.baseContainer}`}>
+      <h1 className="text-2xl text-white font-bold text-center py-10">Explore</h1>
+      <div className={styles.searchBox}>
+        <FaSearch className="ml-2" />
+        <input className="ml-2 placeholder-white bg-transparent" name="search" placeholder="Search..." />
+      </div>
+      <div className="ml-1 p-8">
+        {users.map((user, i: number) => {
+          return (
+            <div className="flex border-b py-2 mb-2" key={i}>
+              <img className="h-16 w-16 rounded-lg" src={user.photo} />
+              <div className="px-2">
+                <p className="text-white">{user.name}</p>
+                <p className="primary-txt text-xs">{user.bio}</p>
+              </div>
+              <div className="px-2">
+                <div className="flex justify-between mb-1">
+                  <p className="text-2xl">{user.mood}</p>
+                  <button className="rounded-full bg-white p-2">
+                    <FaHeart className="red-txt" />
+                  </button>
+                </div>
+                <button className="primary-bg rounded-2xl py-1 px-4 mb-2 font-semibold">Request</button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
