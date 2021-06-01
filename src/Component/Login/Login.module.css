@@ -1,47 +1,30 @@
 .baseContainer {
-    max-width: 425px;
-  }
-  
-  .input {
-    border-radius: 25px;
-    background: #2D2D2D;
-  }
-  
-  input::placeholder {
-    color: #fff;
-  }
-  
-  .signupBtn {
-    border-radius: 25px;
-    background: #1ED760;
-    font-size: 24px;
-  }
-  
-  .bottom:before,
-  .bottom:after {
-    background: #fff;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-  }
-  
-  .bottom:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-  
-  .bottom:after {
-    left: 0.5em;
-    margin-right: -50%;
-  }
-  
-  .icon {
-    width:50px;
-    height:50px;
-    border-radius: 100%;
-    background-color: rgb(40 40 40);
-    box-shadow: 0 0 2px 13px rgb(40 40 40);
-  }
+  max-width: 450px;
+}
+
+.bottom:before,
+.bottom:after {
+  background: rgb(230, 230, 230);
+  content: '';
+  display: inline-block;
+  height: .5px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.bottom:before {
+  right: 1em;
+  margin-left: -50%;
+}
+
+.bottom:after {
+  left: 1em;
+  margin-right: -50%;
+}
+
+.icon {
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 0 0 2px 13px rgb(40 40 40);
+}
