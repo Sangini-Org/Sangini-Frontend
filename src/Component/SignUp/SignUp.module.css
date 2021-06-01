@@ -1,11 +1,30 @@
 .baseContainer {
-  max-width: 425px;
+  max-width: 450px;
 }
 
-.title {
-  color: #440a67;
+.bottom:before,
+.bottom:after {
+  background: #fff;
+  content: "";
+  display: inline-block;
+  height: .5px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
 }
 
-.signupBtn {
-  background: #440a67 0% 0% no-repeat padding-box !important;
+.bottom:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.bottom:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.icon {
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 0 0 2px 13px rgb(40 40 40);
 }
