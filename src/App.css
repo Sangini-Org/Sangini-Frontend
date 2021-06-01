@@ -98,7 +98,7 @@ input[type='number'] {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 
 /* Track */
