@@ -19,6 +19,8 @@ import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
 import Recommendations from './Component/Recommendations/Recommendations';
 import ProfileUpdated from './Component/EditProfile/ProfileUpdated';
+import OnBoarding from './Component/OnBoarding/OnBoarding';
+
 function App() {
   // const [state, setstate] = useState()
   const userId = useAuthStore((state) => state.userId);
@@ -33,7 +35,8 @@ function App() {
         <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/userverify" exact component={UserVerify} />
-        {userId ? (
+        <Route path="/onboarding" exact component={OnBoarding} />
+        {/* {userId ? (
           <>
             <NavBar />
             <Route path="/dashboard" exact component={ProfileDashboard} />
@@ -47,7 +50,7 @@ function App() {
           </>
         ) : (
           <Redirect to="/" />
-        )}
+        )} */}
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
