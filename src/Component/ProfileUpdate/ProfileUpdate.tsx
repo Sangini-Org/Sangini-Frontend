@@ -1,60 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ProfileUpdate.module.css';
 import explore from '../Utils/Images/explore.png';
 import { FiCamera } from 'react-icons/fi';
-import { IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
+import Dropdown from '../Dropdown/Dropdown';
+import { BiAddToQueue } from 'react-icons/all';
 
 function ProfileUpdate() {
+  const [drop, setDrop] = useState(false);
+
   return (
-    <div>
-      <div className="flex flex-center justify-center flex-col relative  my-14 ">
-        <div className={` box-content h-28 w-28 absolute 	px-1 ${styles.gra2}`}></div>
-        <div className={` box-content h-28 w-28 absolute 	mx-1  ${styles.gra}`}></div>
-        <div className={` flex flex-center box-content h-28 w-28 -py-28 bg-white text-4xl  z-50 ${styles.camera}`}>
-          <FiCamera className="text-black " />
-        </div>
-      </div>
-      <div className="flex flex-center justify-center flex-col ">
-        <div className="flex flex-col ">
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">First Name</h1>
-            <input className="border-b-2 border-white border-opacity-30 dark-bg w-80 m-1 p-1 mb-5"></input>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">Last Name</h1>
-            <input className="border-b-2 border-white border-opacity-30 dark-bg w-80 m-1 p-1 mb-5"></input>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">Gender</h1>
-            <p className="relative flex flex-col border-b-2 border-white border-opacity-30 dark-bg text-sm text-blue-300 w-80 m-1 p-1 mb-5">
-              Select an option
-              <IoIosArrowUp className="absolute right-0 transform rotate-180 text-white text-xl " />
-            </p>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">State</h1>
-            <p className="relative flex flex-col border-b-2 border-white border-opacity-30 dark-bg text-sm text-blue-300 w-80 m-1 p-1 mb-5">
-              Select an option
-              <IoIosArrowUp className="absolute right-0 transform rotate-180 text-white text-xl " />
-            </p>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">Age</h1>
-            <input className="border-b-2 border-white border-opacity-30 dark-bg w-80 m-1 p-1 mb-5"></input>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">Interests or hobbies</h1>
-            <input className="border-b-2 border-white border-opacity-30 dark-bg w-80 m-1 p-1 mb-5"></input>
-          </div>
-          <div className="grid text-white">
-            <h1 className="justify-self-start text-lg m-1">Bio</h1>
-            <input className={` rounded-2xl h-16 w-80 m-1 p-1 mb-5 ${styles.grey}`}></input>
+    <div className="flex flex-col flex-center px-6">
+      {drop ? <Dropdown dropdown={drop} setDropdown={setDrop} /> : ''}
+      <label htmlFor="pp">
+        <div className="flex cursor-pointer flex-center justify-center flex-col relative my-14 w-full max-w-450">
+          <div className={` box-content h-28 w-28 absolute 	px-1 ${styles.gra2}`}></div>
+          <div className={` box-content h-28 w-28 absolute 	mx-1  ${styles.gra}`}></div>
+          <div className={` flex flex-center box-content h-28 w-28 -py-28 bg-white text-4xl  z-50 ${styles.camera}`}>
+            <input id="pp" type="file" hidden />
+            <FiCamera className="text-black" />
           </div>
         </div>
-        <button className={`text-white font-bold rounded-2xl h-10 w-52 m-3 mb-12 p-1 mb-5 ${styles.grey}`}>
-          Save & Continue
-        </button>
-      </div>
+      </label>
+      <form className="flex flex-col flex-center text-white w-full max-w-450">
+        <div className="w-full mt-2">
+          <label className="text-md">First Name</label>
+          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">Last Name</label>
+          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">Gender</label>
+          <p
+            onClick={() => setDrop(true)}
+            className={`relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            Select an option
+            <IoIosArrowDown className="absolute right-0 text-white text-xl" />
+          </p>
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">State</label>
+          <p
+            onClick={() => setDrop(true)}
+            className={`relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            Select an option
+            <IoIosArrowDown className="absolute right-0 text-white text-xl" />
+          </p>
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">Age</label>
+          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">Interests or hobbies</label>
+          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+        </div>
+        <div className="w-full mt-2">
+          <label className="text-md">Bio</label>
+          <textarea rows={3} className="outline-none rounded-lg p-3 mb-5 mt-1 dark-sec-bg w-full" />
+        </div>
+        <button className="text-white font-semibold rounded-2xl my-4 py-1.5 px-12 dark-sec-bg">Save & Continue</button>
+      </form>
     </div>
   );
 }

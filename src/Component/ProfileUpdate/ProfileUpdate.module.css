@@ -14,6 +14,6 @@
   border-radius: 35px;
 }
 
-.grey {
-  background-color: #2d2d2d;
+.borderMuted {
+  border-bottom: 1px solid rgb(139, 139, 139);
 }
