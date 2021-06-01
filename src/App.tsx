@@ -36,7 +36,7 @@ function App() {
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/userverify" exact component={UserVerify} />
         <Route path="/onboarding" exact component={OnBoarding} />
-        {/* {userId ? (
+        {userId ? (
           <>
             <NavBar />
             <Route path="/dashboard" exact component={ProfileDashboard} />
@@ -50,7 +50,7 @@ function App() {
           </>
         ) : (
           <Redirect to="/" />
-        )} */}
+        )}
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>

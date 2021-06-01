@@ -1,13 +1,14 @@
 .baseContainer {
-  max-width: 475px;
+  max-width: 450px;
 }
+
 .searchBox {
   display: flex;
   align-items: center;
-  background-color: rgba(138, 138, 138, 0.44);
+  background-color: rgba(40,40,40);
   color: #fff;
-  border-radius: 15px;
-  padding: 15px 10px;
-  border: 0;
-  width: 315px;
+}
+
+.border {
+  border-bottom: .2px solid rgb(150, 150, 150);
 }
