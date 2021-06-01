@@ -6,78 +6,60 @@ import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
-
-type LoginData = {
-  userInput: string;
-  password: string;
-};
+import money from '../Utils/Images/Money.png';
+import { FaFacebook, FcGoogle, FiCheck, BsFillEyeSlashFill } from 'react-icons/all';
 
 export default function Login() {
-  const [checked, setChecked] = React.useState(false);
-  const setUserId = useAuthStore((state) => state.setUserId);
-
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
-
-  const { handleSubmit, register } = useForm<LoginData>();
-  const history = useHistory();
-
-  const onSubmit = async (data: LoginData): Promise<any> => {
-    try {
-      const result = await axiosConfig.post(apiEndPoints.signin, data);
-      if (result.status === 200) {
-        localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
-        localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
-        setUserId(result.data.data.user.id);
-        history.push('/profile');
-        toast.success('successfully login');
-      }
-    } catch (err) {
-      toast.error(err.response.data.metadata.message);
-    }
-  };
-
   return (
-    <div className={`h-full text-center flex flex-center mx-auto ${styles.baseContainer}`}>
-      <div className="mx-3 lsWrapper rounded min-h-1/2 p-7 flex flex-center flex-col">
-        <h1 className={`text-3xl font-medium ${styles.title} mb-4`}>Login</h1>
-        <div className="mx-1.5">
-          <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={`h-full flex mx-auto p-3 flex flex-col ${styles.baseContainer}`}>
+      <img src={money} className="w-16 h-auto mx-auto my-10" alt="icon" />
+      <h1 className="text-3xl font-medium text-white mb-8 font-bold px-2">Sign in</h1>
+      <div className="px-1">
+        <form>
+          <label htmlFor="" className="px-1 text-white">
+            Username or email
+          </label>
+          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-8">
             <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
-              placeholder="Username / Email"
+              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              id="outlined-basic"
+              placeholder="Enter your email address"
               required
-              {...register('userInput')}
             />
+            <FiCheck className="absolute right-6 text-xl" />
+          </div>
+          <label htmlFor="" className="px-1 text-white">
+            Password
+          </label>
+          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
             <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
+              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              id="outlined-password-input"
               type="password"
-              required
               placeholder="Password"
-              {...register('password')}
+              required
             />
-            <div className="my-2.5 flex flex-space-bw">
-              <p>
-                <input type="checkbox" name="rememberMe" id="rememberMe" />
-                <label className="ml-2 font-light" htmlFor="rememberMe">
-                  Remember me
-                </label>
-              </p>
-              <Link className="active" to="/reset-password">
-                Forgot Password?
-              </Link>
-            </div>
-            <button className={`rounded-md btn w-full my-3 ${styles.loginBtn}`} type="submit">
-              Login
-            </button>
-          </form>
-          <div className="text-muted">
-            <span>Don't have an account? &nbsp;</span>
-            <Link to="/register" className="active">
-              Sign up
+            <BsFillEyeSlashFill className="absolute right-6 text-xl" />
+          </div>
+          <button className="primary-txt">Forgot Password?</button>
+          <button className="w-full py-5 my-5 font-bold rounded-2xl primary-bg text-xl rounded-full" type="submit">
+            Sign in
+          </button>
+        </form>
+        <div className="px-2 text-muted text-center">
+          <h2 className={`overflow-hidden my-4 text-white ${styles.bottom}`}>or sign in with</h2>
+          <div className="flex flex-row justify-evenly text-4xl my-10">
+            <Link to="/">
+              <FaFacebook className={`w-9 h-9 ${styles.icon}`} style={{ fill: '#4267B2' }} />
+            </Link>
+            <Link to="/">
+              <FcGoogle className={`w-9 h-9 ${styles.icon}`} />
             </Link>
           </div>
+          <span className="text-white">Don't you have an account? &nbsp;</span>
+          <Link to="/register" className="primary-txt">
+            Sign in
+          </Link>
         </div>
       </div>
     </div>
