@@ -13,6 +13,7 @@ import { useAuthStore } from '../src/stores/useAuthStore';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditProfile from './Component/EditProfile/EditProfile';
+import ProfileUpdate from './Component/ProfileUpdate/ProfileUpdate';
 import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/userverify" exact component={UserVerify} />
         <Route path="/onboarding" exact component={OnBoarding} />
+        <Route path="/update" exact component={ProfileUpdate} />
         {/* {userId ? (
           <>
             <NavBar />
