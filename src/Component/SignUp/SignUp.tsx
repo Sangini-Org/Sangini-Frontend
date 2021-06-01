@@ -5,65 +5,72 @@ import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { toast } from 'react-toastify';
+import { FaFacebook, FcGoogle, FiCheck, AiOutlineEye } from 'react-icons/all';
+import money from '../Utils/Images/Money.png';
 
-type SignUpData = {
-  username: string;
-  password: string;
-  email: string;
-};
 export default function SignUp() {
-  const { handleSubmit, register } = useForm<SignUpData>();
-  const history = useHistory();
-
-  const onSubmit = async (data: SignUpData): Promise<any> => {
-    try {
-      const result = await axiosConfig.post(apiEndPoints.signup, data);
-      if (result.status === 200) {
-        history.push('/login');
-        toast.success('successfully registered!');
-      }
-    } catch (err) {
-      toast.error(err.response.data.metadata.message);
-    }
-  };
   return (
-    <div className={`h-full text-center flex flex-center mx-auto ${styles.baseContainer}`}>
-      <div className="mx-3 lsWrapper rounded min-h-1/2 p-7 flex flex-center flex-col">
-        <h1 className={`text-3xl font-medium ${styles.title} mb-4`}>Sign Up</h1>
-        <div className="mx-1.5">
-          <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={`h-full flex mx-auto p-3 flex flex-col ${styles.baseContainer}`}>
+      <img src={money} className="w-16 h-auto mx-auto my-10" alt="icon" />
+      <h1 className="text-3xl font-medium text-white mb-8 font-bold px-2">Sign up</h1>
+      <div className="px-1">
+        <form>
+          <label htmlFor="" className="px-1 text-white">
+            Username or email
+          </label>
+          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-8">
             <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
+              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
               id="outlined-basic"
-              placeholder="Username"
+              placeholder="Enter your email address"
               required
-              {...register('username')}
             />
+            <FiCheck className="absolute right-6 text-xl" />
+          </div>
+          <label htmlFor="" className="text-white">
+            Password
+          </label>
+          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
             <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
-              id="email"
-              placeholder="Email Address"
-              required
-              {...register('email')}
-            />
-            <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
+              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
               id="outlined-password-input"
               type="password"
-              placeholder="Create Password"
+              placeholder="Password"
               required
-              {...register('password')}
             />
-            <button className={`rounded-md w-full my-3 btn ${styles.signupBtn}`} type="submit">
-              Register
-            </button>
-          </form>
-          <div className="text-muted">
-            <span>Already have an Account? &nbsp;</span>
-            <Link to="login" className="active">
-              Sign In
+            <AiOutlineEye className="absolute right-6 text-xl" />
+          </div>
+          <label htmlFor="" className="text-white">
+            Confirm Password
+          </label>
+          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
+            <input
+              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              id="outlined-password-input"
+              type="password"
+              placeholder="Re enter password"
+              required
+            />
+            <AiOutlineEye className="absolute right-6 text-xl" />
+          </div>
+          <button className="w-full py-5 my-5 font-bold rounded-2xl primary-bg text-xl rounded-full" type="submit">
+            Sign up
+          </button>
+        </form>
+        <div className="px-2 text-muted text-center">
+          <h2 className={`overflow-hidden my-4 text-white ${styles.bottom}`}>or sign up with</h2>
+          <div className="flex flex-row justify-evenly text-4xl my-10">
+            <Link to="/">
+              <FaFacebook className={`w-9 h-9 ${styles.icon}`} style={{ fill: '#0000FF' }} />
+            </Link>
+            <Link to="/">
+              <FcGoogle className={`w-9 h-9 ${styles.icon}`} />
             </Link>
           </div>
+          <span className="text-white">You have an account ? &nbsp;</span>
+          <Link to="/login" className="primary-txt">
+            Sign in
+          </Link>
         </div>
       </div>
     </div>
