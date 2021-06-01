@@ -40,6 +40,10 @@ input:focus {
   background-color: #151515;
 }
 
+.dark-text {
+  color: #151515;
+}
+
 /* color palette */
 .dark-sec-bg {
   background-color: #2d2d2d;
