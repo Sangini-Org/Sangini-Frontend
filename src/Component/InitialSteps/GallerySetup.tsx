@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosAdd, HiOutlineMinusSm } from 'react-icons/all';
-import styles from './GallerySetup.module.css';
+import styles from "./GallerySetup.module.css";
 
 export default function GallerySetup() {
   const [selectedImg, setSelectedImg] = useState(['']);
