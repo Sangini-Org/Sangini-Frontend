@@ -16,7 +16,10 @@ jobs:
     - uses: actions/stale@v3
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'Stale issue alert.'
-        stale-pr-message: 'Stale PR alert.'
+        stale-issue-message: 'Stale issue alert. Kindly update!'
+        stale-pr-message: 'Stale PR alert. Kindly update!'
         stale-issue-label: 'no-issue-activity'
         stale-pr-label: 'no-pr-activity'
+        days-before-stale: 14
+        days-before-close: 30
+        delete-branch: true
