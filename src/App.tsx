@@ -50,7 +50,7 @@ function App() {
         ) : (
           <Redirect to="/" />
         )} */}
-        <Route path="/GallerySetup" exact component={GallerySetup} />
+        <Route path="/gallery" exact component={GallerySetup} />
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
