@@ -1,0 +1,24 @@
+.container {
+    max-width: 450px;
+}
+
+.image {
+    border-radius: 10px;
+    background: #2D2D2D;
+ 
+}
+
+.icon_part {
+    background: gray;
+    left: 96px;
+    margin-bottom: -4px;
+}
+
+.icon {
+    color: rgb(49, 48, 48);
+}
+
+.img {
+    bottom: 17px;
+    left: 102px;
+}

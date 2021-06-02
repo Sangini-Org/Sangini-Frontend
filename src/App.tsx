@@ -19,6 +19,7 @@ import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
 import OnBoarding from './Component/OnBoarding/OnBoarding';
+import GallerySetup from './Component/InitialSteps/GallerySetup';
 
 function App() {
   // const [state, setstate] = useState()
@@ -49,6 +50,7 @@ function App() {
         ) : (
           <Redirect to="/" />
         )} */}
+        <Route path="/GallerySetup" exact component={GallerySetup} />
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
