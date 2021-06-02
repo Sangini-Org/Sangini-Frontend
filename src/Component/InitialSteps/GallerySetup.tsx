@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { IoIosAdd, HiOutlineMinusSm } from 'react-icons/all';
+import React, { useState } from "react";
+import { IoIosAdd, HiOutlineMinusSm } from "react-icons/all";
 import styles from "./GallerySetup.module.css";
 
 export default function GallerySetup() {
-  const [selectedImg, setSelectedImg] = useState(['']);
+  const [selectedImg, setSelectedImg] = useState([""]);
   function handlePreview(e: any) {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
@@ -23,7 +23,7 @@ export default function GallerySetup() {
     return source.map((photo, id) => {
       if (photo) {
         return (
-          <div className={`inline-flex relative`} key={photo}>
+          <div className={"inline-flex relative"} key={photo}>
             <img
               className={`${styles.image} w-28 h-48 flex flex-row flex-col-reverse md:w-34 md:h-34 xl:w-34 xl:h-34 cursor-pointer my-5 mx-1.5`}
               src={photo}
@@ -47,7 +47,7 @@ export default function GallerySetup() {
       <div className="inline-flex flex-wrap md:items-center md:justify-center">
         {renderPhotos(selectedImg)}
         <label
-          className={`${selectedImg.length < 7 ? '' : 'hidden'} ${
+          className={`${selectedImg.length < 7 ? "" : 'hidden'} ${
             styles.image
           } w-28 h-48 flex flex-row flex-col-reverse relative md:w-34 md:h-34 xl:w-34 xl:h-34 cursor-pointer my-5 mx-1.5`}
           htmlFor="img">
