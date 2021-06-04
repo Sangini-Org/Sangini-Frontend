@@ -6,9 +6,9 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 
 function Recommendations() {
   return (
-    <div className="flex flex-center justify-center flex-col">
-      <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Recommendations</h1>
-      <div className={`dark-sec-bg ${styles.userCard} p-6 rounded-2xl`}>
+    <div className="h-full px-4 flex flex-center justify-center flex-col">
+      <h1 className="text-2xl text-white font-bold text-center py-8">Recommendations</h1>
+      <div className={`dark-sec-bg ${styles.userCard} p-6 mb-4 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">
           <img src={explore} className="rounded-2xl" alt="explore_user" />
           <p className="primary-bg rounded-full h-14 w-14 flex flex-center flex-col text-xs p-1 -mt-10 -ml-4">
