@@ -23,7 +23,7 @@ export default function GallerySetup() {
     return source.map((photo, id) => {
       if (photo) {
         return (
-          <div className={`inline-flex relative`} key={photo}>
+          <div className={'inline-flex relative'} key={photo}>
             <img
               className="object-cover	dark-sec-bg rounded-xl mx-1.5 w-32 h-44 flex flex-row flex-col-reverse md:w-34 md:h-34 cursor-pointer my-2"
               src={photo}
