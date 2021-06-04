@@ -25,13 +25,13 @@ export default function GallerySetup() {
         return (
           <div className={`inline-flex relative`} key={photo}>
             <img
-              className={`${styles.image} w-28 h-48 flex flex-row flex-col-reverse md:w-34 md:h-34 xl:w-34 xl:h-34 cursor-pointer my-5 mx-1.5`}
+              className="object-cover	dark-sec-bg rounded-xl mx-1.5 w-32 h-44 flex flex-row flex-col-reverse md:w-34 md:h-34 cursor-pointer my-2"
               src={photo}
               key={id}
             />
-            <label className={`${styles.img} h-5 w-5 absolute bg-white rounded-full cursor-pointer bg-gray-500`}>
+            <label className={`${styles.img} h-6 w-6 absolute rounded-full cursor-pointer`}>
               <HiOutlineMinusSm
-                className={`${styles.icon} ${styles.img} h-5 w-5 rounded-full`}
+                className={`bg-white ${styles.img} bg-gray-300 h-6 w-6 rounded-full`}
                 onClick={() => deleteItem(id)}
               />
             </label>
@@ -42,27 +42,25 @@ export default function GallerySetup() {
   };
 
   return (
-    <div className={`${styles.container} h-full flex mx-auto p-6 flex flex-col`}>
-      <h2 className="text-3xl font-medium text-white text-center font-bold my-20 xl:my-12">Add Photos</h2>
-      <div className="inline-flex flex-wrap md:items-center md:justify-center">
+    <div className={`${styles.container} h-full flex mx-auto md:py-6 flex flex-col`}>
+      <h2 className="text-3xl font-medium text-white text-center font-bold mt-14 mb-10 md:mt-20">Add Photos</h2>
+      <div className="inline-flex px-2 flex-wrap flex-center md:items-center md:justify-between">
         {renderPhotos(selectedImg)}
         <label
-          className={`${selectedImg.length < 7 ? '' : 'hidden'} ${
-            styles.image
-          } w-28 h-48 flex flex-row flex-col-reverse relative md:w-34 md:h-34 xl:w-34 xl:h-34 cursor-pointer my-5 mx-1.5`}
+          className={`${
+            selectedImg.length < 7 ? '' : 'hidden'
+          } dark-sec-bg rounded-xl w-32 h-44 mx-1.5 relative flex flex-row md:w-34 md:h-34 cursor-pointer`}
           htmlFor="img">
           <input type="file" id="image" accept=".jpg, .jpeg, .png, .mov, .mp4" hidden onChange={handlePreview} />
-          <label
-            className={`${styles.icon_part} h-5 w-5 absolute bg-white rounded-full cursor-pointer`}
-            htmlFor="image">
-            <IoIosAdd className={`${styles.icon_part} ${styles.icon} h-5 w-5 rounded-full`} />
+          <label className="h-full w-full absolute rounded-full cursor-pointer" htmlFor="image">
+            <div className="text-gray-400 h-full w-full flex flex-center">
+              <IoIosAdd size="3rem" />
+            </div>
           </label>
         </label>
       </div>
-      <div className="flex flex-1 flex-center relative">
-        <button className="w-full absolute bottom-0 mb-10 py-5 font-bold rounded-2xl primary-bg text-white text-xl rounded-full xl:py-3">
-          Done
-        </button>
+      <div className="px-4 md:px-2">
+        <button className="w-full my-10 font-bold rounded-full primary-bg text-white text-xl py-3">Done</button>
       </div>
     </div>
   );
