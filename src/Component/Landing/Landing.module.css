@@ -1,20 +1,8 @@
-.baseContainer {
+.overlay {
+    height: 470px;
+    width: 470px;
+}
+
+.landingContainer {
     max-width: 450px;
-}
-
-.loginBtn {
-    background-color: #440a67;
-}
-
-.signupBtn {
-    background-color: #c060a1;
-}
-
-.socialMediaBtn {
-    background-color: #440a67;
-}
-
-.landingImg {
-    height: 300px;
-    object-fit: contain;
 }

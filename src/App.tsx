@@ -6,7 +6,6 @@ import SocialLogin from './Component/SocialLogin/SocialLogin';
 import Profile from './Component/Profile/Profile';
 import Explore from './Component/Explore/Explore';
 import Notifications from './Component/Notifications/Notifications';
-import Landing from './Component/Landing/Landing';
 import ResetPassword from './Component/ResetPassword/ResetPassword';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useAuthStore } from '../src/stores/useAuthStore';
@@ -20,7 +19,7 @@ import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
 import Recommendations from './Component/Recommendations/Recommendations';
 import ProfileUpdated from './Component/EditProfile/ProfileUpdated';
-import OnBoarding from './Component/OnBoarding/OnBoarding';
+import Landing from './Component/Landing/Landing';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 
 function App() {
@@ -34,10 +33,9 @@ function App() {
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
         <Route path="/social-login" exact component={SocialLogin} />
-        <Route path="/" exact component={Landing} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/userverify" exact component={UserVerify} />
-        <Route path="/onboarding" exact component={OnBoarding} />
+        <Route path="/" exact component={Landing} />
         <Route path="/update" exact component={ProfileUpdate} />
         {userId ? (
           <>
