@@ -19,9 +19,9 @@ export default function Login() {
           <label htmlFor="" className="px-1 text-white">
             Username or email
           </label>
-          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-8">
+          <div className="w-full relative flex justify-end items-center text-white mt-1 mb-6">
             <input
-              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              className="text-white w-full px-4 py-3 dark-sec-bg rounded-full"
               id="outlined-basic"
               placeholder="Enter your email address"
               required
@@ -31,9 +31,9 @@ export default function Login() {
           <label htmlFor="" className="px-1 text-white">
             Password
           </label>
-          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
+          <div className="w-full relative flex justify-end items-center text-white mt-1 mb-1">
             <input
-              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              className="text-white w-full px-4 py-3 dark-sec-bg rounded-full"
               id="outlined-password-input"
               type="password"
               placeholder="Password"
@@ -41,8 +41,10 @@ export default function Login() {
             />
             <BsFillEyeSlashFill className="absolute right-6 text-xl" />
           </div>
-          <button className="primary-txt">Forgot Password?</button>
-          <button className="w-full py-5 my-5 font-bold rounded-2xl primary-bg text-xl rounded-full" type="submit">
+          <Link to="reset-password" className="primary-txt text-sm px-1">
+            Forgot Password?
+          </Link>
+          <button className="w-full py-3 my-6 font-bold rounded-2xl primary-bg text-xl rounded-full" type="submit">
             Sign in
           </button>
         </form>

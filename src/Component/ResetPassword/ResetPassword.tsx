@@ -8,15 +8,11 @@ export default function ResetPassword() {
   return (
     <div className={`h-full text-center flex flex-center mx-auto ${styles.baseContainer}`}>
       <div className="mx-3 lsWrapper rounded min-h-1/3 p-7 flex flex-center flex-col">
-        <h1 className={`text-3xl font-medium ${styles.title} mb-4`}>Reset Password</h1>
+        <h1 className="text-2xl font-bold mb-4 primary-txt">Reset Password</h1>
         <div className="mx-1.5">
           <form>
-            <input
-              className="w-full rounded-sm p-3 my-1.5 border-2 border-gray-300"
-              id="outlined-basic"
-              placeholder="Enter your email"
-            />
-            <button className={`rounded-sm w-full my-3 rounded-none btn ${styles.resetBtn}`} type="submit">
+            <input className="outline-0 w-full rounded-md p-3 my-2" placeholder="Enter your email" />
+            <button className="rounded-md w-full my-3 py-3 primary-bg" type="submit">
               Reset Password
             </button>
           </form>

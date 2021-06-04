@@ -18,21 +18,21 @@ export default function SignUp() {
           <label htmlFor="" className="px-1 text-white">
             Username or email
           </label>
-          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-8">
+          <div className="w-full relative flex justify-end items-center text-white mt-1 mb-6">
             <input
-              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              className="text-white w-full px-4 py-3 dark-sec-bg rounded-full"
               id="outlined-basic"
               placeholder="Enter your email address"
               required
             />
             <FiCheck className="absolute right-6 text-xl" />
           </div>
-          <label htmlFor="" className="text-white">
+          <label htmlFor="" className="px-1 text-white">
             Password
           </label>
-          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
+          <div className="w-full relative flex justify-end items-center text-white mt-1 mb-6">
             <input
-              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              className="text-white w-full px-4 py-3 dark-sec-bg rounded-full"
               id="outlined-password-input"
               type="password"
               placeholder="Password"
@@ -40,12 +40,12 @@ export default function SignUp() {
             />
             <AiOutlineEye className="absolute right-6 text-xl" />
           </div>
-          <label htmlFor="" className="text-white">
+          <label htmlFor="" className="px-1 text-white">
             Confirm Password
           </label>
-          <div className="w-full relative flex justify-end items-center text-white mt-4 mb-4">
+          <div className="w-full relative flex justify-end items-center text-white mt-1 mb-6">
             <input
-              className="text-white w-full px-6 py-4 dark-sec-bg rounded-full"
+              className="text-white w-full px-4 py-3 dark-sec-bg rounded-full"
               id="outlined-password-input"
               type="password"
               placeholder="Re enter password"
@@ -53,7 +53,7 @@ export default function SignUp() {
             />
             <AiOutlineEye className="absolute right-6 text-xl" />
           </div>
-          <button className="w-full py-5 my-5 font-bold rounded-2xl primary-bg text-xl rounded-full" type="submit">
+          <button className="w-full py-3 my-5 font-bold primary-bg text-xl rounded-full" type="submit">
             Sign up
           </button>
         </form>
