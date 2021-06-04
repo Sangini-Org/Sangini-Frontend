@@ -21,6 +21,7 @@ import NavBar from './Component/NavBar/NavBar';
 import Recommendations from './Component/Recommendations/Recommendations';
 import ProfileUpdated from './Component/EditProfile/ProfileUpdated';
 import OnBoarding from './Component/OnBoarding/OnBoarding';
+import GallerySetup from './Component/InitialSteps/GallerySetup';
 
 function App() {
   // const [state, setstate] = useState()
@@ -53,10 +54,12 @@ function App() {
         ) : (
           <Redirect to="/" />
         )}
+        <Route path="/gallery" exact component={GallerySetup} />
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
     </div>
   );
 }
+
 export default App;
