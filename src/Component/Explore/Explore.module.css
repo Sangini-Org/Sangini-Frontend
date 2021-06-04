@@ -1,8 +1,14 @@
-.userCard {
-    box-shadow: 0px 8px 50px rgba(0, 0, 0, 0.25);
-    width: 350px;
+.baseContainer {
+  max-width: 450px;
 }
 
-.loc {
-    background: rgba(138, 138, 138, 0.44);
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: rgba(40,40,40);
+  color: #fff;
+}
+
+.border {
+  border-bottom: .2px solid rgb(150, 150, 150);
 }
