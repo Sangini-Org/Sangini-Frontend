@@ -2,7 +2,6 @@
   height: 100vh;
   overflow-x: hidden;
 }
-
 /* Buttons */
 .btn {
   min-width: 100px;
@@ -15,11 +14,14 @@ button {
   opacity: 0.9;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   opacity: 1;
 }
 
-button:focus, .btn:focus, input:focus {
+button:focus,
+.btn:focus,
+input:focus {
   outline: none;
 }
 
@@ -38,25 +40,31 @@ button:focus, .btn:focus, input:focus {
   background-color: #151515;
 }
 
+.dark-text {
+  color: #151515;
+}
+
 /* color palette */
 .dark-sec-bg {
-  background-color: #2D2D2D;
+  background-color: #2d2d2d;
 }
 
 .primary-bg {
-  background-color: #1ED760;
+  background-color: #1ed760;
 }
-
+.primary-border {
+  border-color: #1ed760;
+}
 .primary-txt {
-  color: #1ED760;
+  color: #1ed760;
 }
 
 .red-txt {
-  color: #FD2727;
+  color: #fd2727;
 }
 
 .text {
-  color: #1D2952;
+  color: #1d2952;
 }
 
 .text-muted {
@@ -84,7 +92,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
@@ -100,10 +108,10 @@ input[type=number] {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1ED760;
+  background: #1ed760;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1ED760;
+  background: #1ed760;
 }

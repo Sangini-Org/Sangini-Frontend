@@ -18,6 +18,8 @@ import ProfileDashboard from './Component/Profile/ProfileDashboard';
 import UserVerify from './Component/UserVerify/UserVerify';
 import Loader from './Component/Utils/Loaders/Loader';
 import NavBar from './Component/NavBar/NavBar';
+import Recommendations from './Component/Recommendations/Recommendations';
+import ProfileUpdated from './Component/EditProfile/ProfileUpdated';
 import OnBoarding from './Component/OnBoarding/OnBoarding';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 
@@ -37,19 +39,21 @@ function App() {
         <Route path="/userverify" exact component={UserVerify} />
         <Route path="/onboarding" exact component={OnBoarding} />
         <Route path="/update" exact component={ProfileUpdate} />
-        {/* {userId ? (
+        {userId ? (
           <>
             <NavBar />
             <Route path="/dashboard" exact component={ProfileDashboard} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/notifications" exact component={Notifications} />
+            <Route path="/recommendations" exact component={Recommendations} />
             <Route path="/explore" exact component={Explore} />
             <Route path="/profile/edit" exact component={EditProfile} />
             <Route path="/profile/edit/gallery" exact component={() => <EditProfile showGallery={true} />} />
+            <Route path="/profile/updated" exact component={ProfileUpdated} />
           </>
         ) : (
           <Redirect to="/" />
-        )} */}
+        )}
         <Route path="/gallery" exact component={GallerySetup} />
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
