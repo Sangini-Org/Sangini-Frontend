@@ -10,14 +10,14 @@ const ConnectSpotify = () => {
       aria-modal="true">
       <div className="w-full flex justify-center min-h-screen text-center ">
         <div
-          className="fixed h-full inset-0 bg-white opacity-60 bg-opacity-90 transition-opacity"
+          className="fixed h-full inset-0 dark-sec-bg opacity-80 bg-opacity-90 transition-opacity"
           aria-hidden="true"></div>
         <div className="w-full flex flex-col flex-center transform transition-all">
           <button className="py-4 primary-bg rounded-full w-80 font-bold flex flex-center">
             <FaSpotify className="mr-4" size="1.5rem" />
             <span>Connect Your Spotify Account</span>
           </button>
-          <p className="p-8 font-bold">You can continue after linking your Spotify account to Sangini</p>
+          <p className="text-white p-4 font-bold">You can continue after linking your Spotify account to Sangini</p>
         </div>
       </div>
     </div>
