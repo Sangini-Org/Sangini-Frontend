@@ -9,7 +9,8 @@ function NavBar() {
     <IconContext.Provider value={{ className: 'text-xl md:text-2xl' }}>
       <div className="z-50 bottom-0 dark-sec-bg w-full fixed h-20 md:w-36 md:h-full md:m-auto md:rounded-r-xl md:rounded-t-none rounded-t-xl">
         <nav className="tabs flex flex-center h-full md:h-auto justify-center text-xs md:flex-col md:items-center md:py-28">
-          <button
+          <Link
+            to="/explore"
             onClick={() => setActiveMenuItem(0)}
             data-target="panel-1"
             className={`${
@@ -17,7 +18,7 @@ function NavBar() {
             } w-full h-full md:py-6 md:m-1.5 flex flex-col items-center justify-center hover:bg-black`}>
             <FaSearch className={activeMenuItem === 0 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 0 ? 'primary-txt' : 'text-white'} mt-1.5`}>Explore</span>
-          </button>
+          </Link>
           <button
             onClick={() => setActiveMenuItem(1)}
             data-target="panel-2"
@@ -27,7 +28,8 @@ function NavBar() {
             <BsFillStarFill className={activeMenuItem === 1 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 1 ? 'primary-txt' : 'text-white'} mt-1.5`}>Likes</span>
           </button>
-          <button
+          <Link
+            to="/notifications"
             onClick={() => setActiveMenuItem(2)}
             data-target="panel-3"
             className={`${
@@ -35,7 +37,7 @@ function NavBar() {
             } w-full h-full md:py-6 md:m-1.5 flex flex-col items-center justify-center hover:bg-black`}>
             <FaBell className={activeMenuItem === 2 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 2 ? 'primary-txt' : 'text-white'} mt-1.5`}>Notification</span>
-          </button>
+          </Link>
           <button
             onClick={() => setActiveMenuItem(3)}
             data-target="panel-3"
