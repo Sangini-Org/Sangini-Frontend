@@ -13,6 +13,7 @@ function ProfileUpdate() {
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
   const [dob, setDob] = useState(false);
+  const [dp, setDp] = useState('');
 
   const setGender = () => {
     setDropList(genders);
@@ -25,6 +26,13 @@ function ProfileUpdate() {
     setDropTitle('State');
     setDrop(true);
   };
+  function handlePreview(e: any) {
+    if (e.target.files) {
+      const imgFile = URL.createObjectURL(e.target.files[0]);
+      setDp(imgFile);
+      console.log(imgFile);
+    }
+  }
 
   return (
     <div className="flex flex-col flex-center px-6">
@@ -34,9 +42,13 @@ function ProfileUpdate() {
         <div className="flex cursor-pointer flex-center justify-center flex-col relative my-14 w-full max-w-450">
           <div className={` box-content h-28 w-28 absolute 	px-1 ${styles.gra2}`}></div>
           <div className={` box-content h-28 w-28 absolute 	mx-1  ${styles.gra}`}></div>
-          <div className={` flex flex-center box-content h-28 w-28 -py-28 bg-white z-10 text-4xl ${styles.camera}`}>
-            <input id="pp" type="file" hidden />
-            <FiCamera className="text-black" />
+          <div className={` flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl ${styles.camera}`}>
+            <input id="pp" type="file" hidden onChange={handlePreview} />
+            {dp === '' ? (
+              <FiCamera className="text-black" />
+            ) : (
+              <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={dp} />
+            )}{' '}
           </div>
         </div>
       </label>
