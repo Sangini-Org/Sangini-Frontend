@@ -16,13 +16,13 @@ function ProfileUpdate() {
 
   const setGender = () => {
     setDropList(genders);
-    setDropTitle('gender');
+    setDropTitle('Gender');
     setDrop(true);
   };
 
   const setState = () => {
     setDropList(states);
-    setDropTitle('state');
+    setDropTitle('State');
     setDrop(true);
   };
 
