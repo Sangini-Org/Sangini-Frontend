@@ -15,5 +15,5 @@
 }
 
 .borderMuted {
-  border-bottom: 1px solid rgb(139, 139, 139);
+  border-bottom: 1px solid var(--muted-dark);
 }

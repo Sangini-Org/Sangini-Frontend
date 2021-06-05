@@ -2,13 +2,6 @@
   height: 100vh;
   overflow-x: hidden;
 }
-/* Buttons */
-.btn {
-  min-width: 100px;
-  padding: 15px 5px !important;
-  color: #fff !important;
-  outline: none;
-}
 
 button {
   opacity: 0.9;
@@ -36,31 +29,40 @@ input:focus {
 }
 
 /* theme */
+:root{
+  --primary : #1ed760;
+  --dark: #151515; 
+  --sec-dark: #2d2d2d;
+  --danger: #fd2727;
+  --muted-light: #cccccc;
+  --muted-dark: rgb(125, 125, 125);
+  --overlay: rgb(40 40 40);
+}
+
 .dark-bg {
-  background-color: #151515;
+  background-color: var(--dark);
 }
 
 .dark-text {
-  color: #151515;
+  color: var(--dark);
 }
 
-/* color palette */
 .dark-sec-bg {
-  background-color: #2d2d2d;
+  background-color: var(--sec-dark);
 }
 
 .primary-bg {
-  background-color: #1ed760;
+  background-color: var(--primary);
 }
 .primary-border {
-  border-color: #1ed760;
+  border-color: var(--primary);
 }
 .primary-txt {
-  color: #1ed760;
+  color: var(--primary);
 }
 
 .red-txt {
-  color: #fd2727;
+  color: var(--danger);
 }
 
 .text {
@@ -68,19 +70,15 @@ input:focus {
 }
 
 .text-muted {
-  color: #cccccc;
+  color: var(--muted);
 }
 
 .active {
-  color: #1ED760;
+  color: var(--primary);
 }
 
 .lsWrapper {
   background-color: rgba(102, 102, 102, 0.28) !important;
-}
-
-.mainHeading {
-  color: #440a67;
 }
 
 /* settings */
@@ -108,10 +106,10 @@ input[type='number'] {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1ed760;
+  background: var(--primary);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1ed760;
+  background: var(--primary);
 }

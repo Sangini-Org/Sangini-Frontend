@@ -4,5 +4,5 @@
 }
 
 .loc {
-    background: rgba(138, 138, 138, 0.44);
+    background: var(--muted-dark);
 }

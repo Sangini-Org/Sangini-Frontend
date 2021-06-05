@@ -5,10 +5,10 @@
 .searchBox {
   display: flex;
   align-items: center;
-  background-color: rgba(40,40,40);
+  background-color: var(--overlay);
   color: #fff;
 }
 
 .border {
-  border-bottom: .2px solid rgb(150, 150, 150);
+  border-bottom: .2px solid var(--muted-dark);
 }

@@ -49,7 +49,7 @@ function DatePicker({ dropdown, setDropdown }: dropdownAgs) {
                     <input onChange={() => verifyDate} type="number" id="year" />
                   </p>
                 </div>
-                <button className="btn bg-purple-900 w-full rounded-md">Done</button>
+                <button className="py-3 bg-purple-900 w-full rounded-md">Done</button>
               </div>
             </div>
           </div>
