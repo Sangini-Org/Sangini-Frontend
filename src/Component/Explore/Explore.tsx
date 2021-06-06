@@ -76,18 +76,20 @@ function Explore() {
                 <div className="flex md:w-4/6">
                   <img className="h-16 w-16 rounded-full" src={user.photo} />
                   <div className="px-2">
-                    <p className="text-white mb-2">{user.name}</p>
+                    <p className="text-white mb-2">
+                      {user.name} {user.mood}
+                    </p>
                     <p className="primary-txt text-xs">{user.bio}</p>
                   </div>
                 </div>
-                <div className="px-2 py-4 md:w-2/6 flex flex-col">
-                  <div className="flex justify-between mb-1">
-                    <p className="text-2xl">{user.mood}</p>
-                    <button className="rounded-full bg-white p-2">
+                <div className="px-2 py-2 md:w-2/6 flex md:flex-col flex-center">
+                  <div className="flex justify-center my-1 mx-4">
+                    <button className="rounded-full flex flex-center py-1 px-2">
                       <FaHeart className="red-txt" />
+                      <p className="ml-2 text-white">52</p>
                     </button>
                   </div>
-                  <button className="primary-bg rounded-2xl py-1 px-4 my-1 font-semibold">Request</button>
+                  <button className="primary-bg rounded-full py-1 px-6 my-1">Request</button>
                 </div>
               </div>
             );
