@@ -7,7 +7,7 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 function Explore() {
   return (
     <div className="flex flex-center justify-center flex-col">
-      <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Recommendations</h1>
+      <h1 className="text-2xl text-blue-200 font-bold text-center py-10 md:py-24">Recommendations</h1>
       <div className={`dark-sec-bg ${styles.userCard} p-6 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">
           <img src={explore} className="rounded-2xl" alt="explore_user" />

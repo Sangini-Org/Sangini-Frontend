@@ -36,6 +36,7 @@ function App() {
         <Route path="/userverify" exact component={UserVerify} />
         <Route path="/onboarding" exact component={OnBoarding} />
         <Route path="/update" exact component={ProfileUpdate} />
+        <Route path="/explore" exact component={Explore} />
         {/* {userId ? (
           <>
             <NavBar />
