@@ -76,10 +76,10 @@ function Explore() {
                 <div className="flex md:w-4/6">
                   <img className="h-16 w-16 rounded-full" src={user.photo} />
                   <div className="px-2">
-                    <p className="text-white mb-2">
+                    <p className="primary-txt mb-2">
                       {user.name} {user.mood}
                     </p>
-                    <p className="primary-txt text-xs">{user.bio}</p>
+                    <p className="text-white text-xs">{user.bio}</p>
                   </div>
                 </div>
                 <div className="px-2 py-2 md:w-2/6 flex md:flex-col flex-center">

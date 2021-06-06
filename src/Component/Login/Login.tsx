@@ -14,7 +14,7 @@ export default function Login() {
   const [eye, setEye] = useState(false);
 
   return (
-    <div className={`h-full px-4 mx-auto flex flex-center ${styles.baseContainer}`}>
+    <div className={`min-h-full px-4 py-8 mx-auto flex flex-center ${styles.baseContainer}`}>
       <div className="lsWrapper flex px-3 md:px-6 py-10 rounded-md flex-center flex-col w-full">
         <h1 className="text-3xl font-medium mb-6 primary-txt font-bold px-2">Sign in</h1>
         <div className="w-full">

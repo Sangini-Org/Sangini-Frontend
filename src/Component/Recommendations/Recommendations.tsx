@@ -7,7 +7,7 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 function Recommendations() {
   const [request, setRequest] = useState(true);
   return (
-    <div className="h-full px-4 flex flex-center justify-center flex-col">
+    <div className="min-h-full p-4 flex flex-center justify-center flex-col">
       <h1 className="text-2xl text-white font-bold text-center py-8">Recommendations</h1>
       <div className={`dark-sec-bg ${styles.userCard} p-6 mb-4 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">
