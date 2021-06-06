@@ -64,8 +64,8 @@ function Explore() {
   return (
     <div className={`flex flex-center justify-center px-4 flex-col m-auto ${styles.baseContainer}`}>
       <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Explore</h1>
-      <div className={`p-4 w-full rounded-full ${styles.searchBox}`}>
-        <FaSearch className="ml-2" />
+      <div className={`p-4 w-full rounded-lg ${styles.searchBox}`}>
+        <FaSearch />
         <input className="ml-2 placeholder-white bg-transparent" name="search" placeholder="Search..." />
       </div>
       <div className={`${styles.notifBox} my-4 max-h-500 overflow-hidden overflow-y-scroll`}>
@@ -84,7 +84,7 @@ function Explore() {
                 </div>
                 <div className="px-2 py-2 md:w-2/6 flex md:flex-col flex-center">
                   <div className="flex justify-center my-1 mx-4">
-                    <button className="rounded-full flex flex-center py-1 px-2">
+                    <button className="rounded-full flex flex-center px-2">
                       <FaHeart className="red-txt" />
                       <p className="ml-2 text-white">52</p>
                     </button>

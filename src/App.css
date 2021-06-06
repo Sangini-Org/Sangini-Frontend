@@ -66,6 +66,10 @@ input:focus {
   color: var(--danger);
 }
 
+.red-bg {
+  background-color: var(--danger);
+}
+
 .text {
   color: #1d2952;
 }

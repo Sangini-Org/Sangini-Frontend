@@ -100,7 +100,7 @@ function ProfileUpdate() {
           <label className="text-md">Bio</label>
           <textarea rows={3} className="outline-none rounded-lg p-3 mb-5 mt-1 dark-sec-bg w-full" />
         </div>
-        <button className="font-semibold rounded-2xl my-4 py-1.5 px-12 dark-sec-bg">Save & Continue</button>
+        <button className="font-semibold rounded-md my-4 py-1.5 px-12 dark-sec-bg">Save & Continue</button>
       </form>
     </div>
   );
