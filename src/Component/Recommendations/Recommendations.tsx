@@ -12,7 +12,7 @@ function Recommendations() {
       <div className={`dark-sec-bg ${styles.userCard} p-6 mb-4 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">
           <img src={explore} className="rounded-2xl" alt="explore_user" />
-          <p className="primary-bg rounded-full h-14 w-14 fl onClick={() => setRequest()}ex flex-center flex-col text-xs p-1 -mt-10 -ml-4">
+          <p className="primary-bg rounded-full h-14 w-14 flex flex-center flex-col text-xs p-1 -mt-10 -ml-4">
             <span className="font-extrabold text-lg">90%</span>
             <span>match</span>
           </p>
