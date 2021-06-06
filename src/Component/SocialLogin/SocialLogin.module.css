@@ -1,0 +1,5 @@
+.icon {
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 2px 13px var(--overlay-light);
+  }

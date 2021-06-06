@@ -12,7 +12,7 @@ export default function ResetPassword() {
         <div className="mx-1.5">
           <form>
             <input className="outline-0 w-full rounded-md p-3 my-2" placeholder="Enter your email" />
-            <button className="rounded-md w-full my-3 py-3 primary-bg" type="submit">
+            <button className="rounded-md w-full uppercase my-3 py-3 primary-bg" type="submit">
               Reset Password
             </button>
           </form>

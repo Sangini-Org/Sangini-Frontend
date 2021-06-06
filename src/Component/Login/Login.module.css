@@ -1,10 +1,10 @@
 .baseContainer {
-  max-width: 450px;
+  max-width: 480px;
 }
 
 .bottom:before,
 .bottom:after {
-  background: var(--muted-dark);
+  background: var(--muted-light);
   content: '';
   display: inline-block;
   height: .5px;
@@ -26,5 +26,5 @@
 .icon {
   border-radius: 100%;
   background-color: #fff;
-  box-shadow: 0 0 2px 13px rgb(40 40 40);
+  box-shadow: 0 0 2px 13px var(--overlay-light);
 }

@@ -36,7 +36,8 @@ input:focus {
   --danger: #fd2727;
   --muted-light: #cccccc;
   --muted-dark: rgb(125, 125, 125);
-  --overlay: rgb(40 40 40);
+  --overlay: rgb(40, 40, 40);
+  --overlay-light: rgb(68, 68, 68);
 }
 
 .dark-bg {

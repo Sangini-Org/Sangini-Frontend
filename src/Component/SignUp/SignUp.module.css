@@ -1,5 +1,5 @@
 .baseContainer {
-  max-width: 450px;
+  max-width: 480px;
 }
 
 .bottom:before,
@@ -21,10 +21,4 @@
 .bottom:after {
   left: 0.5em;
   margin-right: -50%;
-}
-
-.icon {
-  border-radius: 100%;
-  background-color: #fff;
-  box-shadow: 0 0 2px 13px var(--overlay);
 }

@@ -24,7 +24,7 @@ function App() {
   console.log(userId);
 
   return (
-    <div className="App dark-bg pb-20">
+    <div className="App dark-bg pb-20 md:pb-0">
       <Router>
         <Route path="/register" exact component={SignUp} />
         <Route path="/login" exact component={Login} />
