@@ -17,6 +17,7 @@ import ProfileUpdated from './Component/ProfileUpdate/ProfileUpdated';
 import Landing from './Component/Landing/Landing';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
+import Dashboard from './Component/Dashboard/Dashboard';
 
 function App() {
   // const [state, setstate] = useState()
@@ -30,6 +31,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/" exact component={Landing} />
+        <Route path="/dashboard" exact component={Dashboard} />
         {userId ? (
           <>
             <NavBar />
