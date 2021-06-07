@@ -3,12 +3,14 @@
   overflow-x: hidden;
 }
 
-button {
+button,
+.link {
   opacity: 0.9;
 }
 
 button:hover,
-.btn:hover {
+.btn:hover,
+.link:hover {
   opacity: 1;
 }
 

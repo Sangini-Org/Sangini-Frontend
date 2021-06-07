@@ -7,12 +7,12 @@ import { FiCamera, GoSignOut, IoSyncCircle, RiArrowRightSLine } from 'react-icon
 export default function ProfileEditing() {
   const [dp, setDp] = useState('');
   return (
-    <div className="flex flex-col flex-center px-6">
+    <div className="min-h-full flex flex-col flex-center px-4">
       <label htmlFor="pp">
         <div className="flex cursor-pointer flex-center justify-center flex-col relative mt-14 mb-6 w-full max-w-450">
-          <div className={`box-content h-28 w-28 absolute px-1 ${styles.gra2}`}></div>
-          <div className={`box-content h-28 w-28 absolute mx-1  ${styles.gra}`}></div>
-          <div className={`flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl ${styles.camera}`}>
+          <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
+          <div className={`box-content h-28 w-28 absolute rounded-3xl mx-1  ${styles.gra}`}></div>
+          <div className="flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl rounded-3xl">
             <input id="pp" type="file" hidden />
             {dp === '' ? (
               <FiCamera className="text-black" />
@@ -21,50 +21,36 @@ export default function ProfileEditing() {
             )}{' '}
           </div>
         </div>
-        <p className="text-lg text-white p-2 mb-8">Change profile photo</p>
+        <p className="text-lg text-white p-2 my-4 md:my-8">Meghal Bisht</p>
       </label>
-      <div className={`w-full flex flex-col mx-auto text-white max-w-450`}>
-        <Link to="/">
-          <div
-            className={`${styles.editLink} flex flex-row justify-between items-center text-lg px-6 py-4 mb-5 dark-sec-bg`}>
-            Profile Edit
-            <RiArrowRightSLine className="text-2xl" />
-          </div>
+      <div className={`capitalize text-md md:text-lg w-full flex flex-col my-4 md:my-8 mx-auto text-white max-w-450`}>
+        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+          Profile edit
+          <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link to="/">
-          <div
-            className={`${styles.editLink} flex flex-row justify-between items-center text-lg px-6 py-4 mb-5 dark-sec-bg`}>
-            Current Mood
-            <RiArrowRightSLine className="text-2xl" />
-          </div>
+        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+          Current mood
+          <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link to="/">
-          <div
-            className={`${styles.editLink} flex flex-row justify-between items-center text-lg px-6 py-4 mb-5 dark-sec-bg`}>
-            Gallery Update
-            <RiArrowRightSLine className="text-2xl" />
-          </div>
+        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+          Gallery update
+          <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link to="/">
-          <div
-            className={`${styles.editLink} flex flex-row justify-between items-center text-lg px-6 py-4 mb-5 dark-sec-bg`}>
-            Settings
-            <RiArrowRightSLine className="text-2xl" />
-          </div>
+        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+          Settings
+          <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link to="/">
-          <button
-            className={`${styles.button} w-full flex flex-row justify-center items-center rounded-2xl rounded-full py-5 my-8 font-bold primary-bg text-xl text-black md:py-4 md:my-4`}>
-            <IoSyncCircle className="text-2xl mr-2 rounded-full" style={{ fill: '#000' }} />
-            Resync your spotify connect
-          </button>
+        <Link
+          to="/"
+          className="link w-full flex flex-center text-center rounded-full p-4 my-6 font-bold primary-bg text-black">
+          <IoSyncCircle className="text-2xl mr-2" style={{ fill: '#000' }} />
+          Resync your spotify connect
         </Link>
-        <Link to="/">
-          <button
-            className={`${styles.signOut} w-full flex flex-row justify-center items-center rounded-2xl rounded-full py-5 my-5 font-bold primary-bg text-xl text-black md:py-3`}>
-            Sign out
-            <GoSignOut className="text-3xl ml-2 pt-2" style={{ fill: '#000' }} />
-          </button>
+        <Link
+          to="/dashboard"
+          className="link flex flex-center w-48 mx-auto rounded-full py-3 my-4 font-bold primary-bg text-black">
+          Sign out
+          <GoSignOut className="mx-2" style={{ fill: '#000' }} />
         </Link>
       </div>
     </div>

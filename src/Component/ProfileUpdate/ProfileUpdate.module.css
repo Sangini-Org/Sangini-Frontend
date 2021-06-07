@@ -1,17 +1,11 @@
 .gra {
-  border-radius: 35px;
   background: linear-gradient(107.68deg, #c432f8 -70.04%, rgba(196, 50, 248, 0) 112.7%);
   transform: rotate(-43.83deg);
 }
 
 .gra2 {
-  border-radius: 35px;
   background: linear-gradient(180deg, rgba(30, 215, 96, 0.38) 0%, #2d2d2d 100%);
   transform: rotate(12.3deg);
-}
-
-.camera {
-  border-radius: 35px;
 }
 
 .borderMuted {
