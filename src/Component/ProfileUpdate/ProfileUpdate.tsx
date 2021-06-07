@@ -40,9 +40,9 @@ function ProfileUpdate() {
       {dob ? <DatePicker dropdown={dob} setDropdown={setDob} /> : ''}
       <label htmlFor="pp">
         <div className="flex cursor-pointer flex-center justify-center flex-col relative my-14 w-full max-w-450">
-          <div className={` box-content h-28 w-28 absolute 	px-1 ${styles.gra2}`}></div>
-          <div className={` box-content h-28 w-28 absolute 	mx-1  ${styles.gra}`}></div>
-          <div className={` flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl ${styles.camera}`}>
+          <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
+          <div className={`box-content h-28 w-28 absolute rounded-3xl mx-1  ${styles.gra}`}></div>
+          <div className="flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl rounded-3xl">
             <input id="pp" type="file" hidden onChange={handlePreview} />
             {dp === '' ? (
               <FiCamera className="text-black" />

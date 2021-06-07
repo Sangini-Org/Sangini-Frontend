@@ -47,7 +47,8 @@ function NavBar() {
             <BsChatDotsFill className={activeMenuItem === 3 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 3 ? 'primary-txt' : 'text-white'} mt-1.5`}>Chats</span>
           </button>
-          <button
+          <Link
+            to="/dashboard"
             onClick={() => setActiveMenuItem(4)}
             data-target="panel-4"
             className={`${
@@ -55,7 +56,7 @@ function NavBar() {
             } w-full h-full md:py-6 md:m-1.5 flex flex-col items-center justify-center hover:bg-black`}>
             <FaUser className={activeMenuItem === 4 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 4 ? 'primary-txt' : 'text-white'} mt-1.5`}>Profile</span>
-          </button>
+          </Link>
         </nav>
       </div>
     </IconContext.Provider>

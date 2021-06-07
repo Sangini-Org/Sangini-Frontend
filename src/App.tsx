@@ -17,6 +17,7 @@ import ProfileUpdated from './Component/ProfileUpdate/ProfileUpdated';
 import Landing from './Component/Landing/Landing';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
+import Dashboard from './Component/Dashboard/Dashboard';
 
 function App() {
   // const [state, setstate] = useState()
@@ -36,6 +37,7 @@ function App() {
             <Route path="/notifications" exact component={Notifications} />
             <Route path="/recommendations" exact component={Recommendations} />
             <Route path="/explore" exact component={Explore} />
+            <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/profile/update" exact component={ProfileUpdate} />
             <Route path="/profile/updated" exact component={ProfileUpdated} />
             <Route path="/profile/gallery" exact component={GallerySetup} />
