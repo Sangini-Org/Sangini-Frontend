@@ -18,6 +18,7 @@ import Landing from './Component/Landing/Landing';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
 import Dashboard from './Component/Dashboard/Dashboard';
+import Profile from './Component/Profile/Profile';
 
 function App() {
   // const [state, setstate] = useState()
@@ -42,6 +43,7 @@ function App() {
             <Route path="/profile/updated" exact component={ProfileUpdated} />
             <Route path="/profile/gallery" exact component={GallerySetup} />
             <Route path="/spotifyconnect" exact component={ConnectSpotify} />
+            <Route path="/profile" exact component={Profile} />
           </>
         ) : (
           <Redirect to="/" />
