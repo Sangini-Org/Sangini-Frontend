@@ -22,7 +22,7 @@ export const ChangeMood = ({ moodIcon, setMoodIcon }: editMoodAgs) => {
 
   async function close() {
     setSlideAnimate(styles.slidedown);
-    await delay(1000);
+    await delay(500);
     setMoodIcon(!moodIcon);
   }
   const setPlaylist = () => {
@@ -53,42 +53,47 @@ export const ChangeMood = ({ moodIcon, setMoodIcon }: editMoodAgs) => {
             <div className="flex justify-end align-center px-4 pb-2 mb-4">
               <AiFillCloseCircle onClick={close} size="2rem" className="cursor-pointer" />
             </div>
-            <div className="h-auto mt-2 px-8 pb-4" role="form">
+            <div className="mt-2 px-4 md:px-8 pb-4" role="form">
               <label htmlFor="">Playlist</label>
-              <p
-                className="mb-4 text-sm text-blue-800 border-b flex justify-between cursor-pointer"
-                onClick={setPlaylist}>
+              <p className="mt-2 text-sm text-muted border-b flex justify-between cursor-pointer" onClick={setPlaylist}>
                 Select an option <MdArrowDropDown size="1.5rem" />
               </p>
             </div>
-            <div className="h-auto mt-2 px-8 pb-4" role="form">
+            <div className="mt-2 px-4 md:px-8 pb-4" role="form">
               <label htmlFor="">Favourite Lyrics</label>
               <textarea
                 name="textarea"
-                rows={5}
-                cols={60}
-                className="flex p-2 my-4 text-sm dark-sec-bg rounded-2xl resize-none focus:border-none focus:outline-none"
+                rows={4}
+                className="w-full flex p-2 mt-4 text-sm dark-sec-bg rounded-lg resize-none outline-none"
               />
             </div>
-            <div className="h-auto mt-2 px-8 pb-4" role="form">
-              <h2 className="border-b-2 mb-2">Select your Current Mood</h2>
-              <ul className="border-b mb-2 text-base">
-                <li className="p-2 border-b-2 dark-sec-border">
-                  <span>😁</span> Happy
+            <div className="h-auto mt-2 px-4 md:px-8" role="form">
+              <h2 className="border-b pb-2">Select your current mood</h2>
+              <ul className="border-b text-base px-1.5">
+                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                  <span className="text-xl">😁</span>
+                  <span className="px-2 text-sm">Happy</span>
                 </li>
-                <li className="p-2 border-b-2 dark-sec-border">
-                  <span>😠</span> Angry
+                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                  <span className="text-xl">😠</span>
+                  <span className="px-2 text-sm">Angry</span>
                 </li>
-                <li className="p-2 border-b-2 dark-sec-border">
-                  <span>😔</span> Sad
+                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                  <span className="text-xl">😔</span>
+                  <span className="px-2 text-sm">Sad</span>
                 </li>
-                <li className="p-2 border-b-2 dark-sec-border">
-                  <span>🥰</span> Loved
+                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                  <span className="text-xl">🥰</span>
+                  <span className="px-2 text-sm">Loved</span>
+                </li>
+                <li className={`p-2 ${styles.borderMuted} dark-sec-border`}>
+                  <span className="text-xl">😁</span>
+                  <span className="px-2 text-sm">Happy</span>
                 </li>
               </ul>
             </div>
             <div className="text-center">
-              <button className="py-3 text-black w-60 font-bold primary-bg rounded-full mt-3" onClick={close}>
+              <button className="uppercase py-3 text-black w-48 font-bold primary-bg rounded-full my-4" onClick={close}>
                 Save
               </button>
             </div>
