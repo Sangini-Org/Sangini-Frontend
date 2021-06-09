@@ -6,19 +6,45 @@ import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
-import money from '../Utils/Images/Money.png';
 import { FiCheck, FaEye, FaEyeSlash } from 'react-icons/all';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
+type LoginData = {
+  userInput: string;
+  password: string;
+};
+
 export default function Login() {
   const [eye, setEye] = useState(false);
+  const setUserId = useAuthStore((state) => state.setUserId);
+  const userId = useAuthStore((state) => state.userId);
+  console.log(userId);
+
+  const { handleSubmit, register } = useForm<LoginData>();
+  const history = useHistory();
+
+  const onSubmit = async (data: LoginData): Promise<any> => {
+    try {
+      const result = await axiosConfig.post(apiEndPoints.signin, data);
+      if (result.status === 200) {
+        localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
+        localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
+        setUserId(result.data.data.user.id);
+        toast.success('successfully login');
+        history.push('/profile/update');
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data.metadata.message);
+    }
+  };
 
   return (
     <div className={`min-h-full px-4 py-8 mx-auto flex flex-center ${styles.baseContainer}`}>
       <div className="lsWrapper flex px-3 md:px-6 py-10 rounded-md flex-center flex-col w-full">
         <h1 className="text-3xl font-medium mb-6 primary-txt font-bold px-2">Sign in</h1>
         <div className="w-full px-3 md:px-6">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="" className="text-sm px-1 text-white">
               Username or email
             </label>
@@ -26,8 +52,9 @@ export default function Login() {
               <input
                 className="w-full px-4 py-3 rounded-md"
                 id="outlined-basic"
-                placeholder="Enter your email address"
+                placeholder="Enter your email or username"
                 required
+                {...register('userInput')}
               />
               <FiCheck className="absolute right-6 text-xl" />
             </div>
@@ -41,6 +68,7 @@ export default function Login() {
                 type={eye ? 'text' : 'password'}
                 placeholder="Password"
                 required
+                {...register('password')}
               />
               {eye ? (
                 <FaEyeSlash onClick={() => setEye(false)} className="cursor-pointer absolute right-6 text-lg" />

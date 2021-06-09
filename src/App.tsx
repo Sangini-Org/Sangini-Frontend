@@ -32,22 +32,16 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/" exact component={Landing} />
-        {userId ? (
-          <>
-            <NavBar />
-            <Route path="/notifications" exact component={Notifications} />
-            <Route path="/recommendations" exact component={Recommendations} />
-            <Route path="/explore" exact component={Explore} />
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/profile/update" exact component={ProfileUpdate} />
-            <Route path="/profile/updated" exact component={ProfileUpdated} />
-            <Route path="/profile/gallery" exact component={GallerySetup} />
-            <Route path="/spotifyconnect" exact component={ConnectSpotify} />
-            <Route path="/emailverify" exact component={EmailVerify} />
-          </>
-        ) : (
-          <Redirect to="/" />
-        )}
+        {/* <NavBar /> */}
+        <Route path="/notifications" exact component={Notifications} />
+        <Route path="/recommendations" exact component={Recommendations} />
+        <Route path="/explore" exact component={Explore} />
+        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/profile/update" exact component={ProfileUpdate} />
+        <Route path="/profile/updated" exact component={ProfileUpdated} />
+        <Route path="/profile/gallery" exact component={GallerySetup} />
+        <Route path="/spotifyconnect" exact component={ConnectSpotify} />
+        <Route path="/emailverify" exact component={EmailVerify} />
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>

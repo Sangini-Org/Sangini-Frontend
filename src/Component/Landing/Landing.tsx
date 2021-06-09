@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Landing.module.css';
 import logo from '../Utils/Images/Money.png';
 import listening from '../Utils/Images/Listening.png';
+import { Link } from 'react-router-dom';
 
 export default function OnBoarding() {
   return (
@@ -18,8 +19,9 @@ export default function OnBoarding() {
         <p className="mt-4 primary-txt font-normal text-sm">
           You can chat and you can express <br /> your feeling as emoji.
         </p>
-
-        <button className="py-4 font-bold px-12 mt-16 primary-bg text rounded-full border-none">Explore</button>
+        <Link to="/register">
+          <button className="py-4 font-bold px-12 mt-16 primary-bg text-xl rounded-full border-none">Explore</button>
+        </Link>
       </div>
     </div>
   );
