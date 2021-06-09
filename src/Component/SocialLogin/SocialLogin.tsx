@@ -33,7 +33,7 @@ export default function SocialLogin() {
   };
 
   return (
-    <div className="flex flex-row justify-evenly text-4xl my-10">
+    <div className="flex flex-row justify-evenly text-4xl my-6">
       <Link to="/">
         <FaFacebook className={`w-9 h-9 ${styles.icon}`} style={{ fill: '#0000FF' }} />
       </Link>
