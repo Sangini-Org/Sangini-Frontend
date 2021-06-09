@@ -16,7 +16,7 @@ export default function SignUp() {
     <div className={`min-h-full px-4 py-8 mx-auto flex flex-center ${styles.baseContainer}`}>
       <div className="lsWrapper flex px-3 md:px-6 py-10 rounded-md flex-center flex-col w-full">
         <h1 className="text-3xl font-medium primary-txt mb-8 font-bold px-2">Sign up</h1>
-        <div className="w-full">
+        <div className="w-full px-6">
           <form>
             <label htmlFor="" className="px-1 text-sm text-white">
               Username or email
