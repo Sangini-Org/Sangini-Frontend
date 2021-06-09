@@ -93,7 +93,7 @@ export const ChangeMood = ({ moodIcon, setMoodIcon }: editMoodAgs) => {
               </ul>
             </div>
             <div className="text-center">
-              <button className="uppercase py-3 text-black w-48 font-bold primary-bg rounded-full my-4" onClick={close}>
+              <button className="uppercase py-2 text-black w-40 primary-bg rounded-lg my-4" onClick={close}>
                 Save
               </button>
             </div>
