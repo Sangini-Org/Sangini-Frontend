@@ -15,14 +15,14 @@ function Dropdown({ dropdown, setDropdown, dropdownList, title }: dropdownAgs) {
   const [searchstate, setSearchState] = useState('');
   return (
     <div
-      className="z-50 fixed flex flex-center z-10 w-full h-full inset-0 m-0 overflow-y-auto"
+      className="z-50 fixed flex flex-center w-full h-full inset-0 m-0 overflow-y-auto"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true">
       <div className="text-white w-full md:w-1/2 lg:w-1/3 max-w-500 md:mx-4 flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 bg-black opacity-60 bg-opacity-90 transition-opacity" aria-hidden="true"></div>
-        <div className="w-full static inline-block align-bottom rounded-lg shadow-xl transform transition-all align-middle">
-          <div className="flex flex-col dark-sec-bg rounded-lg px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div className="w-full static inline-block align-bottom rounded-lg shadow-xl transform transition-all">
+          <div className="flex flex-col dark-sec-bg rounded-2xl px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="flex justify-between align-center mb-4">
               <h2 className="text-2xl font-bold">{title}</h2>
               <AiFillCloseCircle onClick={() => setDropdown(!dropdown)} size="2rem" className="cursor-pointer" />

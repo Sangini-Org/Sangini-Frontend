@@ -49,9 +49,15 @@ input:focus {
 .dark-text {
   color: var(--dark);
 }
+.dark-border {
+  border-color: var(--dark);
+}
 
 .dark-sec-bg {
   background-color: var(--sec-dark);
+}
+.dark-sec-border {
+  border-color: var(--sec-dark);
 }
 
 .primary-bg {
