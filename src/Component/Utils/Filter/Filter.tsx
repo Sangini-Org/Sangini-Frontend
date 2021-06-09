@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineClose, MdArrowDropDown } from 'react-icons/all';
+import { AiFillCloseCircle, MdArrowDropDown } from 'react-icons/all';
 import Dropdown from '../Dropdown/Dropdown';
 import styles from './Filter.module.css';
 import { states } from '../Static';
@@ -22,7 +22,7 @@ export const FilterBox = ({ filterStart, setFilterStart }: filterAgs) => {
   //close Filterbox
   async function closeFilter() {
     setFilterClass(styles.slidedown);
-    await delay(1000);
+    await delay(500);
     setFilterStart(!filterStart);
   }
   const setState = () => {
@@ -50,27 +50,27 @@ export const FilterBox = ({ filterStart, setFilterStart }: filterAgs) => {
             className={`flex flex-col dark-bg rounded-t-3xl pt-5
             transform translate-y-full ${filterClass}
             `}>
-            <div className="flex justify-between align-center border-b px-4 pb-2 mb-4">
-              <AiOutlineClose onClick={closeFilter} size="2rem" className="cursor-pointer text-muted" />
-              <h2 className="text-2xl font-bold">Filter</h2>
+            <div className="flex justify-between align-center border-b px-4 pb-3 mb-4">
+              <AiFillCloseCircle onClick={closeFilter} size="1.5rem" className="cursor-pointer text-muted" />
+              <h2 className="text-xl font-bold">Filter</h2>
               <h2 className="text-muted cursor-pointer">Reset</h2>
             </div>
             <div className="h-auto mt-2 px-8 pb-4 border-b dark-sec-border" role="form">
               <label htmlFor="">Country</label>
-              <p className="mb-4 text-sm text-blue-800 border-b border-blue-800 flex justify-between cursor-pointer">
+              <p className={`mb-6 mt-2 text-sm ${styles.borderMuted} text-muted flex justify-between cursor-pointer`}>
                 Select an option <MdArrowDropDown size="1.5rem" />
               </p>
               <label htmlFor="">State</label>
               <p
-                className="mb-4 text-sm text-blue-800 border-b border-blue-800 flex justify-between cursor-pointer"
+                className={`mb-6 mt-2 text-sm ${styles.borderMuted} text-muted flex justify-between cursor-pointer`}
                 onClick={setState}>
                 Select an option <MdArrowDropDown size="1.5rem" />
               </p>
               <label htmlFor="">Age:</label>
-              <input type="age" className="dark-sec-bg ml-4 rounded-lg p-1" />
+              <input type="age" className="dark-sec-bg mx-4 my-2 rounded-lg p-1 px-3 w-24" />
             </div>
             <div className="text-center">
-              <button className="py-3 text-black w-60 font-bold primary-bg rounded-full mt-3" onClick={closeFilter}>
+              <button className="uppercase py-2 text-black w-40 primary-bg rounded-lg my-4" onClick={closeFilter}>
                 Done
               </button>
             </div>
