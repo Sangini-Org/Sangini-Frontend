@@ -16,7 +16,7 @@ export default function SignUp() {
     <div className={`min-h-full px-4 py-8 mx-auto flex flex-center ${styles.baseContainer}`}>
       <div className="lsWrapper flex px-3 md:px-6 py-10 rounded-md flex-center flex-col w-full">
         <h1 className="text-3xl font-medium primary-txt mb-8 font-bold px-2">Sign up</h1>
-        <div className="w-full">
+        <div className="w-full px-3 md:px-6">
           <form>
             <label htmlFor="" className="px-1 text-sm text-white">
               Username or email
@@ -64,12 +64,12 @@ export default function SignUp() {
                 <FaEye onClick={() => setEye(true)} className="cursor-pointer absolute right-6 text-md" />
               )}
             </div>
-            <button className="w-full py-3 my-5 uppercase primary-bg text-md rounded-md" type="submit">
+            <button className="w-full py-3 my-4 uppercase primary-bg text-md rounded-md" type="submit">
               Sign up
             </button>
           </form>
           <div className="px-2 text-muted text-center">
-            <h2 className={`overflow-hidden my-4 text-sm text-white ${styles.bottom}`}>or sign up with</h2>
+            <h2 className={`overflow-hidden my-2 text-sm text-white ${styles.bottom}`}>or sign up with</h2>
             <SocialLogin />
             <span className="text-white">You have an account ? &nbsp;</span>
             <Link to="/login" className="primary-txt">

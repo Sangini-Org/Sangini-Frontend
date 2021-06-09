@@ -33,6 +33,7 @@ input:focus {
 /* theme */
 :root{
   --primary : #1ed760;
+  --blue : #15bdff;
   --dark: #151515; 
   --sec-dark: #2d2d2d;
   --danger: #fd2727;
@@ -63,9 +64,15 @@ input:focus {
 .primary-bg {
   background-color: var(--primary);
 }
+
+.blue-bg {
+  background-color: var(--blue);
+}
+
 .primary-border {
   border-color: var(--primary);
 }
+
 .primary-txt {
   color: var(--primary);
 }
