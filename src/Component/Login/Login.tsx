@@ -23,6 +23,35 @@ export default function Login() {
   const { handleSubmit, register } = useForm<LoginData>();
   const history = useHistory();
 
+  const profileStatusRedirect = (state: string) => {
+    switch (state) {
+      // define constants in different util files
+
+      // new loggedIn user
+      case '0':
+        history.push('/profile/update');
+        break;
+
+      // user submitted basic information
+      case '1':
+        history.push('/spotifyconnect');
+        break;
+
+      // user connected with spotify
+      case '2':
+        history.push('/profile/gallery');
+        break;
+
+      // profile completed
+      case '3':
+        history.push('/recommendations');
+        break;
+
+      default:
+        break;
+    }
+  };
+
   const onSubmit = async (data: LoginData): Promise<any> => {
     try {
       const result = await axiosConfig.post(apiEndPoints.signin, data);
@@ -31,7 +60,7 @@ export default function Login() {
         localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
         setUserId(result.data.data.user.id);
         toast.success('successfully login');
-        history.push('/profile/update');
+        profileStatusRedirect(result.data.data.user.userLoginState);
       }
     } catch (err) {
       console.log(err);

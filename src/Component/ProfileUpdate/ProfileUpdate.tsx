@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
 import styles from './ProfileUpdate.module.css';
-import explore from '../Utils/Images/explore.png';
 import { FiCamera } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
 import Dropdown from '../Utils/Dropdown/Dropdown';
-import { BiAddToQueue } from 'react-icons/all';
 import DatePicker from '../Utils/DatePicker/DatePicker';
 import { states, genders } from '../Utils/Static';
+import { Link, useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { axiosConfig } from '../../configs/axios';
+import { apiEndPoints } from '../../configs/endpoints';
+import { useProfileStore } from '../../stores/useProfileStore';
+
+type ProfileData = {
+  firstName: string;
+  lastName: string;
+  bio: string;
+  state: string;
+  gender: string;
+  dob: string;
+};
 
 function ProfileUpdate() {
   const [drop, setDrop] = useState(false);
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
-  const [dob, setDob] = useState(false);
+  const [dobModal, setDobModal] = useState(false);
   const [dp, setDp] = useState('');
+  const gender = useProfileStore((state: any) => state.gender);
+  const dob = useProfileStore((state: any) => state.dob);
+  const state = useProfileStore((state: any) => state.state);
+
+  const { handleSubmit, register } = useForm<ProfileData>();
+  const history = useHistory();
 
   const setGender = () => {
     setDropList(genders);
@@ -34,10 +52,21 @@ function ProfileUpdate() {
     }
   }
 
+  const onSubmit = async (data: ProfileData): Promise<any> => {
+    try {
+      const result = await axiosConfig.post(apiEndPoints.profileDataEdit, data);
+      if (result.status === 200) {
+        history.push('/spotifyconnect');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="flex flex-col flex-center px-6">
       {drop ? <Dropdown dropdown={drop} setDropdown={setDrop} dropdownList={dropList} title={dropTitle} /> : ''}
-      {dob ? <DatePicker dropdown={dob} setDropdown={setDob} /> : ''}
+      {dobModal ? <DatePicker dropdown={dobModal} setDropdown={setDobModal} /> : ''}
       <label htmlFor="pp">
         <div className="flex cursor-pointer flex-center justify-center flex-col relative my-14 w-full max-w-450">
           <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
@@ -52,28 +81,32 @@ function ProfileUpdate() {
           </div>
         </div>
       </label>
-      <form className="flex flex-col flex-center text-white w-full max-w-450">
+      <form className="flex flex-col flex-center text-white w-full max-w-450" onSubmit={handleSubmit(onSubmit)}>
         <div className="w-full mt-2">
           <label className="text-md">First Name</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input
+            className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`}
+            {...register('firstName')}
+            required
+          />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Last Name</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} {...register('lastName')} required />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Gender</label>
           <p
             onClick={setGender}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            Select an option
+            {gender ? gender : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
         <div className="w-full mt-2">
           <label className="text-md">DOB</label>
           <p
-            onClick={() => setDob(true)}
+            onClick={() => setDobModal(true)}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
             Select an option
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
@@ -84,13 +117,9 @@ function ProfileUpdate() {
           <p
             onClick={setState}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            Select an option
+            {state ? state : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
-        </div>
-        <div className="w-full mt-2">
-          <label className="text-md">Age</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Interests or hobbies</label>
@@ -98,9 +127,16 @@ function ProfileUpdate() {
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Bio</label>
-          <textarea rows={3} className="outline-none rounded-lg p-3 mb-5 mt-1 dark-sec-bg w-full" />
+          <textarea
+            rows={3}
+            className="outline-none rounded-lg p-3 mb-5 mt-1 dark-sec-bg w-full"
+            {...register('bio')}
+            required
+          />
         </div>
-        <button className="font-semibold rounded-md my-4 py-1.5 px-12 dark-sec-bg">Save & Continue</button>
+        <button className="font-semibold rounded-md my-4 py-1.5 px-12 dark-sec-bg" type="submit">
+          Save & Continue
+        </button>
       </form>
     </div>
   );
