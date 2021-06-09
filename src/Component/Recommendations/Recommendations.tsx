@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import styles from './Recommendations.module.css';
 import explore from '../Utils/Images/explore.png';
-import { MdLocationOn } from 'react-icons/md';
-import { AiFillPlayCircle } from 'react-icons/ai';
-
+import { FilterBox } from '../Utils/Filter/Filter';
+import { BsFilter, AiFillPlayCircle, MdLocationOn } from 'react-icons/all';
 function Recommendations() {
   const [request, setRequest] = useState(true);
+  const [filter, setfilter] = useState(false);
+
   return (
-    <div className="min-h-full p-4 flex flex-center justify-center flex-col">
-      <h1 className="text-2xl text-white font-bold text-center py-8">Recommendations</h1>
+    <div className="h-full px-4 flex flex-center justify-center flex-col">
+      {filter ? <FilterBox filterStart={filter} setFilterStart={setfilter} /> : ''}
+      <div className=" flex flex-center text-2xl text-white py-8">
+        <h1 className="font-bold px-8">Recommendations</h1>
+        <BsFilter className="align-right" onClick={() => setfilter(true)} />
+      </div>
       <div className={`dark-sec-bg ${styles.userCard} p-6 mb-4 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">
           <img src={explore} className="rounded-2xl" alt="explore_user" />

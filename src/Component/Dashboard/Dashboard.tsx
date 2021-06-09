@@ -3,11 +3,14 @@ import styles from './Dashboard.module.css';
 import user from '../Utils/Images/user.jpg';
 import { Link } from 'react-router-dom';
 import { FiCamera, GoSignOut, IoSyncCircle, RiArrowRightSLine } from 'react-icons/all';
+import { ChangeMood } from '../ChangeMood/ChangeMood';
 
 export default function ProfileEditing() {
   const [dp, setDp] = useState('');
+  const [mood, setMood] = useState(false);
   return (
     <div className="min-h-full flex flex-col flex-center px-4">
+      {mood ? <ChangeMood moodIcon={mood} setMoodIcon={setMood} /> : ''}
       <label htmlFor="pp">
         <div className="flex cursor-pointer flex-center justify-center flex-col relative mt-14 mb-6 w-full max-w-450">
           <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
@@ -28,10 +31,12 @@ export default function ProfileEditing() {
           Profile edit
           <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+        <div
+          onClick={() => setMood(true)}
+          className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
           Current mood
           <RiArrowRightSLine className="text-2xl" />
-        </Link>
+        </div>
         <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
           Gallery update
           <RiArrowRightSLine className="text-2xl" />
