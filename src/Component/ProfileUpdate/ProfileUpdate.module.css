@@ -7,7 +7,3 @@
   background: linear-gradient(180deg, rgba(30, 215, 96, 0.38) 0%, #2d2d2d 100%);
   transform: rotate(12.3deg);
 }
-
-.borderMuted {
-  border-bottom: 1px solid var(--muted-dark);
-}

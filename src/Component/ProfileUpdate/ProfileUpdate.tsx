@@ -55,17 +55,17 @@ function ProfileUpdate() {
       <form className="flex flex-col flex-center text-white w-full max-w-450">
         <div className="w-full mt-2">
           <label className="text-md">First Name</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input className="borderMuted dark-bg py-1 mb-5 mt-1 w-full" />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Last Name</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input className="borderMuted dark-bg py-1 mb-5 mt-1 w-full" />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Gender</label>
           <p
             onClick={setGender}
-            className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            className="cursor-pointer relative flex flex-col borderMuted dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full">
             Select an option
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
@@ -74,7 +74,7 @@ function ProfileUpdate() {
           <label className="text-md">DOB</label>
           <p
             onClick={() => setDob(true)}
-            className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            className="cursor-pointer relative flex flex-col borderMuted dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full">
             Select an option
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
@@ -83,18 +83,18 @@ function ProfileUpdate() {
           <label className="text-md">State</label>
           <p
             onClick={setState}
-            className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            className="cursor-pointer relative flex flex-col borderMuted dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full">
             Select an option
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Age</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input className="borderMuted dark-bg py-1 mb-5 mt-1 w-full" />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Interests or hobbies</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
+          <input className="borderMuted dark-bg py-1 mb-5 mt-1 w-full" />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Bio</label>

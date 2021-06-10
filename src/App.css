@@ -97,6 +97,10 @@ input:focus {
   color: var(--primary);
 }
 
+.borderMuted {
+  border-bottom: 1px solid var(--overlay-light);
+}
+
 .lsWrapper {
   background-color: rgba(102, 102, 102, 0.28) !important;
 }

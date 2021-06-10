@@ -70,23 +70,23 @@ export const ChangeMood = ({ moodIcon, setMoodIcon }: editMoodAgs) => {
             <div className="h-auto mt-2 px-4 md:px-8" role="form">
               <h2 className="border-b pb-2">Select your current mood</h2>
               <ul className="border-b text-base px-1.5">
-                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                <li className="p-2 borderMuted cursor-pointer dark-sec-border">
                   <span className="text-xl">😁</span>
                   <span className="px-2 text-sm">Happy</span>
                 </li>
-                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                <li className="p-2 borderMuted cursor-pointer dark-sec-border">
                   <span className="text-xl">😠</span>
                   <span className="px-2 text-sm">Angry</span>
                 </li>
-                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                <li className="p-2 borderMuted cursor-pointer dark-sec-border">
                   <span className="text-xl">😔</span>
                   <span className="px-2 text-sm">Sad</span>
                 </li>
-                <li className={`p-2 ${styles.borderMuted} cursor-pointer dark-sec-border`}>
+                <li className="p-2 borderMuted cursor-pointer dark-sec-border">
                   <span className="text-xl">🥰</span>
                   <span className="px-2 text-sm">Loved</span>
                 </li>
-                <li className={`p-2 ${styles.borderMuted} dark-sec-border`}>
+                <li className="p-2 borderMuted dark-sec-border">
                   <span className="text-xl">😁</span>
                   <span className="px-2 text-sm">Happy</span>
                 </li>
