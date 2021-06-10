@@ -57,12 +57,12 @@ export const FilterBox = ({ filterStart, setFilterStart }: filterAgs) => {
             </div>
             <div className="h-auto mt-2 px-8 pb-4 border-b dark-sec-border" role="form">
               <label htmlFor="">Country</label>
-              <p className={`mb-6 mt-2 text-sm ${styles.borderMuted} text-muted flex justify-between cursor-pointer`}>
+              <p className="mb-6 mt-2 text-sm borderMuted text-muted flex justify-between cursor-pointer">
                 Select an option <MdArrowDropDown size="1.5rem" />
               </p>
               <label htmlFor="">State</label>
               <p
-                className={`mb-6 mt-2 text-sm ${styles.borderMuted} text-muted flex justify-between cursor-pointer`}
+                className="mb-6 mt-2 text-sm borderMuted text-muted flex justify-between cursor-pointer"
                 onClick={setState}>
                 Select an option <MdArrowDropDown size="1.5rem" />
               </p>
