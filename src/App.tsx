@@ -17,6 +17,7 @@ import ProfileUpdated from './Component/ProfileUpdate/ProfileUpdated';
 import Landing from './Component/Landing/Landing';
 import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
+import EmailVerify from './Component/InitialSteps/EmailVerify';
 import Dashboard from './Component/Dashboard/Dashboard';
 import Profile from './Component/Profile/Profile';
 
@@ -43,7 +44,7 @@ function App() {
             <Route path="/profile/updated" exact component={ProfileUpdated} />
             <Route path="/profile/gallery" exact component={GallerySetup} />
             <Route path="/spotifyconnect" exact component={ConnectSpotify} />
-            <Route path="/profile" exact component={Profile} />
+            <Route path="/emailverify" exact component={EmailVerify} />
           </>
         ) : (
           <Redirect to="/" />

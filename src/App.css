@@ -33,6 +33,7 @@ input:focus {
 /* theme */
 :root{
   --primary : #1ed760;
+  --blue : #15bdff;
   --dark: #151515; 
   --sec-dark: #2d2d2d;
   --danger: #fd2727;
@@ -49,17 +50,29 @@ input:focus {
 .dark-text {
   color: var(--dark);
 }
+.dark-border {
+  border-color: var(--dark);
+}
 
 .dark-sec-bg {
   background-color: var(--sec-dark);
+}
+.dark-sec-border {
+  border-color: var(--sec-dark);
 }
 
 .primary-bg {
   background-color: var(--primary);
 }
+
+.blue-bg {
+  background-color: var(--blue);
+}
+
 .primary-border {
   border-color: var(--primary);
 }
+
 .primary-txt {
   color: var(--primary);
 }

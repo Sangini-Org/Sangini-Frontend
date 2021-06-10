@@ -59,5 +59,5 @@ const genders = [
   'Novigender',
   'Polygender',
 ];
-
-export { states, genders };
+const playlist = ['Jazz', 'Pop', 'Rock'];
+export { states, genders, playlist };
