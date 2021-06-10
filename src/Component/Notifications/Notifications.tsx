@@ -15,6 +15,16 @@ const RequestsTab = () => {
       match: '90',
     },
     {
+      name: 'Dholu Bholu',
+      photo: pic,
+      match: '100',
+    },
+    {
+      name: 'Harshit Singh',
+      photo: pic,
+      match: '90',
+    },
+    {
       name: 'Drishty Pal',
       photo: pic2,
       match: '95',
@@ -32,7 +42,7 @@ const RequestsTab = () => {
   ];
 
   return (
-    <div className={`${styles.notifBox} max-h-500 overflow-hidden overflow-y-scroll`}>
+    <div className="max-h-500 overflow-hidden overflow-y-scroll">
       {userRequest.map((request, key) => (
         <div className="my-4 dark-sec-bg flex flex-space-bw px-4 py-1.5 rounded-lg flex-center" key={key}>
           <div className="flex flex-center">
@@ -55,6 +65,7 @@ const RequestsTab = () => {
     </div>
   );
 };
+
 const LikesTab = () => {
   const userLiked = [
     {
@@ -73,16 +84,20 @@ const LikesTab = () => {
       name: 'Dholu Bholu',
       photo: pic,
     },
+    {
+      name: 'Harshit Singh',
+      photo: pic,
+    },
   ];
   return (
-    <div className={`${styles.notifBox} max-h-500 overflow-hidden overflow-y-scroll`}>
+    <div className="max-h-500 overflow-hidden overflow-y-scroll">
       {userLiked.map((request, key) => (
-        <div className=" flex px-4 py-1.5 " key={key}>
-          <div className="flex flex-center">
-            <img className="rounded-full w-14 h-14 mr-2" src={request.photo} alt="req" />
-            <p className="text-white">
+        <div className=" flex px-4 py-2.5 borderMuted" key={key}>
+          <div className="flex flex-center align-center text-sm">
+            <img className="rounded-full w-12 h-12 mr-2" src={request.photo} alt="req" />
+            <p className="text-white font-bold">
               {request.name}
-              <span className=" font-light text-muted"> has liked your Profile.</span>
+              <span className=" font-light text-muted"> has liked your profile</span>
             </p>
           </div>
         </div>
@@ -91,14 +106,36 @@ const LikesTab = () => {
   );
 };
 const UpdatesTab = () => {
+  const updates = [
+    {
+      title: 'Important Notice',
+      body: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+      sociis natoque penatibus et magnis dis parturient montes`,
+    },
+    {
+      title: 'Downtime Notice',
+      body: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit.`,
+    },
+    {
+      title: 'One year Anniversary Notice',
+      body:
+        'Simple Plan "Summer Paradise": Oh, Oh Take me back, take me back Oh yeah Back to summer paradise My heart is sinking As I',
+    },
+    {
+      title: 'Maintainance Notice',
+      body: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+      sociis natoque penatibus et magnis dis parturient montes`,
+    },
+  ];
   return (
-    <div className="flex flex-col dark-sec-bg text-white p-4 mx-2 rounded-3xl rounded-tl-none">
-      <h2 className="primary-txt mb-2 font-medium">Important Notice</h2>
-      <p className=" font-thin py-2">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        sociis natoque penatibus et magnis dis parturient montes,
-      </p>
-      <p className="flex justify-end">20/06/2020 2:30 PM</p>
+    <div className="max-h-500 overflow-hidden overflow-y-scroll">
+      {updates.map((update, key) => (
+        <div key={key} className="my-4 flex flex-col dark-sec-bg text-white px-4 py-2 mx-2 rounded-xl rounded-tl-none">
+          <h2 className="primary-txt font-bold">{update.title}</h2>
+          <p className=" text-sm text-muted py-4">{update.body}</p>
+          <p className="flex justify-end text-sm">3 hours ago</p>
+        </div>
+      ))}
     </div>
   );
 };
