@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
+import { useAuthStore } from '../../stores/useAuthStore';
 import { toast } from 'react-toastify';
 import { FiCheck, FaEye, FaEyeSlash, MdEmail } from 'react-icons/all';
 
@@ -18,6 +19,11 @@ export default function SignUp() {
   const [eye, setEye] = useState(false);
   const { handleSubmit, register } = useForm<SignUpData>();
   const history = useHistory();
+  const userId = useAuthStore((state) => state.userId);
+
+  if (userId) {
+    return <Redirect to="/dashboard" />;
+  }
 
   const onSubmit = async (data: SignUpData): Promise<any> => {
     console.log(data);

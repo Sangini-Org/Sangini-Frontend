@@ -7,6 +7,8 @@ type profileData = {
   setGender: (gender: string | null) => void;
   state: string | null;
   setState: (state: string | null) => void;
+  profileStatus: string | null;
+  setprofileStatus: (state: string | null) => void;
 };
 
 export const useProfileStore = create<profileData>((set) => ({
@@ -16,4 +18,6 @@ export const useProfileStore = create<profileData>((set) => ({
   setGender: (gender) => set({ gender }),
   state: '',
   setState: (state) => set({ state }),
+  profileStatus: '',
+  setprofileStatus: (profileStatus) => set({ profileStatus }),
 }));

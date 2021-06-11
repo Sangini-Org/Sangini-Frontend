@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Login.module.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
+import { useProfileStore } from '../../stores/useProfileStore';
 import { toast } from 'react-toastify';
 import { FiCheck, FaEye, FaEyeSlash } from 'react-icons/all';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -14,9 +15,10 @@ type LoginData = {
   password: string;
 };
 
-export default function Login() {
+const Login: React.FC = () => {
   const [eye, setEye] = useState(false);
   const setUserId = useAuthStore((state) => state.setUserId);
+  const setProfileStatus = useProfileStore((state) => state.setprofileStatus);
   const userId = useAuthStore((state) => state.userId);
   console.log(userId);
 
@@ -51,6 +53,13 @@ export default function Login() {
         break;
     }
   };
+  useEffect(() => {
+    return () => {};
+  }, [userId]);
+
+  if (userId) {
+    return <Redirect to="/dashboard" />;
+  }
 
   const onSubmit = async (data: LoginData): Promise<any> => {
     try {
@@ -61,6 +70,7 @@ export default function Login() {
         setUserId(result.data.data.user.id);
         toast.success('successfully login');
         profileStatusRedirect(result.data.data.user.userLoginState);
+        setProfileStatus(result.data.data.user.userLoginState);
       }
     } catch (err) {
       console.log(err);
@@ -124,4 +134,5 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;
