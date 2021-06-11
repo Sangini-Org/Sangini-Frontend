@@ -10,9 +10,9 @@ function Recommendations() {
   return (
     <div className="h-full px-4 flex flex-center justify-center flex-col">
       {filter ? <FilterBox filterStart={filter} setFilterStart={setfilter} /> : ''}
-      <div className=" flex flex-center text-2xl text-white py-8">
+      <div className=" flex flex-center text-2xl text-white pb-8">
         <h1 className="font-bold px-8">Recommendations</h1>
-        <BsFilter className="align-right" onClick={() => setfilter(true)} />
+        <BsFilter className="cursor-pointer align-right" onClick={() => setfilter(true)} />
       </div>
       <div className={`dark-sec-bg ${styles.userCard} p-6 mb-4 rounded-2xl`}>
         <div className="flex flex-col justify-center align-center">

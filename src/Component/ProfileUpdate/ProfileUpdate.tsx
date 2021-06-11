@@ -7,9 +7,11 @@ import Dropdown from '../Utils/Dropdown/Dropdown';
 import { BiAddToQueue } from 'react-icons/all';
 import DatePicker from '../Utils/DatePicker/DatePicker';
 import { states, genders } from '../Utils/Static';
+import HobbiePicker from './HobbiePicker';
 
 function ProfileUpdate() {
   const [drop, setDrop] = useState(false);
+  const [hobbies, setHobbies] = useState(false);
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
   const [dob, setDob] = useState(false);
@@ -38,6 +40,7 @@ function ProfileUpdate() {
     <div className="flex flex-col flex-center px-6">
       {drop ? <Dropdown dropdown={drop} setDropdown={setDrop} dropdownList={dropList} title={dropTitle} /> : ''}
       {dob ? <DatePicker dropdown={dob} setDropdown={setDob} /> : ''}
+      {hobbies ? <HobbiePicker hobbies={hobbies} setHobbies={setHobbies} /> : ''}
       <label htmlFor="pp">
         <div className="flex cursor-pointer flex-center justify-center flex-col relative my-14 w-full max-w-450">
           <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
@@ -94,7 +97,12 @@ function ProfileUpdate() {
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Interests or hobbies</label>
-          <input className="borderMuted dark-bg py-1 mb-5 mt-1 w-full" />
+          <p
+            onClick={() => setHobbies(!hobbies)}
+            className="cursor-pointer relative flex flex-col borderMuted dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full">
+            Select interest &amp; hobbies
+            <IoIosArrowDown className="absolute right-0 text-white text-xl" />
+          </p>
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Bio</label>
