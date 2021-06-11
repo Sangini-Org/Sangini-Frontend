@@ -21,16 +21,17 @@ import EmailVerify from './Component/InitialSteps/EmailVerify';
 import Dashboard from './Component/Dashboard/Dashboard';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 import { useProfileStore } from './stores/useProfileStore';
+import { setAxiosAuthToken } from './configs/axios';
 
 function App() {
   // const [state, setstate] = useState()
   const profileStatus = useProfileStore((state) => state.profileStatus);
+  const userId = useAuthStore((state) => state.userId);
 
   useEffect(() => {
-    return () => {};
-  }, [profileStatus]);
+    setAxiosAuthToken();
+  }, [profileStatus, userId]);
 
-  const userId = useAuthStore((state) => state.userId);
   return (
     <div className="App dark-bg pb-20 md:pb-0">
       <Router>
@@ -48,9 +49,9 @@ function App() {
           <ProtectedRoute path="/notifications" exact component={Notifications} />
           <ProtectedRoute path="/recommendations" exact component={Recommendations} />
           <ProtectedRoute exact path="/explore" component={Explore} />
-          <ToastContainer />
-          <ToastContainer hideProgressBar={true} />
         </Switch>
+        <ToastContainer />
+        <ToastContainer hideProgressBar={true} />
         {userId !== null ? <NavBar /> : ''}
       </Router>
     </div>
