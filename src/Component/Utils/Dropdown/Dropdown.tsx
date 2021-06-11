@@ -51,7 +51,6 @@ function Dropdown({ dropdown, setDropdown, dropdownList, title }: dropdownAgs) {
                       <p
                         className={`flex align-center py-1 justify-between my-2 border-b ${styles.border}`}
                         role="menuitem"
-                        tabIndex={-1}
                         id="menu-item-0">
                         {state}
                         <TiTick size="1.65rem" className="rounded-full primary-bg text-white mr-1 mb-1" />
