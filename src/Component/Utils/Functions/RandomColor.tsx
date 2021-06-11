@@ -15,9 +15,11 @@ const colors = [
   '#184d47',
   '#fd3a69',
   '#120078',
+  '#f55c47',
   '#52057b',
   '#335d2d',
   '#40a8c4',
+  '#fb9300',
 ];
 
 export const getRandomColor = () => {

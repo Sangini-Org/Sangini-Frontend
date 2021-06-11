@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
 import { Hobbies } from '../Utils/Dictionary/Hobbies';
-import styles from './ProfileUpdate.module.css';
+import { TiTick } from 'react-icons/ti';
 import { getRandomColor } from '../Utils/Functions/RandomColor';
 
 type hobbiesArgs = {
@@ -12,6 +12,17 @@ type hobbiesArgs = {
 
 function HobbiePicker({ hobbies, setHobbies }: hobbiesArgs) {
   const [searchstate, setSearchState] = useState('');
+  let [selectedHobbies, setSelectedHobbies] = useState<String[]>([]);
+  const hobbieHandler = (tag: String, i: number) => {
+    if (selectedHobbies.includes(tag)) {
+      selectedHobbies = selectedHobbies.filter((item) => item !== tag);
+      document.getElementById(`hobbyTick${i}`)?.classList.add('hidden');
+    } else {
+      selectedHobbies.push(tag);
+      document.getElementById(`hobbyTick${i}`)?.classList.remove('hidden');
+    }
+  };
+
   return (
     <div
       className="z-50 fixed flex flex-center w-full h-full inset-0 m-0 overflow-y-auto"
@@ -44,13 +55,15 @@ function HobbiePicker({ hobbies, setHobbies }: hobbiesArgs) {
                 }
               }).map((state: String, i: number) => {
                 return (
-                  <p
+                  <button
+                    onClick={() => hobbieHandler(state, i)}
                     key={i}
                     style={{ backgroundColor: `${getRandomColor()}` }}
-                    className={`cursor-pointer font-bold text-sm rounded-full px-4 py-1 my-2 mx-1.5 opacity-80 hover:opacity-100`}
-                    id="menu-item-0">
+                    className={`cursor-pointer flex-center flex font-bold text-sm rounded-full px-3 py-1 my-2 mx-1.5 opacity-80 hover:opacity-100`}
+                    id={`hobby${i}`}>
                     {state}
-                  </p>
+                    <TiTick id={`hobbyTick${i}`} className="ml-1 hidden" />
+                  </button>
                 );
               })}
             </div>
