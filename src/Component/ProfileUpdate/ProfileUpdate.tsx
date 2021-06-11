@@ -5,7 +5,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import Dropdown from '../Utils/Dropdown/Dropdown';
 import DatePicker from '../Utils/DatePicker/DatePicker';
 import { states, genders } from '../Utils/Static';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
@@ -18,6 +18,7 @@ type ProfileData = {
   state: string;
   gender: string;
   dob: string;
+  updateState: string;
 };
 
 function ProfileUpdate() {
@@ -53,8 +54,13 @@ function ProfileUpdate() {
   }
 
   const onSubmit = async (data: ProfileData): Promise<any> => {
+    data.state = state;
+    data.dob = dob;
+    data.gender = gender;
+    data.updateState = '1';
+    console.log(data);
     try {
-      const result = await axiosConfig.post(apiEndPoints.profileDataEdit, data);
+      const result = await axiosConfig.put(apiEndPoints.profileDataEdit, data);
       if (result.status === 200) {
         history.push('/spotifyconnect');
       }
@@ -108,7 +114,7 @@ function ProfileUpdate() {
           <p
             onClick={() => setDobModal(true)}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            Select an option
+            {dob ? dob : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>

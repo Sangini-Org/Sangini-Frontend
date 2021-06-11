@@ -1,6 +1,7 @@
 export const apiEndPoints = {
   signup: 'auth/signup',
   signin: 'auth/signin',
-  profileDataEdit: '/api/user/edit',
+  profileDataEdit: '/user/edit',
   googleSignin: 'auth/google',
+  userStateUpdate: '/user/updatestate',
 };
