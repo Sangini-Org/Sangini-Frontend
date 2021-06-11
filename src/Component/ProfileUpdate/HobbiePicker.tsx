@@ -4,6 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Hobbies } from '../Utils/Dictionary/Hobbies';
 import { TiTick } from 'react-icons/ti';
 import { getRandomColor } from '../Utils/Functions/RandomColor';
+import { toast } from 'react-toastify';
 
 type hobbiesArgs = {
   hobbies: boolean;
@@ -16,8 +17,15 @@ function HobbiePicker({ hobbies, setHobbies }: hobbiesArgs) {
   const hobbieHandler = (tag: String, i: number) => {
     if (selectedHobbies.includes(tag)) {
       selectedHobbies = selectedHobbies.filter((item) => item !== tag);
+      document.getElementById('maxHobbyAlert')?.classList.add('hidden');
       document.getElementById(`hobbyTick${i}`)?.classList.add('hidden');
     } else {
+      if (selectedHobbies.length >= 10) {
+        document.getElementById('maxHobbyAlert')?.classList.remove('hidden');
+        toast.warn('Atmost 10 hobbies are allowed');
+        return;
+      }
+      document.getElementById('maxHobbyAlert')?.classList.add('hidden');
       selectedHobbies.push(tag);
       document.getElementById(`hobbyTick${i}`)?.classList.remove('hidden');
     }
@@ -40,12 +48,16 @@ function HobbiePicker({ hobbies, setHobbies }: hobbiesArgs) {
             <div className={`flex items-center py-2 rounded-md my-2 text-black bg-white`}>
               <FaSearch className="ml-4 " />
               <input
-                className="px-2 bg-transparent placeholder-black"
+                className="px-2 w-full bg-transparent placeholder-black"
                 name="search"
-                placeholder={`Search your interests`}
+                autoComplete="off"
+                placeholder={`Search your interests (maximum 10)`}
                 onChange={(e) => setSearchState(e.target.value)}
               />
             </div>
+            <p id="maxHobbyAlert" className="font-bold hidden red-txt text-sm">
+              You can only select upto 10 interest tags!
+            </p>
             <div className="overflow-hidden overflow-y-scroll flex flex-wrap flex-center h-72 mt-2" role="menu">
               {Hobbies.filter((val: string) => {
                 if (searchstate == '') {
