@@ -68,7 +68,7 @@ function Explore() {
         <FaSearch />
         <input className="ml-2 placeholder-white bg-transparent" name="search" placeholder="Search..." />
       </div>
-      <div className={`${styles.notifBox} my-4 max-h-500 overflow-hidden overflow-y-scroll`}>
+      <div className="my-4 max-h-500 overflow-hidden overflow-y-scroll">
         <div className="ml-1">
           {users.map((user, i: number) => {
             return (
