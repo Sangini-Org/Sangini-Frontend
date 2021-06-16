@@ -73,7 +73,7 @@ const Login: React.FC = () => {
       }
     } catch (err) {
       console.log(err);
-      toast.error(err.response.data.metadata.message);
+      toast.error(err.response?.data.metadata.message);
     }
   };
 
