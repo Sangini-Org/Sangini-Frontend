@@ -1,0 +1,17 @@
+.input {
+    border-radius: 10px;
+    color: #000;
+  }
+  
+.btn {
+  border-radius: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  /* width: 120px; */
+  /* height: 100px; */
+  font-size: 16px;
+  color: #fff;
+  border-radius: 100%;
+}
