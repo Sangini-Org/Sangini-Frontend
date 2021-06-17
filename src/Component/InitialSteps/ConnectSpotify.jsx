@@ -1,47 +1,36 @@
 import React, { useEffect } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 import ScreenBlockerNotifs from '../Utils/ScreenBlockerNotifs/ScreenBlockerNotifs';
-import { axiosConfig } from '../../configs/axios';
+import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 
 const ConnectSpotify = () => {
-  // useEffect(() => {
-  //   // if (token) {
-  //   //   window.opener.spotifyCallback(token);
-  //   // }
-  //   // console.log(token);
-  // });
+  useEffect(() => {
+    const code = new URLSearchParams(window?.location.search).get('code');
+    console.log(code);
+    if (code) {
+      spotifyConnect(code);
+    }
+  }, []);
+
+  const spotifyConnect = async (code) => {
+    try {
+      setAxiosAuthToken();
+      const result = await axiosConfig.post(apiEndPoints.spotifyConnect, { code });
+      if (result.status == 200) {
+        const updateStatus = await axiosConfig.post(apiEndPoints.userStateUpdate, { updateState: '2' });
+        if (updateStatus.status == 200) {
+          console.log('your spotify profile has been linked', updateStatus);
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleSpotify = () => {
-    // var spotifyLoginWindow = window.open(
-    //   'https://accounts.spotify.com/authorize?client_id=561d6c474d314908a0843348dd671cf2&redirect_uri=http://localhost:3000/api/callback&response_type=code'
-    // );
-
-    let spotifyLoginWindow = window.open(
-      `https://accounts.spotify.com/authorize?client_id=561d6c474d314908a0843348dd671cf2&response_type=token&redirect_uri=http://localhost:3000/spotifyconnect`,
-      'Login with Spotify',
-      'width=800,height=600'
-    );
-    window.spotifyCallback = (data) => {
-      console.log(data);
-      spotifyLoginWindow.close();
-    };
-    // setTimeout(() => {
-    //   // console.log(spotifyLoginWindow);
-    //   if (spotifyLoginWindow.location.href === 'https://accounts.spotify.com/authorize') {
-    //     return;
-    //   }
-    // }, 2000);
-    // setTimeout(() => {
-    //   const code = new URLSearchParams(spotifyLoginWindow?.location.search).get('code');
-    //   console.log(code);
-    //   spotifyLoginWindow?.close();
-    // }, 2000);
-
-    // spotifyLoginWindow.onload = function () {
-
-    // };
-
-    // console.log(spotifyLoginWindow);
+    const scope = 'user-read-private user-read-email playlist-modify-public';
+    window.location = `https://accounts.spotify.com/authorize?client_id=561d6c474d314908a0843348dd671cf2&response_type=code&redirect_uri=http://localhost:3000/spotifyconnect&scope=user-read-private%20user-read-email%20playlist-modify-public`;
   };
 
   return (
