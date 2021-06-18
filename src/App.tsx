@@ -19,6 +19,7 @@ import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
 import EmailVerify from './Component/InitialSteps/EmailVerify';
 import Dashboard from './Component/Dashboard/Dashboard';
+import Favourites from './Component/Favourites/Favourites';
 
 function App() {
   // const [state, setstate] = useState()
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/" exact component={Landing} />
+        <Route path="/favourites" exact component={Favourites} />
         {userId ? (
           <>
             <NavBar />
