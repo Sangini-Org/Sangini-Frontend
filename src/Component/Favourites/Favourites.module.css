@@ -1,17 +1,10 @@
-.input {
-    border-radius: 10px;
-    color: #000;
-  }
-  
-.btn {
-  border-radius: 20px;
+.baseContainer {
+  max-width: 450px;
 }
 
-.card {
-  border-radius: 10px;
-  /* width: 120px; */
-  /* height: 100px; */
-  font-size: 16px;
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: var(--overlay);
   color: #fff;
-  border-radius: 100%;
 }

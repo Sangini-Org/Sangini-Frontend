@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import styles from './Favourites.module.css';
 import { genres } from '../Utils/Static';
 import { getRandomColor } from '../Utils/Functions/RandomColor';
+import { FaSearch } from 'react-icons/fa';
 
 export default function Favourites(props: any) {
   console.log(props);
@@ -17,29 +18,27 @@ export default function Favourites(props: any) {
   }, [searchTerm, genres]);
 
   return (
-    <div className="h-full flex flex-col px-4 py-8 max-w-450 text-white mx-auto">
-      <div className="flex flex-col">
-        <h2 className="text-3xl font-bold mb-8">Genre</h2>
+    <div className={`flex flex-center justify-center px-4 flex-col m-auto ${styles.baseContainer}`}>
+      <h2 className="text-2xl text-white font-bold text-center py-10 md:py-24">Genre</h2>
+      <div className={`p-4 w-full rounded-lg ${styles.searchBox}`}>
+        <FaSearch />
         <input
-          type="search"
-          placeholder="Search here"
-          className={`${styles.input} h-12 px-4 mb-6`}
+          className="ml-2 placeholder-white bg-transparent"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
+          name="search"
+          placeholder="Search..."
         />
       </div>
-      <div className="flex flex-col flex-1">
-        <div
-          className={`max-h-500 overflow-y-scroll flex flex-wrap ${
-            searchTerm === '' ? 'justify-between' : 'justify-start'
-          }`}>
+      <div className="my-4 max-h-500 w-full overflow-y-scroll">
+        <div className="mr-2 flex flex-wrap justify-between">
           {AllGenre.map((genre: any, index: any) => {
             let clr = getRandomColor();
             return (
               <label
                 key={index}
                 style={{ backgroundColor: `${clr}` }}
-                className={`${styles.card} flex flex-row justify-center text-center items-center h-24 w-24 sm:h-32 sm:w-32 mb-4 mr-1`}
+                className="capitalize rounded-3xl flex flex-center text-white h-24 w-24 sm:h-32 sm:w-32 mb-4"
                 htmlFor="genre">
                 {genre}
               </label>
@@ -47,9 +46,9 @@ export default function Favourites(props: any) {
           })}
         </div>
       </div>
-      <div className="flex flex-2 flex-col text-center">
-        <span className="mb-6 text-lg">Skip Now</span>
-        <button className={`${styles.btn} w-36 h-10 mx-auto text-black primary-bg`}>Continue</button>
+      <div className="flex flex-center flex-col w-full">
+        <span className="my-4 text-md text-muted">Skip Now</span>
+        <button className="py-2 text-black w-1/3 uppercase primary-bg rounded-md">Continue</button>
       </div>
     </div>
   );
