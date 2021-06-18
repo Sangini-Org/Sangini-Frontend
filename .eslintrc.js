@@ -37,10 +37,10 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
     },
     // Append 'ts' extensions to Airbnb 'import/resolver' setting
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
     // Append 'ts' extensions to Airbnb 'import/extensions' setting
     'import/extensions': ['.tsx', '.ts'],

@@ -20,6 +20,7 @@ import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
 import EmailVerify from './Component/InitialSteps/EmailVerify';
 import Dashboard from './Component/Dashboard/Dashboard';
 import Profile from './Component/Profile/Profile';
+import Favourites from './Component/Favourites/Favourites';
 
 function App() {
   // const [state, setstate] = useState()
@@ -35,8 +36,9 @@ function App() {
         <Route path="/" exact component={Landing} />
         <Route path="/profile" exact component={Profile} />
 
-        {/* {userId ? (
+        {userId ? (
           <>
+            <Route path="/favourites" exact component={Favourites} />
             <NavBar />
             <Route path="/notifications" exact component={Notifications} />
             <Route path="/recommendations" exact component={Recommendations} />
@@ -50,7 +52,7 @@ function App() {
           </>
         ) : (
           <Redirect to="/" />
-        )} */}
+        )}
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
       </Router>
