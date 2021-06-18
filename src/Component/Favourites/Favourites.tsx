@@ -38,7 +38,7 @@ export default function Favourites(props: any) {
               <label
                 key={index}
                 style={{ backgroundColor: `${clr}` }}
-                className="capitalize rounded-3xl flex flex-center text-white h-24 w-24 sm:h-32 sm:w-32 mb-4"
+                className="capitalize rounded-full text-center flex flex-center text-white h-24 w-24 sm:h-32 sm:w-32 mb-4"
                 htmlFor="genre">
                 {genre}
               </label>
