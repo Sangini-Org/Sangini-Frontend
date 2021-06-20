@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { IoIosAdd, HiOutlineMinusSm } from 'react-icons/all';
 import styles from './GallerySetup.module.css';
+import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
+import { apiEndPoints } from '../../configs/endpoints';
 
 export default function GallerySetup() {
   const [selectedImg, setSelectedImg] = useState(['']);
-  function handlePreview(e: any) {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-      setSelectedImg((prevImages) => prevImages.concat(filesArray));
-      console.log(filesArray);
-    }
+  async function handlePreview(e: any) {
+    try {
+      if (e.target.files) {
+        const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
+        const data = new FormData();
+        data.append('file', e.target.files[0]);
+        data.append('type', 'gallery');
+        console.log(e.target.files[0]);
+        console.log(data);
+        const result = await axiosConfig.post(apiEndPoints.userImageUpload, data);
+        console.log(result);
+        setSelectedImg((prevImages) => prevImages.concat(filesArray));
+      }
+    } catch (err) {}
   }
 
   function deleteItem(id: any) {
