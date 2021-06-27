@@ -4,7 +4,6 @@ import { Link, useHistory, Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
-import { setAxiosAuthToken } from '../../configs/axios';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { useProfileStore } from '../../stores/useProfileStore';
 import { toast } from 'react-toastify';

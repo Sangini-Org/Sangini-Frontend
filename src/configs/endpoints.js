@@ -3,7 +3,9 @@ export const apiEndPoints = {
   signin: 'auth/signin',
   profileDataEdit: '/user/edit',
   googleSignin: 'auth/google',
-  userStateUpdate: '/user/updatestate',
-  spotifyConnect: '/connect',
-  userImageUpload: '/user/image/upload',
+  userStateUpdate: 'user/updatestate',
+  spotifyConnect: 'connect',
+  userImageUpload: 'user/image/upload',
+  user: 'user/',
+  userImageDelete: 'user/image/delete/',
 };

@@ -1,11 +1,13 @@
 import create from 'zustand';
 
+const id = localStorage.getItem('id')?.replace(/[""]+/g, '');
+
 type authState = {
-  userId: string | null;
-  setUserId: (userId: string | null) => void;
+  userId: string | undefined | null;
+  setUserId: (userId: string | undefined | null) => void;
 };
 
 export const useAuthStore = create<authState>((set) => ({
-  userId: localStorage.getItem('id'),
+  userId: id,
   setUserId: (userId) => set({ userId }),
 }));
