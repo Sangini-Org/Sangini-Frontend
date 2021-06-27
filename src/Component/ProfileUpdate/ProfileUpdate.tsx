@@ -21,20 +21,19 @@ type ProfileData = {
   gender: string | undefined;
   dob: string;
   updateState: string | undefined;
+  url: string;
 };
 
 function ProfileUpdate() {
-  const userId = useAuthStore((state) => state.userId);
-  const [userdata, setuserData] = useState<null | ProfileData>(null);
   useEffect(() => {
     setAxiosAuthToken();
-    axiosConfig.get(apiEndPoints.userProfileData + userId).then((res) => {
-      console.log(res);
-      setuserData(res.data.data.user);
-    });
+    fetchInitialProfileData();
   }, []);
-  console.log(userdata);
 
+  const userId = useAuthStore((state) => state.userId);
+  const [userdata, setuserData] = useState<null | ProfileData>(null);
+  console.log(userdata);
+  const [selectedImg, setSelectedImg] = useState<null | ProfileData>(null);
   const [drop, setDrop] = useState(false);
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
@@ -47,6 +46,12 @@ function ProfileUpdate() {
   const { handleSubmit, register } = useForm<ProfileData>();
   const history = useHistory();
 
+  async function fetchInitialProfileData() {
+    const result = await axiosConfig.get(apiEndPoints.userProfileData + userId + '/image?type=profile');
+    setSelectedImg(result.data.data[0]);
+    const profileResult = await axiosConfig.get(apiEndPoints.userProfileData + userId);
+    setuserData(profileResult.data.data.user);
+  }
   const setGender = () => {
     setDropList(genders);
     setDropTitle('Gender');
@@ -58,12 +63,17 @@ function ProfileUpdate() {
     setDropTitle('State');
     setDrop(true);
   };
-  function handlePreview(e: any) {
-    if (e.target.files) {
-      const imgFile = URL.createObjectURL(e.target.files[0]);
-      setDp(imgFile);
-      console.log(imgFile);
-    }
+  async function handlePreview(e: any) {
+    try {
+      if (e.target.files) {
+        const data = new FormData();
+        data.append('file', e.target.files[0]);
+        data.append('type', 'profile');
+        const result = await axiosConfig.post(apiEndPoints.userImageUpload, data);
+        console.log(result.data.data);
+        setSelectedImg(result.data.data);
+      }
+    } catch (err) {}
   }
 
   const onSubmit = async (data: ProfileData): Promise<any> => {
@@ -95,10 +105,10 @@ function ProfileUpdate() {
           <div className={`box-content h-28 w-28 absolute rounded-3xl mx-1  ${styles.gra}`}></div>
           <div className="flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl rounded-3xl">
             <input id="pp" type="file" hidden onChange={handlePreview} />
-            {dp === '' ? (
+            {selectedImg?.url === '' ? (
               <FiCamera className="text-black" />
             ) : (
-              <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={dp} />
+              <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={selectedImg?.url} />
             )}{' '}
           </div>
         </div>

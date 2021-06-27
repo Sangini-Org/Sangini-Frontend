@@ -16,7 +16,7 @@ export default function GallerySetup() {
   const galleryPhotos = async () => {
     try {
       setAxiosAuthToken();
-      const result = await axiosConfig.get(apiEndPoints.user + userId + '/image?type=gallery');
+      const result = await axiosConfig.get(apiEndPoints.userProfileData + userId + '/image?type=gallery');
       const cloudinaryImageObject = result.data.data.map((image: any) => ({
         id: image.publicId,
         url: image.url,
@@ -29,7 +29,6 @@ export default function GallerySetup() {
   async function handlePreview(e: any) {
     try {
       if (e.target.files) {
-        const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
         const data = new FormData();
         data.append('file', e.target.files[0]);
         data.append('type', 'gallery');
