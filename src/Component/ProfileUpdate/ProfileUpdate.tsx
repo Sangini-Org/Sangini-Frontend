@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './ProfileUpdate.module.css';
 import { FiCamera } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -7,21 +7,34 @@ import DatePicker from '../Utils/DatePicker/DatePicker';
 import { states, genders } from '../Utils/Static';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { axiosConfig } from '../../configs/axios';
+import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
+import { toast } from 'react-toastify';
 import { useProfileStore } from '../../stores/useProfileStore';
+import { useAuthStore } from '../../stores/useAuthStore';
 
 type ProfileData = {
-  firstName: string;
-  lastName: string;
-  bio: string;
-  state: string;
-  gender: string;
+  firstName: string | undefined;
+  lastName: string | undefined;
+  bio: string | undefined;
+  state: string | undefined;
+  gender: string | undefined;
   dob: string;
-  updateState: string;
+  updateState: string | undefined;
 };
 
 function ProfileUpdate() {
+  const userId = useAuthStore((state) => state.userId);
+  const [userdata, setuserData] = useState<null | ProfileData>(null);
+  useEffect(() => {
+    setAxiosAuthToken();
+    axiosConfig.get(apiEndPoints.userProfileData + userId).then((res) => {
+      console.log(res);
+      setuserData(res.data.data.user);
+    });
+  }, []);
+  console.log(userdata);
+
   const [drop, setDrop] = useState(false);
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
@@ -54,9 +67,11 @@ function ProfileUpdate() {
   }
 
   const onSubmit = async (data: ProfileData): Promise<any> => {
-    data.state = state;
-    data.dob = dob;
-    data.gender = gender;
+    data.firstName = data.firstName ? data.firstName : userdata?.firstName;
+    data.lastName = data.lastName ? data.lastName : userdata?.lastName;
+    data.state = state ? state : userdata?.state;
+    data.dob = dob ? dob : userdata!.dob;
+    data.gender = gender ? gender : userdata?.gender;
     data.updateState = '1';
     console.log(data);
     try {
@@ -65,6 +80,7 @@ function ProfileUpdate() {
         history.push('/spotifyconnect');
       }
     } catch (err) {
+      toast.error(err.response?.data.metadata.message);
       console.log(err);
     }
   };
@@ -93,19 +109,26 @@ function ProfileUpdate() {
           <input
             className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`}
             {...register('firstName')}
+            defaultValue={userdata?.firstName}
             required
           />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Last Name</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} {...register('lastName')} required />
+          <input
+            className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`}
+            {...register('lastName')}
+            defaultValue={userdata?.lastName}
+            required
+          />
         </div>
         <div className="w-full mt-2">
           <label className="text-md">Gender</label>
           <p
             onClick={setGender}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            {gender ? gender : 'Select an option'}
+            {gender ? gender : userdata ? userdata.gender : 'Select an option'}
+
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
@@ -114,7 +137,7 @@ function ProfileUpdate() {
           <p
             onClick={() => setDobModal(true)}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            {dob ? dob : 'Select an option'}
+            {dob ? dob : userdata ? userdata.dob.split('T')[0].split('-').reverse().join('-') : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
@@ -123,7 +146,7 @@ function ProfileUpdate() {
           <p
             onClick={setState}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            {state ? state : 'Select an option'}
+            {state ? state : userdata ? userdata.state : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>

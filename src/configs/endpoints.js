@@ -6,6 +6,6 @@ export const apiEndPoints = {
   userStateUpdate: 'user/updatestate',
   spotifyConnect: 'connect',
   userImageUpload: 'user/image/upload',
-  user: 'user/',
+  userProfileData: 'user/',
   userImageDelete: 'user/image/delete/',
 };
