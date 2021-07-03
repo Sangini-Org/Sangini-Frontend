@@ -22,6 +22,6 @@ const colors = [
   '#fb9300',
 ];
 
-export const getRandomColor = () => {
-  return colors[Math.floor(Math.random() * colors.length)];
+export const getRandomColor = (i: number) => {
+  return colors[Math.floor(i % colors.length)];
 };

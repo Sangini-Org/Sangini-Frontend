@@ -33,7 +33,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/" exact component={Landing} />
-        <Route path="/favourites" exact component={Favourites} />
+
         {userId ? (
           <>
             <NavBar />
@@ -46,6 +46,7 @@ function App() {
             <Route path="/profile/gallery" exact component={GallerySetup} />
             <Route path="/spotifyconnect" exact component={ConnectSpotify} />
             <Route path="/emailverify" exact component={EmailVerify} />
+            <Route path="/favourites" exact component={Favourites} />
           </>
         ) : (
           <Redirect to="/" />

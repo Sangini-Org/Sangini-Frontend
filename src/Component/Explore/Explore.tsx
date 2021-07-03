@@ -63,7 +63,7 @@ function Explore() {
 
   return (
     <div className={`flex flex-center justify-center px-4 flex-col m-auto ${styles.baseContainer}`}>
-      <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Explore</h1>
+      <h1 className="text-2xl text-white font-bold text-center py-10 md:pt-24">Explore</h1>
       <div className={`p-4 w-full rounded-lg ${styles.searchBox}`}>
         <FaSearch />
         <input className="ml-2 placeholder-white bg-transparent" name="search" placeholder="Search..." />
