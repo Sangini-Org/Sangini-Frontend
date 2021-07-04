@@ -34,9 +34,9 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/" exact component={Landing} />
-
         {userId ? (
           <>
+            <Route path="/favourites" exact component={Favourites} />
             <NavBar />
             <Route path="/notifications" exact component={Notifications} />
             <Route path="/recommendations" exact component={Recommendations} />
