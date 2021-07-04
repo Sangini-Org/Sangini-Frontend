@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import profilePic from '../Utils/Images/profile.png';
+import explore from '../Utils/Images/explore.png';
 import user from '../Utils/Images/user.jpg';
 import song from '../Utils/Images/song.png';
 import styles from './Profile.module.css';
@@ -9,7 +9,7 @@ import SpotifyPlay from '../Utils/SpotifyPlay/SpotifyPlay';
 import { getRandomColor } from '../Utils/Functions/RandomColor';
 
 export default function Profile() {
-  const images = [user, profilePic, user, profilePic, user, profilePic];
+  const images = [user, explore, user, explore, user, explore];
   const [tags, setTags] = useState([
     '#Romantic',
     '#GoodVibes',
@@ -55,7 +55,6 @@ export default function Profile() {
   const [translateValue, settranslateValue] = useState(0);
   const slideWidth = () => {
     const x = document.getElementById('slide')?.clientWidth;
-    console.log(x);
     return x as number;
   };
   const goToPrevSlide = () => {
@@ -86,44 +85,41 @@ export default function Profile() {
               transform: `translateX(${translateValue}px)`,
               transition: 'transform ease-out 0.45s',
             }}
-            className="inline-flex">
+            className="inline-flex w-full">
             {images.map((image, index) => {
               return <img key={index} src={image} alt="image" className={` ${styles.img} rounded-lg w-full`} />;
             })}
           </div>
           <button
-            className={`absolute left-0 h-full dark-bg opacity-10 hover:opacity-50`}
+            className={`rounded-r-md absolute left-0 dark-bg opacity-10 hover:opacity-30`}
             onClick={() => goToPrevSlide()}>
-            <IoIosArrowBack className={` ${styles.arrows} w-8 md:w-16`} />
+            <IoIosArrowBack className={` ${styles.arrows} w-8 md:w-10`} />
           </button>
           <button
-            className={`absolute right-0 h-full dark-bg opacity-10 hover:opacity-50`}
+            className={`rounded-l-md absolute right-0 dark-bg opacity-10 hover:opacity-30`}
             onClick={() => goToNextSlide()}>
-            <IoIosArrowForward className={` ${styles.arrows} w-8 md:w-16`} />
+            <IoIosArrowForward className={` ${styles.arrows} w-8 md:w-10`} />
           </button>
         </div>
       </div>
-      <div className="capitalize text-md w-full flex flex-col my-4 md:my-8 mx-auto text-white">
-        <div className="flex flex-col">
+      <div className="capitalize text-md w-full flex flex-col my-4 mx-auto text-white">
+        <div className="flex flex-col mx-1">
           <h4 className="font-bold text-xl">Lucifier Morningstar, 25</h4>
           <span className={`primary-txt w-3/4 text-xs mt-2 mb-2`}>
             I wish I were your mirror so that I could look at you every morning
           </span>
         </div>
-        <div className="relative">
-          <h4 className="mb-5">Tags:</h4>
-          <div className="">
-            <ul className="flex flex-wrap p-0">
-              {tags.map((tag, index) => (
-                <li
-                  key={index}
-                  style={{ backgroundColor: `${getRandomColor(index)}` }}
-                  className={`flex-center flex font-bold text-sm rounded-full px-3 py-1 m-1 opacity-80 hover:opacity-100`}>
-                  <span>{tag}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div>
+          <ul className="flex flex-wrap mt-2">
+            {tags.map((tag, index) => (
+              <li
+                key={index}
+                style={{ backgroundColor: `${getRandomColor(index)}` }}
+                className={`flex-center flex font-bold text-sm rounded-full px-3 py-1 m-1 opacity-80 hover:opacity-100`}>
+                <span>{tag}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="flex flex-col text-white">
@@ -131,7 +127,7 @@ export default function Profile() {
         {songList.map((song, index) => {
           return (
             <div key={index} className="flex flex-row" onClick={() => playSong(song.trackid)}>
-              <img src={song.songImg} alt="song" className={`rounded-xl w-16 h-16 mr-2 mb-2`} />
+              <img src={song.songImg} alt="song" className={`rounded-lg w-16 h-16 mr-2 mb-2`} />
               <div>
                 <h4>{song.songName}</h4>
                 <h4 className="primary-txt text-xs">by</h4>
@@ -142,25 +138,22 @@ export default function Profile() {
         })}
       </div>
       <div className="flex flex-col text-white mt-4">
-        <h4 className="text-lg">Social Accounts</h4>
+        <h4 className="text-md">Social Accounts</h4>
         <div className="flex flex-row items-center text-4xl mt-2">
-          <Link to="/" className="flex flex-center rounded-full dark-sec-bg w-16 h-16 mr-3 ">
-            <AiFillTwitterCircle className={`w-10 h-10 rounded-full ${styles.twitter}`} />
+          <Link to="/" className="flex flex-center rounded-full dark-sec-bg w-14 h-14 mr-3">
+            <AiFillTwitterCircle className={`w-9 h-9 rounded-full ${styles.twitter}`} />
           </Link>
-          <Link to="/" className="flex flex-center rounded-full dark-sec-bg  w-16 h-16 mr-3 ">
-            <SiInstagram className={`w-10 h-10 rounded-xl ${styles.instagram}`} />
+          <Link to="/" className="flex flex-center rounded-full dark-sec-bg  w-14 h-14 mr-3 ">
+            <SiInstagram className={`w-9 h-9 rounded-xl ${styles.instagram}`} />
           </Link>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center my-10">
-        <button
-          className={`yellow-bg rounded-2xl flex flex-row justify-center items-center text-black mb-10 w-44 h-10`}>
+      <div className="flex flex-col justify-center items-center my-6">
+        <button className={`yellow-bg rounded-full flex flex-row flex-center mb-4 text-sm w-44 py-1.5`}>
           Current Mood
           <BsArrowRight className="ml-4 pt-1 text-2xl" />
         </button>
-        <button className={`red-bg rounded-2xl flex justify-center items-center text-white w-44 h-10`}>
-          Report User
-        </button>
+        <button className={`red-bg rounded-full flex flex-center text-white w-44 text-sm py-1.5`}>Report User</button>
       </div>
     </div>
   );

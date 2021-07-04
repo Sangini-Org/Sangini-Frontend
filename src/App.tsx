@@ -36,7 +36,6 @@ function App() {
         <Route path="/" exact component={Landing} />
         {userId ? (
           <>
-            <Route path="/favourites" exact component={Favourites} />
             <NavBar />
             <Route path="/notifications" exact component={Notifications} />
             <Route path="/recommendations" exact component={Recommendations} />
