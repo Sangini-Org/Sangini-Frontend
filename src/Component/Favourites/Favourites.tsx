@@ -19,7 +19,7 @@ export default function Favourites(props: any) {
 
   return (
     <div className={`flex flex-center justify-center px-4 flex-col m-auto ${styles.baseContainer}`}>
-      <h2 className="text-2xl text-white font-bold text-center py-10 md:py-24">Genre</h2>
+      <h2 className="text-2xl text-white font-bold text-center py-10 md:pt-24">Genre</h2>
       <div className={`p-4 w-full rounded-lg ${styles.searchBox}`}>
         <FaSearch />
         <input
@@ -33,7 +33,7 @@ export default function Favourites(props: any) {
       <div className="my-4 max-h-500 w-full overflow-y-scroll">
         <div className="mr-2 flex flex-wrap justify-between">
           {AllGenre.map((genre: any, index: any) => {
-            let clr = getRandomColor();
+            let clr = getRandomColor(index);
             return (
               <label
                 key={index}

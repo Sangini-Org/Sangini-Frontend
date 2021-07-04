@@ -5,79 +5,22 @@
 .carousel_inner::-webkit-scrollbar {
   display: none;
 }
-
+.arrows{
+  height: 6rem;
+    z-index: 10;
+}
 .img {
-  border-radius: 10px;
   flex: 0 0 100%;
 }
-
-.btn {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: 1px solid #000;
-  background-color: white;
-}
-.left {
-  left: -5%;
-}
-
-.right {
-  right: -5%;
-}
-
-.arrow {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #1ED760;
-}
-
-.textarea {
-    background: #2D2D2D;
-}    
-
-.bio {
-    color: #1ED760;
-    width: 70%;
-}
-
-.input {
-    border-radius: 10px;
-    background: #2D2D2D;
-}
-
-.list {
-    background: #fff;
-    color: #1ED760;
-    border-radius: 20px;
-}
-
-.icon {
-    border-radius: 100%;
+.twitter {
     background-color: #fff;
-    color: blue;
-    box-shadow: 0 0 2px 13px var(--overlay-light);
+    color: #55ACEE;
+    border: 0px
+;
   }
 
 .instagram {
-  border-radius: 100%;
-  box-shadow: 0 0 2px 13px var(--overlay-light);
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
-.image {
-    border-radius: 10px;
-}
-
-.data {
-    color: #1ED760;
-}
-.button {
-    border-radius: 20px;
-    background: #FFDE34;
-}
-.button2 {
-    border-radius: 20px;
-    background: #FD2727;
-}
 

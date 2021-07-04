@@ -4,172 +4,161 @@ import user from '../Utils/Images/user.jpg';
 import song from '../Utils/Images/song.png';
 import styles from './Profile.module.css';
 import { Link } from 'react-router-dom';
-import {
-  SiInstagram,
-  AiFillTwitterCircle,
-  IoIosClose,
-  BsArrowRight,
-  BsChevronDoubleLeft,
-  BsChevronDoubleRight,
-} from 'react-icons/all';
+import { SiInstagram, AiFillTwitterCircle, BsArrowRight, IoIosArrowBack, IoIosArrowForward } from 'react-icons/all';
+import SpotifyPlay from '../Utils/SpotifyPlay/SpotifyPlay';
+import { getRandomColor } from '../Utils/Functions/RandomColor';
 
 export default function Profile() {
   const images = [user, profilePic, user, profilePic, user, profilePic];
-  const [tags, setTags] = useState(['#Romantic', '#GoodVibes']);
+  const [tags, setTags] = useState([
+    '#Romantic',
+    '#GoodVibes',
+    'Musician',
+    'Sufi Music',
+    'Hip Hop',
+    'Qawwali',
+    'Wanderlust',
+    'Heavy Metal',
+    'Rock',
+  ]);
 
   const songList = [
     {
       songImg: song,
       songName: 'Night Changes',
       songSinger: 'One Direction',
+      trackid: '5O2P9iiztwhomNh8xkR9lJ',
     },
     {
       songImg: song,
       songName: 'Lovely',
       songSinger: 'Billie Ellish and DJ Khaleed',
+      trackid: '0u2P5u6lvoDfwTYjAADbn4',
     },
     {
       songImg: song,
       songName: 'Intentions',
       songSinger: 'Justin Bieber',
+      trackid: '364dI1bYnvamSnBJ8JcNzN',
     },
   ];
 
-  images.push(...images);
-  const scrollWrapperRef = useRef<any>();
-  const [clickStartX, setClickStartX] = useState<any>();
-  const [scrollStartX, setScrollStartX] = useState<any>();
-  const scrollWrapperCurrent = scrollWrapperRef.current;
-
-  useEffect(() => {
-    if (scrollWrapperRef.current) {
-      const handleDragStart = (e: any) => {
-        setClickStartX(e.screenX);
-        setScrollStartX(scrollWrapperRef.current.scrollLeft);
-      };
-      const handleDragMove = (e: any) => {
-        e.stopPropagation();
-        if (clickStartX !== undefined && scrollStartX !== undefined) {
-          const touchDelta = clickStartX - e.screenX;
-          scrollWrapperRef.current.scrollLeft = scrollStartX + touchDelta;
-        }
-      };
-      const handleDragEnd = (e: any) => {
-        if (clickStartX !== undefined) {
-          setClickStartX(undefined);
-          setScrollStartX(undefined);
-        }
-      };
-
-      if (scrollWrapperRef.current.ontouchstart === undefined) {
-        scrollWrapperRef.current.onmousedown = handleDragStart;
-        scrollWrapperRef.current.onmousemove = handleDragMove;
-        scrollWrapperRef.current.onmouseup = handleDragEnd;
-        scrollWrapperRef.current.onmouseleave = handleDragEnd;
-      }
-    }
-  }, [scrollWrapperCurrent]);
-
-  function handleClick(scrollOffset: number) {
-    scrollWrapperRef.current.scrollLeft -= scrollOffset;
-    scrollWrapperRef.current.scrollLeft += scrollOffset;
-  }
-
-  const addTags = (event: any) => {
-    if (event.target.value !== '') {
-      setTags([...tags, event.target.value]);
-      event.target.value = '';
-    }
+  const [songPlay, setSongPlay] = useState(false);
+  const [trackid, settrackId] = useState('');
+  const playSong = (trackid: string) => {
+    settrackId(trackid);
+    setSongPlay(true);
   };
 
-  // h-64 w-96 md:w-full
-  const removeTags = (indexToRemove: any) => {
-    setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+  images.push(...images);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [translateValue, settranslateValue] = useState(0);
+  const slideWidth = () => {
+    const x = document.getElementById('slide')?.clientWidth;
+    console.log(x);
+    return x as number;
+  };
+  const goToPrevSlide = () => {
+    if (currentIndex === 0) return;
+    setCurrentIndex(currentIndex - 1), settranslateValue(translateValue + slideWidth());
+  };
+  const goToNextSlide = () => {
+    if (currentIndex === images.length - 1) {
+      setCurrentIndex(0);
+      settranslateValue(0);
+      return;
+    }
+    setCurrentIndex(currentIndex + 1);
+    settranslateValue(translateValue - slideWidth());
+    console.log(translateValue);
   };
 
   return (
-    <div className="min-h-full flex flex-col px-4 py-8 max-w-450 mx-auto">
-      <div className="flex cursor-pointer flex-center justify-center flex-col relative text-white mb-4 w-full max-w-450 md:mb-0">
+    <div className="min-h-full flex flex-col px-4 py-8 md:px-12 max-w-450 mx-auto">
+      {songPlay ? <SpotifyPlay player={songPlay} setPlayer={setSongPlay} trackid={trackid} /> : ''}
+      <div className="flex cursor-pointer flex-center justify-center flex-col relative text-white mb-4 w-full md:mb-0">
         <h4 className="text-2xl font-bold mb-6">Profile</h4>
         <div
-          className={`${styles.carousel_inner} flex justify-center items-center overflow-y-hidden overflow-x-scroll max-w-450`}
-          ref={scrollWrapperRef}>
-          <button
-            className={`${styles.btn} ${styles.left} justify-center items-center absolute hidden md:flex`}
-            onClick={() => handleClick(-175)}>
-            <BsChevronDoubleLeft className={`${styles.arrow}`} />
-          </button>
-          <div className="inline-flex">
+          className={`${styles.carousel_inner} flex justify-center items-center overflow-y-hidden overflow-x-scroll`}>
+          <div
+            id="slide"
+            style={{
+              transform: `translateX(${translateValue}px)`,
+              transition: 'transform ease-out 0.45s',
+            }}
+            className="inline-flex">
             {images.map((image, index) => {
-              return <img key={index} src={image} alt="image" className={`${styles.img} h-64 w-full`} />;
+              return <img key={index} src={image} alt="image" className={` ${styles.img} rounded-lg w-full`} />;
             })}
           </div>
           <button
-            className={`${styles.btn} ${styles.right} justify-center items-center absolute hidden md:flex`}
-            onClick={() => handleClick(+175)}>
-            <BsChevronDoubleRight className={`${styles.arrow}`} />
+            className={`absolute left-0 h-full dark-bg opacity-10 hover:opacity-50`}
+            onClick={() => goToPrevSlide()}>
+            <IoIosArrowBack className={` ${styles.arrows} w-8 md:w-16`} />
+          </button>
+          <button
+            className={`absolute right-0 h-full dark-bg opacity-10 hover:opacity-50`}
+            onClick={() => goToNextSlide()}>
+            <IoIosArrowForward className={` ${styles.arrows} w-8 md:w-16`} />
           </button>
         </div>
-        {/* <img src={profilePic} alt="profile_img" className="h-64 w-96 md:w-full" /> */}
       </div>
-      <div className="capitalize text-md w-full flex flex-col my-4 md:my-8 mx-auto text-white max-w-450">
+      <div className="capitalize text-md w-full flex flex-col my-4 md:my-8 mx-auto text-white">
         <div className="flex flex-col">
           <h4 className="font-bold text-xl">Lucifier Morningstar, 25</h4>
-          <span className={`${styles.bio} mt-2 mb-2`}>
+          <span className={`primary-txt w-3/4 text-xs mt-2 mb-2`}>
             I wish I were your mirror so that I could look at you every morning
           </span>
         </div>
         <div className="relative">
           <h4 className="mb-5">Tags:</h4>
-          <ul className="flex flex-wrap absolute p-0 m-2">
-            {tags.map((tag, index) => (
-              <li
-                key={index}
-                className={`${styles.list} w-auto flex justify-center items-center mr-3 pl-2 list-style-none`}>
-                <span>{tag}</span>
-                <IoIosClose className="text-3xl pt-1" onClick={() => removeTags(index)} />
-              </li>
-            ))}
-          </ul>
-          <input
-            type="text"
-            onKeyUp={(event) => (event.key === 'Enter' ? addTags(event) : null)}
-            className={`${styles.input} w-full h-20 p-4 flex-1`}
-          />
+          <div className="">
+            <ul className="flex flex-wrap p-0">
+              {tags.map((tag, index) => (
+                <li
+                  key={index}
+                  style={{ backgroundColor: `${getRandomColor(index)}` }}
+                  className={`flex-center flex font-bold text-sm rounded-full px-3 py-1 m-1 opacity-80 hover:opacity-100`}>
+                  <span>{tag}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <div className="flex flex-col text-white">
-        <h4 className="text-xl">Social Accounts</h4>
-        <div className="flex flex-row items-center text-4xl my-6">
-          <Link to="/">
-            <AiFillTwitterCircle className={`w-12 h-12 mr-6 ml-4 ${styles.icon}`} />
-          </Link>
-          <Link to="/">
-            <SiInstagram className={`w-12 h-12 mr-6 ml-4  ${styles.instagram}`} />
-          </Link>
-        </div>
-      </div>
-      <div className="flex flex-col text-white">
-        <h4 className="text-xl mb-4">English mix</h4>
+        <h4 className="text-lg mb-4">English mix</h4>
         {songList.map((song, index) => {
           return (
-            <div key={index} className="flex flex-row">
-              <img src={song.songImg} alt="song" className={`${styles.image} w-16 h-16 mr-2 mb-2`} />
+            <div key={index} className="flex flex-row" onClick={() => playSong(song.trackid)}>
+              <img src={song.songImg} alt="song" className={`rounded-xl w-16 h-16 mr-2 mb-2`} />
               <div>
                 <h4>{song.songName}</h4>
-                <h4 className={`${styles.data}`}>by</h4>
-                <h4 className={`${styles.data}`}>{song.songSinger}</h4>
+                <h4 className="primary-txt text-xs">by</h4>
+                <h4 className="primary-txt text-xs">{song.songSinger}</h4>
               </div>
             </div>
           );
         })}
       </div>
+      <div className="flex flex-col text-white mt-4">
+        <h4 className="text-lg">Social Accounts</h4>
+        <div className="flex flex-row items-center text-4xl mt-2">
+          <Link to="/" className="flex flex-center rounded-full dark-sec-bg w-16 h-16 mr-3 ">
+            <AiFillTwitterCircle className={`w-10 h-10 rounded-full ${styles.twitter}`} />
+          </Link>
+          <Link to="/" className="flex flex-center rounded-full dark-sec-bg  w-16 h-16 mr-3 ">
+            <SiInstagram className={`w-10 h-10 rounded-xl ${styles.instagram}`} />
+          </Link>
+        </div>
+      </div>
       <div className="flex flex-col justify-center items-center my-10">
-        <button className={`${styles.button} flex flex-row justify-center items-center text-black mb-10 w-44 h-10`}>
+        <button
+          className={`yellow-bg rounded-2xl flex flex-row justify-center items-center text-black mb-10 w-44 h-10`}>
           Current Mood
           <BsArrowRight className="ml-4 pt-1 text-2xl" />
         </button>
-        <button className={`${styles.button2} flex justify-center items-center text-white w-44 h-10`}>
+        <button className={`red-bg rounded-2xl flex justify-center items-center text-white w-44 h-10`}>
           Report User
         </button>
       </div>
