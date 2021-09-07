@@ -70,7 +70,7 @@ function HobbiePicker({ hobbies, setHobbies }: hobbiesArgs) {
                   <button
                     onClick={() => hobbieHandler(state, i)}
                     key={i}
-                    style={{ backgroundColor: `${getRandomColor()}` }}
+                    style={{ backgroundColor: `${getRandomColor(i)}` }}
                     className={`cursor-pointer flex-center flex font-bold text-sm rounded-full px-3 py-1 my-2 mx-1.5 opacity-80 hover:opacity-100`}
                     id={`hobby${i}`}>
                     {state}

@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { BsChatDotsFill, BsFillStarFill } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
+import SpotifyPlay from '../Utils/SpotifyPlay/SpotifyPlay';
 function NavBar() {
   const [activeMenuItem, setActiveMenuItem] = useState(0);
+  const [startSong, setstartSong] = useState(false);
   return (
     <IconContext.Provider value={{ className: 'text-xl md:text-2xl' }}>
+      {startSong ? <SpotifyPlay player={startSong} setPlayer={setstartSong} trackid={'6fW78cd0p3ZDUzoqvx2Xqe'} /> : ''}
       <div className="z-50 bottom-0 dark-sec-bg w-full fixed h-20 md:w-36 md:h-full md:m-auto md:rounded-r-xl md:rounded-t-none rounded-t-xl">
         <nav className="tabs flex flex-center h-full md:h-auto justify-center text-xs md:flex-col md:items-center md:py-28">
           <Link
@@ -19,7 +22,8 @@ function NavBar() {
             <FaSearch className={activeMenuItem === 0 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 0 ? 'primary-txt' : 'text-white'} mt-1.5`}>Explore</span>
           </Link>
-          <button
+          <Link
+            to="/recommendations"
             onClick={() => setActiveMenuItem(1)}
             data-target="panel-2"
             className={`${
@@ -27,7 +31,7 @@ function NavBar() {
             } w-full h-full md:py-6 md:m-1.5 flex flex-col items-center justify-center hover:bg-black`}>
             <BsFillStarFill className={activeMenuItem === 1 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 1 ? 'primary-txt' : 'text-white'} mt-1.5`}>Likes</span>
-          </button>
+          </Link>
           <Link
             to="/notifications"
             onClick={() => setActiveMenuItem(2)}

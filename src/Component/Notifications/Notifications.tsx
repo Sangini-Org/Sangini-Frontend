@@ -144,7 +144,7 @@ function Notifications() {
   return (
     <IconContext.Provider value={{ size: '2rem', className: 'bg-white rounded-full mx-2.5 p-1.5' }}>
       <div className="flex flex-center justify-center flex-col">
-        <h1 className="text-2xl text-white font-bold text-center py-10 md:py-24">Notifications</h1>
+        <h1 className="text-2xl text-white font-bold text-center py-10 md:pt-24">Notifications</h1>
         <div className="w-11/12 max-w-500 px-1 md:px-8">
           <div className="flex flex-space-bw text-lg pb-8">
             <button

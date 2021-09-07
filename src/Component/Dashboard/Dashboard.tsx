@@ -21,13 +21,15 @@ export default function ProfileEditing() {
               <FiCamera className="text-black" />
             ) : (
               <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={dp} />
-            )}{' '}
+            )}
           </div>
         </div>
-        <p className="text-lg text-white p-2 my-4 md:my-8">Meghal Bisht</p>
+        <p className="text-lg text-white p-2 my-4 md:mt-8">Meghal Bisht</p>
       </label>
       <div className={`capitalize text-md w-full flex flex-col my-4 md:my-8 mx-auto text-white max-w-450`}>
-        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+        <Link
+          to="/profile/update"
+          className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
           Profile edit
           <RiArrowRightSLine className="text-2xl" />
         </Link>
@@ -37,7 +39,9 @@ export default function ProfileEditing() {
           Current mood
           <RiArrowRightSLine className="text-2xl" />
         </div>
-        <Link to="/" className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
+        <Link
+          to="/profile/gallery"
+          className={`link rounded-2xl flex justify-between items-center p-4 mb-5 dark-sec-bg`}>
           Gallery update
           <RiArrowRightSLine className="text-2xl" />
         </Link>
