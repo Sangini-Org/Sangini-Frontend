@@ -8,9 +8,10 @@ export const axiosConfig = axios.create({
 
 export const setAxiosAuthToken = () => {
   const token = JSON.parse(localStorage.getItem('token'));
+  console.log(token);
   if (typeof token !== 'undefined' && token) {
-    axios.defaults.headers.common['x-access-token'] = token;
+    axiosConfig.defaults.headers.common['x-access-token'] = token;
   } else {
-    delete axios.defaults.headers.common['x-access-token'];
+    delete axiosConfig.defaults.headers.common['x-access-token'];
   }
 };

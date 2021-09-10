@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import Tick from './Lotties/Tick.json';
 const LottiePlayer = (animationData: any) => {
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {

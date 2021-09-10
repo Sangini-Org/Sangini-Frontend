@@ -6,7 +6,7 @@ import Explore from './Component/Explore/Explore';
 import Notifications from './Component/Notifications/Notifications';
 import ResetPassword from './Component/ResetPassword/ResetPassword';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { useAuthStore } from '../src/stores/useAuthStore';
+import { useAuthStore } from './stores/useAuthStore';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfileUpdate from './Component/ProfileUpdate/ProfileUpdate';
@@ -19,41 +19,44 @@ import GallerySetup from './Component/InitialSteps/GallerySetup';
 import ConnectSpotify from './Component/InitialSteps/ConnectSpotify';
 import EmailVerify from './Component/InitialSteps/EmailVerify';
 import Dashboard from './Component/Dashboard/Dashboard';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import { useProfileStore } from './stores/useProfileStore';
+import { setAxiosAuthToken } from './configs/axios';
 import Profile from './Component/Profile/Profile';
 import Favourites from './Component/Favourites/Favourites';
 
 function App() {
   // const [state, setstate] = useState()
+  const profileStatus = useProfileStore((state) => state.profileStatus);
   const userId = useAuthStore((state) => state.userId);
-  console.log(userId);
+
+  useEffect(() => {
+    setAxiosAuthToken();
+  }, [profileStatus, userId]);
 
   return (
     <div className="App dark-bg pb-20 md:pb-0">
       <Router>
-        <Route path="/register" exact component={SignUp} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/reset-password" exact component={ResetPassword} />
-        <Route path="/" exact component={Landing} />
-        {userId ? (
-          <>
-            <NavBar />
-            <Route path="/notifications" exact component={Notifications} />
-            <Route path="/recommendations" exact component={Recommendations} />
-            <Route path="/explore" exact component={Explore} />
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/profile/update" exact component={ProfileUpdate} />
-            <Route path="/profile/updated" exact component={ProfileUpdated} />
-            <Route path="/profile/gallery" exact component={GallerySetup} />
-            <Route path="/spotifyconnect" exact component={ConnectSpotify} />
-            <Route path="/emailverify" exact component={EmailVerify} />
-            <Route path="/favourites" exact component={Favourites} />
-          </>
-        ) : (
-          <Redirect to="/" />
-        )}
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <ProtectedRoute path="/dashboard" exact component={Dashboard} />
+          <ProtectedRoute path="/profile/update" exact component={ProfileUpdate} />
+          <ProtectedRoute path="/profile/updated" exact component={ProfileUpdated} />
+          <ProtectedRoute path="/profile/gallery" exact component={GallerySetup} />
+          <ProtectedRoute path="/spotifyconnect" exact component={ConnectSpotify} />
+          <ProtectedRoute path="/emailverify" exact component={EmailVerify} />
+          <Route exact path="/register" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute path="/profile" exact component={Profile} />
+          <ProtectedRoute path="/favourites" exact component={Favourites} />
+          <ProtectedRoute path="/reset-password" exact component={ResetPassword} />
+          <ProtectedRoute path="/notifications" exact component={Notifications} />
+          <ProtectedRoute path="/recommendations" exact component={Recommendations} />
+          <ProtectedRoute exact path="/explore" component={Explore} />
+        </Switch>
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
+        {userId !== null ? <NavBar /> : ''}
       </Router>
     </div>
   );

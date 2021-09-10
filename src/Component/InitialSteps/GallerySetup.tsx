@@ -1,38 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoIosAdd, HiOutlineMinusSm } from 'react-icons/all';
 import styles from './GallerySetup.module.css';
+import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
+import { apiEndPoints } from '../../configs/endpoints';
+import { useAuthStore } from '../../stores/useAuthStore';
 
 export default function GallerySetup() {
-  const [selectedImg, setSelectedImg] = useState(['']);
-  function handlePreview(e: any) {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-      setSelectedImg((prevImages) => prevImages.concat(filesArray));
-      console.log(filesArray);
-    }
+  const [selectedImg, setSelectedImg] = useState([{}]);
+  const [loader, setLoader] = useState(false);
+  const userId = useAuthStore((state) => state.userId);
+  useEffect(() => {
+    galleryPhotos();
+  }, [loader]);
+
+  const galleryPhotos = async () => {
+    try {
+      setAxiosAuthToken();
+      const result = await axiosConfig.get(apiEndPoints.userProfileData + userId + '/image?type=gallery');
+      const cloudinaryImageObject = result.data.data.map((image: any) => ({
+        id: image.publicId,
+        url: image.url,
+      }));
+      setSelectedImg(cloudinaryImageObject);
+      setLoader(false);
+    } catch (err) {}
+  };
+
+  async function handlePreview(e: any) {
+    try {
+      if (e.target.files) {
+        const data = new FormData();
+        data.append('file', e.target.files[0]);
+        data.append('type', 'gallery');
+        const result = await axiosConfig.post(apiEndPoints.userImageUpload, data);
+        console.log(result.data.data);
+        setSelectedImg([...selectedImg, result.data.data]);
+      }
+    } catch (err) {}
   }
 
-  function deleteItem(id: any) {
-    setSelectedImg((prevItems) => {
-      return prevItems.filter((photo, index) => {
-        return index !== id;
-      });
-    });
+  async function deleteItem(id: string): Promise<any> {
+    try {
+      const result = await axiosConfig.delete(apiEndPoints.userImageDelete + id);
+    } catch (err) {
+      console.log(err);
+    }
+    setLoader(true);
   }
-  const renderPhotos = (source: string[]) => {
-    return source.map((photo, id) => {
+
+  const renderPhotos = (source: any) => {
+    console.log(source);
+    return source.map((photo: any) => {
       if (photo) {
         return (
-          <div className={'inline-flex relative'} key={photo}>
+          <div className={'inline-flex relative'} key={photo.id}>
             <img
               className="object-cover	dark-sec-bg rounded-xl mx-1.5 w-32 h-44 flex flex-row flex-col-reverse md:w-34 md:h-34 cursor-pointer my-2"
-              src={photo}
-              key={id}
+              src={photo.url}
+              key={photo.id}
             />
             <label className={`${styles.img} h-6 w-6 absolute rounded-full cursor-pointer`}>
               <HiOutlineMinusSm
                 className={`bg-white ${styles.img} bg-gray-300 h-6 w-6 rounded-full`}
-                onClick={() => deleteItem(id)}
+                onClick={() => deleteItem(photo.id)}
               />
             </label>
           </div>

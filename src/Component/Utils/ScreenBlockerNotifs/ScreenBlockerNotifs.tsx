@@ -6,9 +6,10 @@ type notifArgs = {
   btnText: string;
   subText: string;
   theme: string;
+  handleClick: () => void;
 };
 
-function ScreenBlockerNotifs({ icon, btnText, subText, theme }: notifArgs) {
+function ScreenBlockerNotifs({ icon, btnText, subText, theme, handleClick }: notifArgs) {
   const Icon = icon;
   return (
     <div
@@ -21,7 +22,7 @@ function ScreenBlockerNotifs({ icon, btnText, subText, theme }: notifArgs) {
           className="fixed h-full inset-0 dark-sec-bg opacity-80 bg-opacity-90 transition-opacity"
           aria-hidden="true"></div>
         <div className="w-full flex flex-col flex-center transform transition-all">
-          <button className={`py-4 rounded-full w-80 font-bold flex flex-center ${theme}`}>
+          <button className={`py-4 rounded-full w-80 font-bold flex flex-center ${theme}`} onClick={handleClick}>
             <Icon className="mr-4" size="1.5rem" />
             <span>{btnText}</span>
           </button>

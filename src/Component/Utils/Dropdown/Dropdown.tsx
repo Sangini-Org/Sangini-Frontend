@@ -3,6 +3,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
 import { TiTick } from 'react-icons/ti';
 import styles from './Dropdown.module.css';
+import { useProfileStore } from '../../../stores/useProfileStore';
 
 type dropdownAgs = {
   dropdown: boolean;
@@ -13,6 +14,23 @@ type dropdownAgs = {
 
 function Dropdown({ dropdown, setDropdown, dropdownList, title }: dropdownAgs) {
   const [searchstate, setSearchState] = useState('');
+  const [dropDownValue, setdropDownValue] = useState('');
+  const setGender = useProfileStore((state: any) => state.setGender);
+  const setState = useProfileStore((state: any) => state.setState);
+
+  const handleDropDownValue = (e: any) => {
+    console.log(e.target.childNodes[0].data);
+    setdropDownValue(e.target.childNodes[0].data);
+  };
+  const handleDropDownSubmit = () => {
+    if (title === 'Gender') {
+      setGender(dropDownValue);
+    }
+    if (title === 'State') {
+      setState(dropDownValue);
+    }
+    setDropdown(!dropdown);
+  };
   return (
     <div
       className="z-50 fixed flex flex-center w-full h-full inset-0 m-0 overflow-y-auto"
@@ -51,16 +69,24 @@ function Dropdown({ dropdown, setDropdown, dropdownList, title }: dropdownAgs) {
                       <p
                         className={`flex align-center py-1 justify-between my-2 border-b ${styles.border}`}
                         role="menuitem"
+                        tabIndex={-1}
+                        onClick={handleDropDownValue}
                         id="menu-item-0">
                         {state}
-                        <TiTick size="1.65rem" className="rounded-full primary-bg text-white mr-1 mb-1" />
+                        {dropDownValue === state && (
+                          <TiTick size="1.65rem" className="rounded-full primary-bg text-white mr-1 mb-1" />
+                        )}
                       </p>
                     </div>
                   );
                 })}
             </div>
             <div className="align-center">
-              <button className="py-2 text-black w-1/3 uppercase primary-bg rounded-md mt-3">Done</button>
+              <button
+                className="py-2 text-black w-1/3 uppercase primary-bg rounded-md mt-3"
+                onClick={handleDropDownSubmit}>
+                Done
+              </button>
             </div>
           </div>
         </div>

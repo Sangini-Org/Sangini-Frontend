@@ -1,24 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Login.module.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { axiosConfig } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
+import { useProfileStore } from '../../stores/useProfileStore';
 import { toast } from 'react-toastify';
-import money from '../Utils/Images/Money.png';
 import { FiCheck, FaEye, FaEyeSlash } from 'react-icons/all';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-export default function Login() {
+type LoginData = {
+  userInput: string;
+  password: string;
+};
+
+const Login: React.FC = () => {
   const [eye, setEye] = useState(false);
+  const setUserId = useAuthStore((state) => state.setUserId);
+  const setProfileStatus = useProfileStore((state) => state.setprofileStatus);
+  const userId = useAuthStore((state) => state.userId);
+  console.log(userId);
+
+  const { handleSubmit, register } = useForm<LoginData>();
+  const history = useHistory();
+
+  const profileStatusRedirect = (state: string) => {
+    switch (state) {
+      // define constants in different util files
+
+      // new loggedIn user
+      case '0':
+        history.push('/profile/update');
+        break;
+
+      // user submitted basic information
+      case '1':
+        history.push('/spotifyconnect');
+        break;
+
+      // user connected with spotify
+      case '2':
+        history.push('/profile/gallery');
+        break;
+
+      // profile completed
+      case '3':
+        history.push('/recommendations');
+        break;
+
+      default:
+        break;
+    }
+  };
+  useEffect(() => {}, [userId]);
+
+  if (userId) {
+    return <Redirect to="/dashboard" />;
+  }
+
+  const onSubmit = async (data: LoginData): Promise<any> => {
+    try {
+      const result = await axiosConfig.post(apiEndPoints.signin, data);
+      if (result.status === 200) {
+        localStorage.setItem('token', JSON.stringify(result.data.data.accessToken));
+        localStorage.setItem('id', JSON.stringify(result.data.data.user.id));
+        setUserId(result.data.data.user.id);
+        toast.success('successfully login');
+        profileStatusRedirect(result.data.data.user.userLoginState);
+        setProfileStatus(result.data.data.user.userLoginState);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response?.data.metadata.message);
+    }
+  };
 
   return (
     <div className={`min-h-full px-4 py-8 mx-auto flex flex-center ${styles.baseContainer}`}>
       <div className="lsWrapper flex px-3 md:px-6 py-10 rounded-md flex-center flex-col w-full">
         <h1 className="text-3xl font-medium mb-6 primary-txt font-bold px-2">Sign in</h1>
         <div className="w-full px-3 md:px-6">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="" className="text-sm px-1 text-white">
               Username or email
             </label>
@@ -26,8 +89,9 @@ export default function Login() {
               <input
                 className="w-full px-4 py-3 rounded-md"
                 id="outlined-basic"
-                placeholder="Enter your email address"
+                placeholder="Enter your email or username"
                 required
+                {...register('userInput')}
               />
               <FiCheck className="absolute right-6 text-xl" />
             </div>
@@ -41,6 +105,7 @@ export default function Login() {
                 type={eye ? 'text' : 'password'}
                 placeholder="Password"
                 required
+                {...register('password')}
               />
               {eye ? (
                 <FaEyeSlash onClick={() => setEye(false)} className="cursor-pointer absolute right-6 text-lg" />
@@ -67,4 +132,5 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;

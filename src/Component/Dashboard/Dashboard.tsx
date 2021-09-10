@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Dashboard.module.css';
 import user from '../Utils/Images/user.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiCamera, GoSignOut, IoSyncCircle, RiArrowRightSLine } from 'react-icons/all';
 import { ChangeMood } from '../ChangeMood/ChangeMood';
-
+import { useAuthStore } from '../../stores/useAuthStore';
+import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
+import { apiEndPoints } from '../../configs/endpoints';
+interface Profilephoto {
+  url: string;
+}
 export default function ProfileEditing() {
   const [dp, setDp] = useState('');
   const [mood, setMood] = useState(false);
+  const [selectedImg, setSelectedImg] = useState<null | Profilephoto>(null);
+  const history = useHistory();
+  const userId = useAuthStore((state) => state.userId);
+
+  const setUserId = useAuthStore((state) => state.setUserId);
+  useEffect(() => {
+    fetchProfilephoto();
+  }, []);
+
+  async function fetchProfilephoto() {
+    const result = await axiosConfig.get(apiEndPoints.userProfileData + userId + '/image?type=profile');
+    setSelectedImg(result.data.data[0]);
+  }
+  const handleLogout = () => {
+    localStorage.clear();
+    setUserId(null);
+  };
+
   return (
     <div className="min-h-full flex flex-col flex-center px-4">
       {mood ? <ChangeMood moodIcon={mood} setMoodIcon={setMood} /> : ''}
@@ -16,12 +39,11 @@ export default function ProfileEditing() {
           <div className={`box-content h-28 w-28 absolute rounded-3xl px-1 ${styles.gra2}`}></div>
           <div className={`box-content h-28 w-28 absolute rounded-3xl mx-1  ${styles.gra}`}></div>
           <div className="flex flex-center box-content h-28 w-28 bg-white z-10 text-4xl rounded-3xl">
-            <input id="pp" type="file" hidden />
-            {dp === '' ? (
+            {selectedImg?.url === '' ? (
               <FiCamera className="text-black" />
             ) : (
-              <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={dp} />
-            )}
+              <img className={`dark-sec-bg rounded-xl cursor-pointer h-28 w-28`} src={selectedImg?.url} />
+            )}{' '}
           </div>
         </div>
         <p className="text-lg text-white p-2 my-4 md:mt-8">Meghal Bisht</p>
@@ -55,12 +77,12 @@ export default function ProfileEditing() {
           <IoSyncCircle className="text-2xl mr-2" style={{ fill: '#000' }} />
           Resync your spotify connect
         </Link>
-        <Link
-          to="/dashboard"
-          className="link flex flex-center w-48 mx-auto rounded-full py-3 my-4 font-bold primary-bg text-black">
+        <button
+          className="link flex flex-center w-48 mx-auto rounded-full py-3 my-4 font-bold primary-bg text-black"
+          onClick={handleLogout}>
           Sign out
           <GoSignOut className="mx-2" style={{ fill: '#000' }} />
-        </Link>
+        </button>
       </div>
     </div>
   );
