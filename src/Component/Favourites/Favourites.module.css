@@ -1,0 +1,10 @@
+.baseContainer {
+  max-width: 450px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: var(--overlay);
+  color: #fff;
+}

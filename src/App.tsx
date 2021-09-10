@@ -22,6 +22,8 @@ import Dashboard from './Component/Dashboard/Dashboard';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 import { useProfileStore } from './stores/useProfileStore';
 import { setAxiosAuthToken } from './configs/axios';
+import Profile from './Component/Profile/Profile';
+import Favourites from './Component/Favourites/Favourites';
 
 function App() {
   // const [state, setstate] = useState()
@@ -45,6 +47,8 @@ function App() {
           <ProtectedRoute path="/emailverify" exact component={EmailVerify} />
           <Route exact path="/register" component={SignUp} />
           <Route exact path="/login" component={Login} />
+          <ProtectedRoute path="/profile" exact component={Profile} />
+          <ProtectedRoute path="/favourites" exact component={Favourites} />
           <ProtectedRoute path="/reset-password" exact component={ResetPassword} />
           <ProtectedRoute path="/notifications" exact component={Notifications} />
           <ProtectedRoute path="/recommendations" exact component={Recommendations} />

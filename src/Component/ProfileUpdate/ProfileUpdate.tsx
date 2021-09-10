@@ -12,6 +12,7 @@ import { apiEndPoints } from '../../configs/endpoints';
 import { toast } from 'react-toastify';
 import { useProfileStore } from '../../stores/useProfileStore';
 import { useAuthStore } from '../../stores/useAuthStore';
+import HobbiePicker from './HobbiePicker';
 
 type ProfileData = {
   firstName: string | undefined;
@@ -35,6 +36,7 @@ function ProfileUpdate() {
   console.log(userdata);
   const [selectedImg, setSelectedImg] = useState<null | ProfileData>(null);
   const [drop, setDrop] = useState(false);
+  const [hobbies, setHobbies] = useState(false);
   const [dropTitle, setDropTitle] = useState('');
   const [dropList, setDropList] = useState(['']);
   const [dobModal, setDobModal] = useState(false);
@@ -89,7 +91,7 @@ function ProfileUpdate() {
       if (result.status === 200) {
         history.push('/spotifyconnect');
       }
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err.response?.data.metadata.message);
       console.log(err);
     }
@@ -117,7 +119,7 @@ function ProfileUpdate() {
         <div className="w-full mt-2">
           <label className="text-md">First Name</label>
           <input
-            className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`}
+            className={`outline-none rounded-md dark-sec-bg py-1 mb-5 mt-1 w-full`}
             {...register('firstName')}
             defaultValue={userdata?.firstName}
             required
@@ -126,7 +128,7 @@ function ProfileUpdate() {
         <div className="w-full mt-2">
           <label className="text-md">Last Name</label>
           <input
-            className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`}
+            className={`${styles.borderMuted} outline-none rounded-md dark-sec-bg py-1 mb-5 mt-1 w-full`}
             {...register('lastName')}
             defaultValue={userdata?.lastName}
             required
@@ -136,7 +138,7 @@ function ProfileUpdate() {
           <label className="text-md">Gender</label>
           <p
             onClick={setGender}
-            className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
+            className={`cursor-pointer relative flex flex-col ${styles.borderMuted} outline-none rounded-md dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
             {gender ? gender : userdata ? userdata.gender : 'Select an option'}
 
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
@@ -147,7 +149,7 @@ function ProfileUpdate() {
           <p
             onClick={() => setDobModal(true)}
             className={`cursor-pointer relative flex flex-col ${styles.borderMuted} dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full`}>
-            {dob ? dob : userdata ? userdata.dob.split('T')[0].split('-').reverse().join('-') : 'Select an option'}
+            {dob ? dob : userdata ? userdata?.dob?.split('T')[0].split('-').reverse().join('-') : 'Select an option'}
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
@@ -160,10 +162,17 @@ function ProfileUpdate() {
             <IoIosArrowDown className="absolute right-0 text-white text-xl" />
           </p>
         </div>
-        <div className="w-full mt-2">
+
+        {/* hobbie part will do it later */}
+        {/* <div className="w-full mt-2">
           <label className="text-md">Interests or hobbies</label>
-          <input className={`${styles.borderMuted} dark-bg py-1 mb-5 mt-1 w-full`} />
-        </div>
+          <p
+            onClick={() => setHobbies(!hobbies)}
+            className="cursor-pointer relative flex flex-col borderMuted dark-bg text-sm text-gray-300 py-1 mb-5 mt-1 w-full">
+            Select interest &amp; hobbies
+            <IoIosArrowDown className="absolute right-0 text-white text-xl" />
+          </p>
+        </div> */}
         <div className="w-full mt-2">
           <label className="text-md">Bio</label>
           <textarea

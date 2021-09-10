@@ -73,7 +73,7 @@ export default function GallerySetup() {
 
   return (
     <div className={`${styles.container} h-full flex mx-auto md:py-6 flex flex-col`}>
-      <h2 className="text-3xl font-medium text-white text-center font-bold mt-14 mb-10 md:mt-20">Add Photos</h2>
+      <h2 className="text-2xl font-medium text-white text-center font-bold mt-14 mb-10 md:mt-20">Add Photos</h2>
       <div className="inline-flex px-2 flex-wrap flex-center md:items-center md:justify-between">
         {renderPhotos(selectedImg)}
         <label
@@ -90,7 +90,7 @@ export default function GallerySetup() {
         </label>
       </div>
       <div className="px-4 md:px-2">
-        <button className="w-full my-10 font-bold rounded-full primary-bg text-white text-xl py-3">Done</button>
+        <button className="w-full my-10 font-bold rounded-lg primary-bg uppercase text-md py-3">Done</button>
       </div>
     </div>
   );
