@@ -40,12 +40,12 @@ const Login: React.FC = () => {
         break;
 
       // user connected with spotify
-      case '2':
-        history.push('/profile/gallery');
-        break;
+      // case '2':
+      //   history.push('/profile/gallery');
+      //   break;
 
       // profile completed
-      case '3':
+      case '2':
         history.push('/recommendations');
         break;
 
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
         profileStatusRedirect(result.data.data.user.userLoginState);
         setProfileStatus(result.data.data.user.userLoginState);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
       toast.error(err.response?.data.metadata.message);
     }

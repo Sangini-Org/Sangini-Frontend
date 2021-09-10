@@ -179,7 +179,6 @@ function ProfileUpdate() {
             rows={3}
             className="outline-none rounded-lg p-3 mb-5 mt-1 dark-sec-bg w-full"
             {...register('bio')}
-            required
           />
         </div>
         <button className="font-semibold rounded-md my-4 py-1.5 px-12 dark-sec-bg" type="submit">

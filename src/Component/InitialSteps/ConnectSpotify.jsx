@@ -5,9 +5,11 @@ import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
+import { useProfileStore } from '../../stores/useProfileStore';
 
 const ConnectSpotify = () => {
   let history = useHistory();
+  const setProfileStatus = useProfileStore((state) => state.setprofileStatus);
   useEffect(() => {
     const code = new URLSearchParams(window?.location.search).get('code');
     console.log(code);
@@ -23,6 +25,7 @@ const ConnectSpotify = () => {
       if (result.status == 200) {
         const updateStatus = await axiosConfig.post(apiEndPoints.userStateUpdate, { updateState: '2' });
         if (updateStatus.status == 200) {
+          setProfileStatus(updateStatus.data.data.updateState);
           history.push('/profile/gallery');
           toast.success('your spotify profile has been linked');
           console.log('your spotify profile has been linked', updateStatus);

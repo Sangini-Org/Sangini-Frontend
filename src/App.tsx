@@ -56,7 +56,7 @@ function App() {
         </Switch>
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />
-        {userId !== null ? <NavBar /> : ''}
+        {userId && profileStatus === '2' ? <NavBar /> : ''}
       </Router>
     </div>
   );

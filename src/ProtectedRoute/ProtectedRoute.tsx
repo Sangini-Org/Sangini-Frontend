@@ -8,7 +8,8 @@ const PrivateRoute: React.FC<{
   exact: boolean;
 }> = (props) => {
   const userId = useAuthStore((state) => state.userId);
-  if (userId === null) {
+  console.log('userId', userId);
+  if (!userId) {
     console.log('userId is null');
     return <Redirect to="/login" />;
   }
