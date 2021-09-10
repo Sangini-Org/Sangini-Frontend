@@ -4,11 +4,14 @@ import styles from './GallerySetup.module.css';
 import { axiosConfig, setAxiosAuthToken } from '../../configs/axios';
 import { apiEndPoints } from '../../configs/endpoints';
 import { useAuthStore } from '../../stores/useAuthStore';
+import { useHistory } from 'react-router-dom';
 
 export default function GallerySetup() {
   const [selectedImg, setSelectedImg] = useState([{}]);
   const [loader, setLoader] = useState(false);
   const userId = useAuthStore((state) => state.userId);
+  const history = useHistory();
+
   useEffect(() => {
     galleryPhotos();
   }, [loader]);
@@ -71,6 +74,10 @@ export default function GallerySetup() {
     });
   };
 
+  const handleSubmit = () => {
+    history.push('/dashboard');
+  };
+
   return (
     <div className={`${styles.container} h-full flex mx-auto md:py-6 flex flex-col`}>
       <h2 className="text-2xl font-medium text-white text-center font-bold mt-14 mb-10 md:mt-20">Add Photos</h2>
@@ -90,7 +97,9 @@ export default function GallerySetup() {
         </label>
       </div>
       <div className="px-4 md:px-2">
-        <button className="w-full my-10 font-bold rounded-lg primary-bg uppercase text-md py-3">Done</button>
+        <button onClick={handleSubmit} className="w-full my-10 font-bold rounded-lg primary-bg uppercase text-md py-3">
+          Done
+        </button>
       </div>
     </div>
   );
