@@ -8,4 +8,6 @@ export const apiEndPoints = {
   userImageUpload: 'user/image/upload',
   userProfileData: 'user/',
   userImageDelete: 'user/image/delete/',
+  listAllUsers: 'users',
+  sendFriendRequest: 'user/create/friendrequest',
 };
