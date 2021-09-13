@@ -24,6 +24,7 @@ import { useProfileStore } from './stores/useProfileStore';
 import { setAxiosAuthToken } from './configs/axios';
 import Profile from './Component/Profile/Profile';
 import Favourites from './Component/Favourites/Favourites';
+import ChatScreen from './Component/ChatScreen/ChatScreen';
 
 function App() {
   // const [state, setstate] = useState()
@@ -53,6 +54,7 @@ function App() {
           <ProtectedRoute path="/notifications" exact component={Notifications} />
           <ProtectedRoute path="/recommendations" exact component={Recommendations} />
           <ProtectedRoute exact path="/explore" component={Explore} />
+          <ProtectedRoute exact path="/chats" component={ChatScreen} />
         </Switch>
         <ToastContainer />
         <ToastContainer hideProgressBar={true} />

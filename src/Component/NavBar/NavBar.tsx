@@ -42,7 +42,8 @@ function NavBar() {
             <FaBell className={activeMenuItem === 2 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 2 ? 'primary-txt' : 'text-white'} mt-1.5`}>Notification</span>
           </Link>
-          <button
+          <Link
+            to="/chats"
             onClick={() => setActiveMenuItem(3)}
             data-target="panel-3"
             className={`${
@@ -50,7 +51,7 @@ function NavBar() {
             } w-full h-full md:py-6 md:m-1.5 flex flex-col items-center justify-center hover:bg-black`}>
             <BsChatDotsFill className={activeMenuItem === 3 ? 'primary-txt' : 'text-white'} />
             <span className={`${activeMenuItem === 3 ? 'primary-txt' : 'text-white'} mt-1.5`}>Chats</span>
-          </button>
+          </Link>
           <Link
             to="/dashboard"
             onClick={() => setActiveMenuItem(4)}
