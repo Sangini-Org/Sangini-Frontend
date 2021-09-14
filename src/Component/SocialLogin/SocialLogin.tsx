@@ -24,7 +24,7 @@ export default function SocialLogin() {
         history.push('/profile');
         toast.success('successfully login');
       }
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err.response.data.metadata.message);
     }
   };
