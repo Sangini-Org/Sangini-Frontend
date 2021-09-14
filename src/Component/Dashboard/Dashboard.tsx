@@ -26,11 +26,16 @@ export default function ProfileEditing() {
     const result = await axiosConfig.get(apiEndPoints.userProfileData + userId + '/image?type=profile');
     setSelectedImg(result.data.data[0]);
   }
+
   const handleLogout = () => {
     localStorage.clear();
     setUserId(null);
   };
 
+  const handleResyncSpotify = async (value: any): Promise<any> => {
+    const result = await axiosConfig.get(apiEndPoints.resyncSpotify + `?isSanginiPlaylist=${value}`);
+    console.log(result);
+  };
   return (
     <div className="min-h-full flex flex-col flex-center px-4">
       {mood ? <ChangeMood moodIcon={mood} setMoodIcon={setMood} /> : ''}
@@ -71,12 +76,12 @@ export default function ProfileEditing() {
           Settings
           <RiArrowRightSLine className="text-2xl" />
         </Link>
-        <Link
-          to="/"
+        <button
+          onClick={() => handleResyncSpotify(0)}
           className="link w-full flex flex-center text-center rounded-full p-4 my-6 font-bold primary-bg text-black">
           <IoSyncCircle className="text-2xl mr-2" style={{ fill: '#000' }} />
           Resync your spotify connect
-        </Link>
+        </button>
         <button
           className="link flex flex-center w-48 mx-auto rounded-full py-3 my-4 font-bold primary-bg text-black"
           onClick={handleLogout}>

@@ -8,6 +8,7 @@ export const apiEndPoints = {
   userImageUpload: 'user/image/upload',
   userProfileData: 'user/',
   userImageDelete: 'user/image/delete/',
+  resyncSpotify: 'playlist/sync',
   listAllUsers: 'users',
   sendFriendRequest: 'user/create/friendrequest',
 };

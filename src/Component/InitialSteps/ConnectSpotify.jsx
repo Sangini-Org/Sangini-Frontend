@@ -38,7 +38,7 @@ const ConnectSpotify = () => {
 
   const handleSpotify = () => {
     const scope = 'user-read-private user-read-email playlist-modify-public';
-    window.location = `https://accounts.spotify.com/authorize?client_id=561d6c474d314908a0843348dd671cf2&response_type=code&redirect_uri=http://localhost:3000/spotifyconnect&scope=user-read-private%20user-read-email%20playlist-modify-public`;
+    window.location = `https://accounts.spotify.com/authorize?client_id=561d6c474d314908a0843348dd671cf2&response_type=code&redirect_uri=http://localhost:3000/spotifyconnect&scope=user-read-private%20user-top-read%20user-read-email%20playlist-modify-public`;
   };
 
   return (
